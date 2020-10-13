@@ -1,4 +1,8 @@
 import math
+print('Задание 1')
+
+print()
+
 #1
 print('Три числа:', 10, 5, 24, sep = ' ')
 
