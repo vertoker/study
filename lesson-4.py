@@ -37,7 +37,7 @@ print()
 num = int(input('Введите трёхзначное число: '))
 
 digit = num % 10
-num3 = digid
+num3 = digit
 num = num // 10
 digit = num % 10
 num2 = digit
