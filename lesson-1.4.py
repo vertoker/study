@@ -12,17 +12,25 @@ print()
 # 3
 num1 = int(input('Введите первое число: '))
 num2 = int(input('Введите второе число: '))
-print(num1, '+', num2, '=', num1 + num2)
-print(num1, '-', num2, '=', num1 - num2)
-print(num1, '*', num2, '=', num1 * num2)
-print(num1, '/', num2, '=', num1 / num2)
+plus = num1 + num2
+minus = num1 - num2
+multiply = num1 * num2
+divide = num1 / num2
+between = (num1 + num2) / 2
+print(num1, '+', num2, '=', plus, end = ' ')
+print(num1, '-', num2, '=', minus, end = ' ')
+print(num1, '*', num2, '=', multiply, end = ' ')
+print(num1, '/', num2, '=', divide)
+print('(', num1, ' + ', num2, ') / 2 = ', between, sep = '')
 print()
 
 # 4
 n = int(input('Введите количество школьников: '))
 k = int(input('Введите количество яблок: '))
-print('Каждому школьнику достанется', k // n, 'яблок')
-print('В корзине останется', k % n, 'яблок')
+f = k // n
+uf = k % n
+print('Каждому школьнику достанется', f, 'яблок')
+print('В корзине останется', uf, 'яблок')
 print()
 
 # 5
@@ -54,16 +62,42 @@ num1 = int(input('Введите четырёхзначное число: '))
 num2 = int(input('Введите пятизначное число: '))
 
 suma = 0
-while num1 > 0:
-    digit = num1 % 10
-    suma = suma + digit
-    num1 = num1 // 10
+digit = num1 % 10
+suma = suma + digit
+num1 = num1 // 10
+
+digit = num1 % 10
+suma = suma + digit
+num1 = num1 // 10
+
+digit = num1 % 10
+suma = suma + digit
+num1 = num1 // 10
+
+digit = num1 % 10
+suma = suma + digit
+num1 = num1 // 10
 
 mult = 1
-while num2 > 0:
-    digit = num2 % 10
-    mult = mult * digit
-    num2 = num2 // 10
+digit = num2 % 10
+mult = mult * digit
+num2 = num2 // 10
+
+digit = num2 % 10
+mult = mult * digit
+num2 = num2 // 10
+
+digit = num2 % 10
+mult = mult * digit
+num2 = num2 // 10
+
+digit = num2 % 10
+mult = mult * digit
+num2 = num2 // 10
+
+digit = num2 % 10
+mult = mult * digit
+num2 = num2 // 10
 
 print('Сумма четырёхзначного числа равна', suma)
 print('Произведение пятизначного числа равно', mult)
