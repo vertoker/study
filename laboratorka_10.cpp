@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
@@ -12,13 +13,12 @@ int main() {
 	int array[N];
 	
 	srand(time(NULL));
-	cout << "Massive: ";
+	cout << "Array elements: " << endl;
 	for(int i = 0; i < N; i++){
-		array[i] = rand() % 100;
-		cout << array[i] << " ";
-	}
-	
-	for(int i = 0; i < N; i++){
+//		array[i] = rand() % 100;
+		array[i] = 1;
+		cout << setw(5) << array[i] << endl;
+		
 		if(array[i] % 2 == 0 && array[i] > max){
 			max = array[i];
 		}
@@ -26,8 +26,14 @@ int main() {
 			min = array[i];
 		}
 	}
-	cout << endl << "Min: " << min << endl;
-	cout << "Max: " << max << endl;
+	
+	cout << "Min: " << min << endl;
+	if(max != INT_MIN){
+		cout << "Max: " << max << endl;
+	}
+	else{
+		cout << "Max: is not exist" << endl;
+	}
 	
 	return 0;
 }
