@@ -15,9 +15,8 @@ int main() {
 	srand(time(NULL));
 	cout << "Array elements: " << endl;
 	for(int i = 0; i < N; i++){
-//		array[i] = rand() % 100;
-		array[i] = 1;
-		cout << setw(5) << array[i] << endl;
+		array[i] = rand() % 100;
+		cout << setw(3) << array[i];
 		
 		if(array[i] % 2 == 0 && array[i] > max){
 			max = array[i];
@@ -27,7 +26,7 @@ int main() {
 		}
 	}
 	
-	cout << "Min: " << min << endl;
+	cout << endl << "Min: " << min << endl;
 	if(max != INT_MIN){
 		cout << "Max: " << max << endl;
 	}
