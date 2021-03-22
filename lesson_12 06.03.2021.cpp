@@ -3,19 +3,19 @@
 #include <math.h>
 using namespace std;
 
-bool equals(float a, float b){
-	float e = 0.000001;
-	float diff = a - b;
-   	return abs(diff) < e;
+bool Equals(double a, double b){
+	double e = 0.000001;
+	double diff = a - b;
+   	return fabs(diff) < e;
 }
 
 int main() {
-	float a, b;
-	cout << "input A: ";
-	cin >> a;
-	cout << "input B: ";
-	cin >> b;
+	int a, b;
+	cin >> a >> b;
+	double da = 1.0 / a;
+	double db = 1.0 / b;
+	bool isEquals = Equals(da, db);
 	
-	cout << "Results are " << (equals(a, b) ? "" : "not ") << "equal (by 0.000001 epsilon)";
+	cout << da << " " << db << " Results are " << (isEquals ? "" : "not ") << "equal (by 0.000001 epsilon)";
 	return 0;
 }
