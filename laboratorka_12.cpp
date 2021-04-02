@@ -7,7 +7,7 @@ using namespace std;
 
 //Вариант №22
 int main() {
-	const int N = 15;
+	const int N = 5;
 	double array[N];
 	srand(time(NULL));
 	
@@ -18,13 +18,26 @@ int main() {
 		cout << setw(6) << array[i];
 	}
 	
-	//Сортировка по методу выбора
+	/*//Сортировка по методу выбора
 	for(int x = 0; x < N; x++){
 		if(abs(array[x]) <= 2){
 			for(int y = x + 1; y < N; y++){
 				array[y - 1] = array[y];
 			}
 			array[N - 1] = 22;
+		}
+	}*/
+	
+	//Сортировка #21
+	int countInRange = 0;
+	for(int x = 0; x < N; x++){
+		if(abs(array[x]) <= 7){
+			double temp = array[x];
+			for(int y = x; y > countInRange; y--){
+				array[y] = array[y - 1];
+			}
+			array[countInRange] = temp;
+			countInRange++;
 		}
 	}
 	

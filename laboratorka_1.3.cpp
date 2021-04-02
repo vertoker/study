@@ -2,7 +2,6 @@
 #include <cmath>
 using namespace std;
 
-//Вариант №22
 int main() {
 	double x, n, result;
 	cout << "print x: ";
