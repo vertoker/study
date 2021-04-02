@@ -9,7 +9,6 @@ int factorial(int i){
 	return i * factorial(i - 1);
 }
 
-//Вариант №22
 int main() {
 	double s = 1, eps = 0.001, term = 5 * eps, x;
 	
