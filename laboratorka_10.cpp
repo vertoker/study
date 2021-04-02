@@ -5,7 +5,6 @@
 #include <ctime>
 using namespace std;
 
-//Вариант №22
 int main() {
 	const int N = 10;
 	int max = INT_MIN;
