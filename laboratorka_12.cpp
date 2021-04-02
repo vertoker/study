@@ -7,14 +7,14 @@ using namespace std;
 
 //Вариант №22
 int main() {
-	const int N = 5;
+	const int N = 20;
 	double array[N];
 	srand(time(NULL));
 	
 	//Формирование данных
 	cout << "Unsorted array elements: " << endl;
 	for(int i = 0; i < N; i++){
-		array[i] = (rand() % 240 - 120) / (10.0);
+		array[i] = (rand() % 240 - 120) / (10);
 		cout << setw(6) << array[i];
 	}
 	
@@ -29,7 +29,7 @@ int main() {
 	}*/
 	
 	//Сортировка #21
-	int countInRange = 0;
+	/*int countInRange = 0;
 	for(int x = 0; x < N; x++){
 		if(abs(array[x]) <= 7){
 			double temp = array[x];
@@ -38,6 +38,27 @@ int main() {
 			}
 			array[countInRange] = temp;
 			countInRange++;
+		}
+	}*/
+	
+	//Сортировка #15
+	int counterZero = 0, counterPositive = 0;
+	for(int x = 0; x < N; x++){
+		if(array[x] == 0){
+			int temp = array[x];
+			for(int y = x; y > counterZero; y--){
+				array[y] = array[y - 1];
+			}
+			array[counterZero] = temp;
+			counterZero++;
+		}
+		else if(array[x] > 0){
+			int temp = array[x];
+			for(int y = x; y > counterZero + counterPositive; y--){
+				array[y] = array[y - 1];
+			}
+			array[counterZero + counterPositive] = temp;
+			counterPositive++;
 		}
 	}
 	
