@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Objects</title>
+    <script language="JavaScript">
+    function first() {
+      alert("Текст: " + document.myForm.myText.value);
+    }
+    function second() {
+      var myString = "Переключатель ";
+      if (document.myForm.myCheckbox.checked) myString += "включен";
+      else myString += "отключен";
+      alert(myString);
+    }
+    </script>
+  </head>
+  <body bgcolor=lightblue>
+    <form name="myForm">
+      <input type="text" name="myText" value="Привет!!!">
+      <input type="button" name="button1" value="Кнопка 1" onClick="first()">
+      <br>
+      <input type="checkbox" name="myCheckbox" CHECKED>
+      <input type="button" name="button2" value="Кнопка 2" onClick="second()">
+    </form>
+
+    <p><br><br>
+    <script language="JavaScript">
+      document.write("Цветфона: ");
+      document.write(document.bgColor + "<br>");
+      document.write("Текст второй кнопки: ");
+      document.write(document.myForm.button2.value);
+    </script>
+  </body>
+</html>

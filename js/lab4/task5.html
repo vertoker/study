@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script language="JavaScript">
+    function openWin3() {
+      myWin= open("", "displayWindow",
+      "width=500,height=400,status=yes,toolbar=yes,menubar=yes");
+      myWin.document.open();
+      // генерировать новый документ
+      myWin.document.write("<html><head><title>On-the-fly");
+      myWin.document.write("</title></head><body>");
+      myWin.document.write("<center><font size=+3>");
+      myWin.document.write("This HTML-document has been created ");
+      myWin.document.write("with the help of JavaScript!");
+      myWin.document.write("</font></center>");
+      myWin.document.write("</body></html>");
+      // закрыть документ - (но не окно!)
+      myWin.document.close();
+    }
+    </script>
+  </head>
+  <body>
+    <form>
+      <input type=button value="On-the-fly" onClick="openWin3()">
+    </form>
+  </body>
+</html>
