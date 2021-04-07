@@ -36,14 +36,14 @@ int main() {
 			}
 		}
 		
-		cout << "    min = [" << i << "][" << minIndex << "]";
+		cout << "    min = " << matrix[i][minIndex] << " -> [" << i << "][" << minIndex << "]";
 		for(int j = 0; j < Y; j++){
 			if (matrix[i][j] == min && minIndex != j){
 				cout << ", [" << i << "][" << j << "]";
 			}
 		}
 		
-		cout << endl << "    max = [" << i << "][" << maxIndex << "]";
+		cout << endl << "    max = " << matrix[i][maxIndex] << " -> [" << i << "][" << maxIndex << "]";
 		for(int j = 0; j < Y; j++){
 			if (matrix[i][j] == max && maxIndex != j){
 				cout << ", [" << i << "][" << j << "]";
