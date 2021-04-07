@@ -10,6 +10,7 @@ int main() {
 	int matrix[X][Y];
 	srand(time(NULL));
 	
+	cout << "Matrix" << endl;
 	for(int i = 0; i < X; i++){
 		for(int j = 0; j < Y; j++){
 			matrix[i][j] = rand() % 10;
@@ -20,25 +21,32 @@ int main() {
 	}
 	
 	for(int i = 0; i < X; i++){
-		int min = INT_MIN, minY;
-		int max = INT_MAX, maxY;
-		cout << "Line ¹" << (i + 1) << endl;
+		int min = INT_MAX, minIndex;
+		int max = INT_MIN, maxIndex;
+		cout << endl << "Line " << (i + 1) << endl;
 		
 		for(int j = 0; j < Y; j++){
 			if (matrix[i][j] < min){
 				min = matrix[i][j];
-				minY = j;
+				minIndex = j;
 			}
 			if (matrix[i][j] > max){
 				max = matrix[i][j];
-				maxY = j;
+				maxIndex = j;
 			}
 		}
 		
-		cout << "max = " << matrix[i][maxY] << ;
+		cout << "    min = [" << i << "][" << minIndex << "]";
 		for(int j = 0; j < Y; j++){
-			if (matrix[i][j] == min && minY != j){
-				cout << " " << 
+			if (matrix[i][j] == min && minIndex != j){
+				cout << ", [" << i << "][" << j << "]";
+			}
+		}
+		
+		cout << endl << "    max = [" << i << "][" << maxIndex << "]";
+		for(int j = 0; j < Y; j++){
+			if (matrix[i][j] == max && maxIndex != j){
+				cout << ", [" << i << "][" << j << "]";
 			}
 		}
 		
