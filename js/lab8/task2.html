@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      function setfocus(form) {
+        form.text1.focus();
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Введите ваше имя:<br>
+      <input type="text" name="text1">
+      <input type="button" name="button1" value="В начало" onClick="setfocus(this.form)">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      function test1(form) {
+        if (form.text1.value == "") {
+          alert("Пожалуйста, введите строку состояния!");
+        }
+        else {
+          alert("Здаров " + form.text1.value + "! Форма заполнена корректно!");
+        }
+      }
+
+      function test2(form) {
+        if (form.text2.value == "" || form.text2.value.indexOf('@', 0) == -1) {
+          alert("Email введён неверно");
+        }
+        else {
+          alert("ОК");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Введите ваше имя:<br>
+      <input type="text" name="text1">
+      <input type="button" name="button1" value="Проверка" onClick="test1(this.form)">
+      <P>
+      Введите ваш адрес e-mail:<br>
+      <input type="text" name="text2">
+      <input type="button" name="button2" value="Проверка" onClick="test2(this.form)">
+    </form>
+  </body>
+</html>

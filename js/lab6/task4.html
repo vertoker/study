@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script language="JavaScript">
+    var scrtxt = "Это JavaScript! ".repeat(3);
+    var len = scrtxt.length;
+    var width = 100;
+    var pos = -(width + 2);
+
+    function scroll() {
+      pos++;
+      var scroller = "";
+      if (pos == len) {
+        pos = -(width + 2);
+      }
+      if (pos < 0) {
+        for (var i = 1; i <= Math.abs(pos); i++) {
+          scroller = scroller + " ";
+        }
+        scroller = scroller + scrtxt.substring(0, width - i + 1);
+      }
+      else {
+        scroller = scroller + scrtxt.substring(pos, width + pos);
+      }
+      window.status = scroller;
+      setTimeout("scroll()", 100);
+    }
+    </script>
+  </head>
+  <bodyonLoad="scroll()">
+    Это пример прокрутки в строке состояния средствами JavaScript.
+  </body>
+</html>
