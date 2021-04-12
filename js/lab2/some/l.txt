@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int n, x;
+    cout<<"Введите число: ";
+    cin>>n;
+    int b[50];
+    int a=0;
+    while (n>1)
+    {
+        x=n%2;
+        b[a]=x;
+        n/=2;
+        a++;
+    }
+    a--;
+    cout<<"число в двоичной системе: ";
+    cout<<1;
+    while (a>=0)
+    {
+        cout<<b[a];
+        a--;
+    }
+    cout<<endl;
+    return 0;
+}

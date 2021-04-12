@@ -1,0 +1,96 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a,i,j;
+    int x=0;
+    int b=100;
+    for(int i=0; i<9; i++)
+    {
+        for (int j=0; j<9; j++)
+        {
+            if((11*j+2*i)==10)
+            {
+                a=10*i+j;
+                cout<<"игрок А может обьявить "<< a;
+            }
+        }
+    }
+    return 0;
+}
+
+###############################
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+int main()
+{
+ int schet,pamat,n,max=2,n1,summ=0;
+ cout << "введите n: ";
+ cin >> n ;
+ n1=n;
+ int chisla [(n-2)];
+   while (n>=2) 
+   {
+    for (schet=2;schet<=n;schet++)
+       {
+       pamat=n%schet;
+           if (pamat==0) {summ=schet+summ;}
+           //cout<< "память = " << pamat << "  сумма= " << summ << "  счет= " << schet << "\n" ; // сумма всех делителей, нетрогай работает
+       }
+      chisla [(n-2)]=summ;
+      //cout<< chisla [(n-2)] <<"chisla \n ";
+      summ=0;
+      n=n-1;
+      //cout << "n= " << n << "\n";
+   }
+ for(schet=0;schet<n1-1;schet++)
+  {
+      if (max<chisla [(schet)])
+      {
+          max=chisla [(schet)];
+          pamat=schet+2;
+          //cout<< schet<< " schet";
+      }
+      //cout<< schet<< " schet \n";
+        cout<< max << " макс   " << pamat << " число" << "\n" ;
+  }
+   cout<< max << " самая большая сумма делителей   " << pamat << " число с сфмой большой суммой делителей" << "\n" ;
+    return 0;
+}
+
+#################################
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+ int n,schet=0,del=0;
+ int perevod [50];
+ cout<<"введите число для перевода ";
+ cin>> n;
+ del=n;
+ while (del>1)
+ {
+     if (del%2>1) 
+         {
+            perevod [(schet)]=1;
+         }
+        else 
+         {
+          perevod [(schet)]=0;
+         }
+    del=del/2;
+    schet++;
+ }
+ cout<<"число n в двоичном виде: ";
+    while (schet>0)
+    {
+        cout<< perevod [(schet)] ;
+        schet--;
+    }
+ return 0;
+}
