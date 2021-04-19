@@ -1,41 +1,63 @@
 <html>
   <head>
     <style type="text/css">
-      #div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
-      #div2 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
-      #div3 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+      #test2a{
+        position: absolute;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        border: 4px solid black;
+      }
+      #test2b{
+        position: absolute;
+        left: 55px;
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        margin: 4px;
+      }
     </style>
-    <script>
-      function allowDrop(ev)
-         {
-
-            ev.preventDefault();
-         }
-
-       function drag(ev)
-       {
-           ev.dataTransfer.setData("Text",ev.target.id);
-        }
-
-       function drop(ev)
-           {
-              ev.preventDefault();
-              var data=ev.dataTransfer.getData("Text");
-              ev.target.appendChild(document.getElementById(data));
-           }
-    </script>
   </head>
   <body>
-    verbs
-    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    noun
-    <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    adjetives
-    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-    <br>
-    <div id="drag1" draggable="true" ondragstart="drag(event)">I play the guitar</div>
-    <div id="drag2" draggable="true" ondragstart="drag(event)">The piano is black</div>
+
+  <!-- test1 -->
+    Swap left positions function with styles defined inline.
+    <a href="javascript:test1();">Test 1</a><br>
+    <div class="container">
+      <div id="test1a" style="position: absolute;left: 0px;width: 50px; height: 50px;background-color: green;border: 4px solid black;"></div>
+      <div id="test1b" style="position: absolute;left: 55px;width: 50px; height: 50px;background-color: yellow;margin: 4px;"></div>
+    </div>
+    <script type="text/javascript">
+     function test1(){
+       var a = document.getElementById("test1a");
+       var b = document.getElementById("test1b");
+       alert(a.style.left + " - " + b.style.left);
+       a.style.left = (a.style.left == "0px")? "55px" : "0px";
+       b.style.left = (b.style.left == "0px")? "55px" : "0px";
+     }
+    </script>
+  <!-- end test 1 -->
+
+  <!-- test2 -->
+    <div id="moveDownThePage" style="position: relative;top: 70px;">
+    Identical function with styles defined in stylesheet.
+    <a href="javascript:test2();">Test 2</a><br>
+    <div class="container">
+      <div id="test2a"></div>
+      <div id="test2b"></div>
+    </div>
+    </div>
+    <script type="text/javascript">
+     function test2(){
+       var a = document.getElementById("test2a");
+       var b = document.getElementById("test2b");
+       alert(a.style.left + " - " + b.style.left);
+       a.style.left = (a.style.left == "0px")? "55px" : "0px";
+       b.style.left = (b.style.left == "0px")? "55px" : "0px";
+     }
+    </script>
+  <!-- end test 2 -->
+
   </body>
 </html>

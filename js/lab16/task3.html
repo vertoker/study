@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      var num, now;
+      function rand() {
+        now = new Date();
+        num = now.getSeconds() % 10;
+        num = num + 1;
+      }
+      function guessnum() {
+        var guess = prompt("Угадай, какое?")
+        if (eval(guess) == num) {
+          alert("Точно!!!");
+        }
+        if(eval(guess) > num) {
+          alert("Слишком много, жми еще.");
+        }
+        if(eval(guess) < num) {
+          alert("Слишком мало, жми еще.");
+        }
+      }
+    </script>
+  </head>
+  <body bgcolor="white" onLoad="rand()">
+    <h2>Я загадал число от 1 до 10</h2>
+    <form name="myform">
+      <input type="button" value="Угадай" name="b1" onClick="guessnum()">
+    </form>
+  </body>
+</html>

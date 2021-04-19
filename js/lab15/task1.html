@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      function doit() {
+        alert("document.myform.fname.value — это " + document.myform.fname.value);
+        alert("Привет, " + document.myform.fname.value + " " + document.myform.lname.value);
+        alert("Количество букв в имени " + document.myform.fname.value.length);
+      }
+    </script>
+  </head>
+  <body>
+    <form NAME="myform">
+      Ваше имя:
+    <input TYPE="text" NAME="fname"><p>
+      Ваша фамилия:
+    <input TYPE="text" NAME="lname"><p>
+    <input TYPE="button" VALUE="Отправить" onClick="doit()">
+    </form>
+  </body>
+</html>

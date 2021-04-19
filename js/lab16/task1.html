@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script language="JavaScript">
+      function askuser() {
+        var answer = " ";
+        var statement = "Отвечай, да или нет";
+        while (statement == "Отвечай, да или нет") {
+          var answer = prompt("Любишь горчицу?")
+          if (answer == "да") {
+            statement = "Я тоже обожаю горчицу!";
+          }
+          if (answer == "нет") {
+            statement = "Я тоже горчицу терпеть не могу!";
+          }
+          alert(statement);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Горчица</h2>
+    <form>
+      <input TYPE="button" VALUE="Жми!" onClick="askuser()">
+    </form>
+  </body>
+</html>

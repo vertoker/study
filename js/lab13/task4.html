@@ -1,60 +1,49 @@
 <html>
+  <style>
+    #layer0 {
+      position: absolute; /* Абсолютное позиционирование */
+      top: 0px; /* Положение от нижнего края */
+      left: 0px; /* Положение от правого края */
+    }
+    #layer1 {
+      position: absolute; /* Абсолютное позиционирование */
+      top: 300px; /* Положение от нижнего края */
+      left: 0px; /* Положение от правого края */
+    }
+    #layer2 {
+      position: absolute; /* Абсолютное позиционирование */
+      top: 600px; /* Положение от нижнего края */
+      left: 0px; /* Положение от правого края */
+    }
+  </style>
   <head>
-    <style>
-      .layer0 {
-        position: absolute; /* Абсолютное позиционирование */
-        top: 0px; /* Положение от нижнего края */
-        left: 0px; /* Положение от правого края */
-      }
-      .layer1 {
-        position: absolute; /* Абсолютное позиционирование */
-        top: 300px; /* Положение от нижнего края */
-        left: 0px; /* Положение от правого края */
-      }
-      .layer2 {
-        position: absolute; /* Абсолютное позиционирование */
-        top: 600px; /* Положение от нижнего края */
-        left: 0px; /* Положение от правого края */
-      }
-    </style>
     <script language="JavaScript">
-      var dragObj = new Array(), currentObj = null, isMouseDown = false, x, y;
-
-      window.onmousemove = function(e)
-      { x = e.pageX; y = e.pageY; }
-
+      var dragObj = new Array(), currentObj = null;
       function down(id) {
         currentObj = id;
-        isMouseDown = true;
       }
       function up(id) {
         currentObj = null;
-        isMouseDown = false;
       }
-      function move(id) {
-        if (isMouseDown && currentObj != null) {
-          dragObj[currentObj].style.left = x + 'px';
-          dragObj[currentObj].style.top = y + 'px';
-        }
-      }
-      function init() {
-        for (var i = 0; i < 3; i++){
-          dragObj[i] = document.getElementById("layer" + i);
+      window.onmousemove = function move(e) {
+        if (currentObj != null) {
+          document.getElementById("layer" + currentObj).style.left = (e.pageX - 150) + 'px';
+          document.getElementById("layer" + currentObj).style.top = (e.pageY - 150) + 'px';
         }
       }
     </script>
   </head>
   <body onLoad="init()">
-    <div class="layer0">
-      <a onmousedown="down(0)" onmouseup="up(0)" onmousemove="move(0)">
+    <div id="layer0">
+      <a onmousedown="down(0)" onmouseup="up(0)">
         <img src="im1.jpg" name="im1" width=300 height=300>
     </div>
-    <div class="layer1">
-      <a onmousedown="down(1)" onmouseup="up(1)" onmousemove="move(1)">
+      <div id="layer1">
+      <a onmousedown="down(1)" onmouseup="up(1)">
         <img src="im2.jpg" name="im2" width=300 height=300>
     </div>
-    <div class="layer2">
-      <a onmousedown="down(2)" onmouseup="up(2)" onmousemove="move(2)">
+      <div id="layer2">
+      <a onmousedown="down(2)" onmouseup="up(2)">
         <img src="im3.jpg" name="im3" width=300 height=300>
     </div>
   </body>

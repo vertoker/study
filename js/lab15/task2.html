@@ -1,0 +1,17 @@
+<script language="javascript">
+  function say() {
+    var first = document.aform.first.value;
+    var second = document.aform.second.value;
+    var like = "Мне нравится ";
+    alert(like + first + " " + second);
+    alert("В названии вашей любимой геометрической фигуры " + document.aform.second.value.length + " букв.");
+  }
+</script>
+
+<form name="aform">
+  Ваш любимый цвет: <br>
+  <input type="text" name="first" size="20"><br>
+  Ваша любимая геометрическая фигура: <br>
+  <input type="text" name="second" size="20"></p>
+  <p><input type="button" value="Отослать" onClick="say()"></p>
+</form>

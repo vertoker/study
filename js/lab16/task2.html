@@ -1,0 +1,15 @@
+<script language="javascript">
+  function askuser() {
+    var answer = prompt("Вы мужчина или женщина?")
+    if (answer == "женщина") {
+      document.bgColor="FE92B5";
+    }
+    if (answer == "мужчина") {
+      document.bgColor="70E4F1";
+    }
+  }
+</script>
+
+<form>
+  <input type="button" value="Поговорим о поле" onClick="askuser()">
+<form>

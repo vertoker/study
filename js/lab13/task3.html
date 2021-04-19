@@ -2,7 +2,7 @@
   var isDownMouse = false
   window.captureEvents(Event.MOUSEDOWN | Event.MOUSEUP | Event.MOUSEMOVE);
   window.onmousedown = function(e) { isDownMouse = true; }
-  window.onmouseup = function(e) { isDownMouse = false; }
+  window.onmouseup = function(e) { isDownMouse = false; document.main.textbox.value = "";}
   window.onmousemove = function(e) { if (isDownMouse) document.main.textbox.value = "x: " + e.pageX + " y: " + e.pageY;  }
 </script>
 
