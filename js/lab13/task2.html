@@ -1,0 +1,10 @@
+<script language="JavaScript">
+  window.captureEvents(Event.MOUSEMOVE);
+  window.onmousemove = function(e) {
+    document.main.textbox.value = "x: " + e.pageX + " y: " + e.pageY;
+  }
+</script>
+
+<form name="main">
+  <input type="text" id="textbox">
+</form>

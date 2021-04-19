@@ -1,0 +1,15 @@
+<html>
+	<script language="JavaScript">
+		window.captureEvents(Event.CLICK);
+		window.onclick = function(id) {
+			alert("Было нажатие");
+		}
+
+		window.captureEvents(Event.KEYPRESS);
+		window.onkeypress = function(e) {
+			alert("Нажата клавиша под id=" + e.which);
+		}
+	</script>
+	<a id="1" href="test.html">Первая ссылка</a><br>
+	<a id="2" href="test.html">Вторая ссылка</a>
+</html>

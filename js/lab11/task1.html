@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<script language="JavaScript">
+			var element, img, middleX = 750, middleY = 750, pos = 0;
+
+			function start() {
+				element = document.getElementById("layer")
+				img = document.getElementById("shon");
+				show();
+			}
+
+			function show() {
+				pos += 2;
+				element.clip.left = middleX - pos;
+				element.clip.top = middleY - pos;
+				element.clip.right = middleX + pos;
+				element.clip.bottom = middleY + pos;
+
+				if (pos <= middleX || pos <= middleY)
+					setTimeout("show()", 20);
+			}
+		</script>
+	</head>
+	<body>
+		<ilayer name="layer" clip="0,0,0,0">
+			<img name=shon src="bruh.jpg" width=1500 height=500>
+		</ilayer>
+		<form>
+			<input type=button value="Start" onClick="start()">
+		</form>
+	</body>
+</html>

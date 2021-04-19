@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script language="JavaScript">
+			var pos = 0, direction = true;
+			function move() {
+				if (pos < 0)
+					direction = true;
+				if (pos > 200)
+					direction = false;
+				if (direction)
+					pos++
+				else
+					pos--;
+				document.layers["myLayer"].left = pos;
+			}
+		</script>
+	</head>
+	<body onLoad="setInterval('move()', 20)">
+		<ilayer name=myLayer left=0>
+			<font size=+1 color="#068909"><i>А текст может и так</i></font>
+		</ilayer>
+	</body>
+</html>

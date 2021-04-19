@@ -1,0 +1,22 @@
+<html>
+	<head>
+		<script language="JavaScript">
+			function showHide() {
+				if (document.layers["myLayer"].visibility == "show") {
+					document.layers["myLayer"].visibility = "hide";
+				}
+				else {
+					document.layers["myLayer"].visibility = "show";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ilayer name=myLayer visibility=show>
+			<font size=+1 color="#567546"><i>Текст внутри, а снаружи слой</i></font>
+		</ilayer>
+		<form>
+			<input type="button" value="Показать/скрыть слой" onClick="showHide()">
+		</form>
+	</body>
+</html>
