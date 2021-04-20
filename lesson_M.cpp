@@ -1,38 +1,27 @@
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 
-int main(){
-	int n, m;
+int main() {
+	int m, n, i;
 	cin >> n >> m;
-	int *humans = new int[n];
+	int c = n, t = -1;
 	
-	for (int i = 0; i < n; i++){
-		humans[i] = i + 1;
+	int *a = new int[n];
+	for (i = 0; i < n; i++) {
+		a[i] = i + 1;
 	}
 	
-	for (int i = n; i > 1; i--){
-		int counter = 0, loop = m / i;
-		int answer = m - loop * i - 1;
-		int *temp = new int[i - 1];
+	while(c > 1) {
 		
-		for (int j = 0; j < i; j++){
-			cout << humans[j] << " ";
-		}
-		cout << endl;
-		
-		for (int j = 0; j < i; j++){
-			if (j != answer){
-				temp[counter] = humans[j];
-				counter += 1;
-			}
-		}
-		
-		humans = temp;
-		delete temp;
 	}
-	
-	cout << humans[0];
-	delete[] humans;
+	a[t] = 0;
+	c--;
+	for(int i = 0; i < n; i++)
+		if(a[i] != 0) {
+			cout << i + 1;
+			break;
+		}
+	delete[] a;
 	return 0;
 }
