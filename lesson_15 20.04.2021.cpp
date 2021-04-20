@@ -6,10 +6,10 @@
 using namespace std;
 
 int main() {
-	int cources;
+	int cources, **grades;
 	cin >> cources;
 	
-	int **grades = new int *[cources];
+	grades = new int *[cources];
 	double *averages = (double *) new double[cources];
 	int *subjects = (int *) new int[cources];
 	
@@ -25,9 +25,12 @@ int main() {
 			continue;
 		}
 		
-		grades[x] = new int [subject];
+		grades[x] = new int[subject];
 		for (int y = 0; y < subject; y++){
-			cin >> grades[x][y];
+			do {
+				cin >> grades[x][y];
+			}
+			while (grades[x][y] < 1 || grades[x][y] > 5);
 			sum += grades[x][y];
 		}
 		
@@ -50,6 +53,10 @@ int main() {
 	}
 	cout << "Overall final " << fullSum / cources;
 	
+	
+	for (int x = 0; x < cources; x++){
+		delete[] grades[x];
+	}
 	delete[] grades;
 	delete[] averages;
 	delete[] subjects;
