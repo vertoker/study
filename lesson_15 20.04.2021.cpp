@@ -6,54 +6,53 @@
 using namespace std;
 
 int main() {
+	int cources;
+	cin >> cources;
+	
+	int **grades = new int *[cources];
+	double *averages = (double *) new double[cources];
+	int *subjects = (int *) new int[cources];
+	
 	double fullSum = 0;
-	int row;
-	cin >> row;
-	
-	int **pupils = (int **) new int [row][0];
-	double *average = (double *) new double[row];
-	int *columns = (int *) new int[row];
-	
-	for (int x = 0; x < row; x++){
+	for (int x = 0; x < cources; x++){
 		double sum = 0;
-		int column;
-		cin >> column;
+		int subject;
+		cin >> subject;
 		
-		pupils[x] = new int[column];
-		for (int y = 0; y < column; y++){
-			cin >> pupils[x][y];
-			sum += pupils[x][y];
+		if (subject == 0){
+			averages[x] = 0;
+			subjects[x] = 0;
+			continue;
 		}
 		
-		if (column == 0){
-			average[x] = 0;
+		grades[x] = new int [subject];
+		for (int y = 0; y < subject; y++){
+			cin >> grades[x][y];
+			sum += grades[x][y];
 		}
-		else{
-			average[x] = sum / column;
-		}
-		fullSum += average[x];
-		columns[x] = column;
+		
+		averages[x] = sum / subject;
+		fullSum += averages[x];
+		subjects[x] = subject;
 	}
 	
-	for (int x = 0; x < row; x++){
+	for (int x = 0; x < cources; x++){
 		cout << "Course " << x + 1;
 		cout.setf(ios::fixed);
 		cout.setf(ios::showpoint);
 		cout.precision(2);
-		cout << ": final " << average[x];
-		cout << ", grades: ";
 		
-		for (int y = 0; y < columns[x]; y++){
-			cout << pupils[x][y] << " ";
+		cout << ": final " << averages[x] << ", grades: ";
+		for (int y = 0; y < subjects[x]; y++){
+			cout << grades[x][y] << " ";
 		}
-		
 		cout << endl;
 	}
-	cout << "Overall final " << fullSum / row;
+	cout << "Overall final " << fullSum / cources;
 	
-	delete[] pupils;
-	delete[] average;
-	delete[] columns;
+	delete[] grades;
+	delete[] averages;
+	delete[] subjects;
 	
 	return 0;
 }
