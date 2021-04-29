@@ -1,53 +1,51 @@
 #include <iostream>
 #include <string>
-#include <locale>
 using namespace std;
 
-void CheckIP(string s){
-	const string NUMSSTR = "0123456789";
-	const int NUMS[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int length = s.length();
-	bool isNum = false;
-	int lastNum = 0;
-	int numsCounter = 0;
-	
-	for (int i = 0; i < length; i++){
-		int pos = NUMSSTR.find(s.substr(i, 1));
-		if (s[i] == '.'){
-			if (lastNum > 255){
-				cout << "Too big a value of a part";
-				return;
-			}
-			if (isNum == false){
-				cout << "Incorrect parts count";
-				return;
-			}
-			isNum = false;
-			lastNum = 0;
-			numsCounter += 1;
+bool CheckNum(string num){
+	const string NUMS = "0123456789";
+	if (num.find_first_not_of(NUMS) == string::npos){
+		int number = stoi(num);
+		
+		if (number > 999){
+			cout << "Too many characters in a part";
+			return false;
 		}
-		else if(pos != string::npos){
-			isNum = true;
-			lastNum = lastNum * 10 + NUMS[pos];
-			if (lastNum > 999){
-				cout << "Too many characters in a part";
-				return;
-			}
+		else if (number > 255){
+			cout << "Too big a value of a part";
+			return false;
 		}
-		else{
+		else if (number < 0){
 			cout << "Only digits and dots allowed";
-			return;
+			return false;
 		}
 	}
+	else{
+		cout << "Only digits and dots allowed";
+		return false;
+	}
+	return true;
+}
+
+void CheckIP(string s){
+	const int COUNTOFNUMBERS = 4;
+	int counter = 0;
 	
-	if (numsCounter > 3){
+	int pos = s.find('.');
+	while(pos != string::npos){
+		if (CheckNum(s.substr(0, pos))) counter += 1;
+		else return;
+		s.erase(0, pos + 1);
+		pos = s.find('.');
+	}
+	if (CheckNum(s)) counter += 1;
+	else return;
+	
+	if (counter > COUNTOFNUMBERS){
 		cout << "Too many parts";
 	}
-	else if (numsCounter < 3){
+	else if (counter < COUNTOFNUMBERS){
 		cout << "Too few parts";
-	}
-	else if (isNum == false){
-		cout << "Incorrect parts count";
 	}
 	else{
 		cout << "Correct IP";
