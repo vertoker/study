@@ -33,17 +33,29 @@ string PlusOne(string num){
 	return num;
 }
 
-
+string reverse(string num){
+	int length = num.length();
+	for (int i = 0; i < length; i++){
+		char temp = 
+	}
+}
 
 int main(){
 	string num;
 	cin >> num;
 	
-	do {
+	int point = num.length() / 2;
+	int middle = num.length() % 2;
+	string firstHalf = num.substr(0, point + middle);
+	string secondHalf = num.substr(point + middle, point);
+	
+	
+	
+	/*do {
 		num = PlusOne(num);
 		cout << num << endl;
 	}
-	while(!isPalindrome(num));
+	while(!isPalindrome(num));*/
 	cout << num;
 	return 0;
 }
