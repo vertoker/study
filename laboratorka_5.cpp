@@ -1,27 +1,30 @@
 #include <iostream>
 #include <cmath>
+#include <math.h>
 using namespace std;
 
-int factorial(int i){
-	if (i == 1){
-		return 1;
-	}
-	return i * factorial(i - 1);
+long double fact(int N)
+{
+    if (N < 0) return 0;
+    if (N == 0) return 1;
+    return N * fact(N - 1);
 }
 
 int main() {
-	double s = 1, eps = 0.001, term = 5 * eps, x;
+	long double s = 0, eps = 0.001, term = eps, x;
+	int counter = 0;
 	
 	do{
 		cout << "Input -1000 < x < 1000: ";
 		cin >> x;
-	} while(abs(x) >= 1000);
+	} while(x >= 1000 || x <= -1000);
 	
-	cout << "e = " << pow(M_E, x) << endl;
-	for(int k = 1; abs(term) > eps; k++){
-		term = pow(x, k) / factorial(k);
+	cout << "e^x = " << exp(x) << endl;
+	
+	while(abs(term) >= eps){
+		term = pow(x, counter) / fact(counter);
 		s += term;
-		cout << s << endl;
+		counter++;
 	}
 	
 	cout << "s = " << s << endl;
