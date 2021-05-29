@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Лабораторная №7</title>
+        <script>
+            let isFirst = true;
+            function change(){
+                elem = document.getElementById('image');
+                if (isFirst) {
+                    image.src = 'banana.gif';
+                    isFirst = false;
+                } else {
+                    image.src = 'nyancat.gif';
+                    isFirst = true;
+                }
+            }
+	    </script>
+    </head>
+    <body>
+        <img src="nyancat.gif" id="image" width="150">
+        <button onclick = "change()">
+            Touch me!
+        </button>
+    </body>
+</html>

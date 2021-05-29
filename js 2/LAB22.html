@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Лабораторная №22</title>
+		<script>
+		function go(){
+			txt1 = document.getElementById('txt1');
+			txt2 = document.getElementById('txt2');
+			var value = txt1.value;
+			txt2.value =  value * value;
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="5" id="txt1">
+		<input type="text" value="" id="txt2">
+		<button onclick="go()">Tap on me!</button>
+	</body>
+</html>

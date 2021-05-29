@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Лабораторная №10</title>
+        <script>
+            function foc(elem){
+                elem.value = "I think, therefore I am...";
+            }
+            function stop(elem){
+                elem.value = "hahaahahhahhahahhahaah";
+            }
+	    </script>
+    </head>
+    <body>
+        <input type="text" value="Hello" id="text" onfocus="foc(this)" onblur="stop(this)">
+    </body>
+</html>

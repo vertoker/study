@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Лабораторная №20</title>
+		<script>
+		function go(){
+			elem = document.getElementById('txt');
+			elem.value = 'My css class: ' + elem.className;
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="Some text" id="txt" class="<name here>">
+		<button onclick="go()">Tap on me!</button>
+	</body>
+</html>

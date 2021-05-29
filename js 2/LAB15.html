@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Лабораторная №15</title>
+		<script>
+		let isEnable = true;
+		function go(){
+			if (isEnable) {
+				isEnable = false;
+				hide();
+			}
+			else {
+				isEnable = true;
+				show();
+			}
+		}
+		function hide(){
+			elem = document.getElementById('txt');
+			elem.style.display = 'none';
+		}
+		function show(){
+			elem = document.getElementById('txt');
+			elem.style.display = 'inline-block';
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="Hi" id="txt">
+		<button onclick = "go()">
+		Touch me!
+		</button>
+	</body>
+</html>

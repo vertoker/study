@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Лабораторная №16</title>
+		<style>
+		input {
+			width: 100px;
+		}
+		</style>
+		<script>
+		function go(){
+			elem = document.getElementById('txt');
+			elem.value = 'Text has been changed by unknown power)';
+			elem.style.width = '300px';
+			elem.style.height = '50px';
+			elem.style.color = 'red';
+			elem.style.borderRadius = '10px';
+		}
+		</script>
+	</head>
+	<body>
+		<input type="text" value="Hi" id="txt">
+		<button onclick = "go()">
+		Touch me!
+		</button>
+	</body>
+</html>
