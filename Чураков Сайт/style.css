@@ -1,0 +1,39 @@
+body {
+	font-family: Arial;
+	background: #333a3d;
+}
+
+.header-nav {
+    background: #ffffff;
+    text-align: center;
+    width: 100%;
+    height: 90px;
+}
+
+.navigation-list {
+    display: flex;
+    margin: 0 -15px 0 0;
+    padding: 0;
+  
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.navigation-list a {
+    display: block;
+    padding: 15px;
+  
+    color: #000;
+}
+
+.header-dropdown-button {
+    height: 75px;
+    width: 75px;
+}
+.header-aniva{
+    color: #000;
+	font-size: 24pt;
+}
+.header-exct{
+    color: #888b8c;
+}
