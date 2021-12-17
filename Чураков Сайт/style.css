@@ -365,7 +365,7 @@ li a {
     margin: 10px 35px 0 35px;
 }
 .bottom-description {
-    color: #ffffff;
+    color: #b9b9b9;
     text-align: left;
     margin: 10px 35px 0 35px;
 }
@@ -374,6 +374,7 @@ li a {
     list-style: none;  
 }
 .bottom-l {
+    color: #b9b9b9;
     margin: 15px 0 15px 0;
 }
 .bottom-cell-1 {
