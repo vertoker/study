@@ -140,7 +140,6 @@ li a {
 
     height: 25px;
     text-align: left;
-    margin-right: 60px;
 
     display: inline-block;
     text-decoration: none;
@@ -151,7 +150,6 @@ li a {
 
     height: 60px;
     text-align: left;
-    margin-right: 60px;
 
     
     display: inline-block;
@@ -163,7 +161,6 @@ li a {
     text-decoration: none;
 
     height: 30px;
-    margin-right: 60px;
     text-align: left;
 
     display: inline-block;
@@ -204,8 +201,9 @@ li a {
     position: relative;
     width: 18px;
     border-radius: 2px;
-    margin-left: 320px;
-    margin-top: -53px;
+    margin-left: 280px;
+    margin-right: 20px;
+    margin-top: -63px;
 }
 .header-mail::after {
     color: #888b8c;
@@ -304,6 +302,9 @@ li a {
 .content-read-more {
     text-align: left;
     margin: 30px 35px 0 35px;
+}
+.content-read-more a {
+    text-decoration: none;
     color: #ff0000;
 }
 .content-quote-text {
@@ -358,7 +359,7 @@ li a {
 }
 .bottom-description {
     color: #ffffff;
-    text-align: right;
+    text-align: left;
     margin: 10px 35px 0 35px;
 }
 .bottom-ul {
@@ -368,19 +369,18 @@ li a {
 .bottom-l {
     margin: 15px 0 15px 0;
 }
-.bottom-list-3 {
-    width: 100px;
-}
 .bottom-cell-1 {
+    background-color: #404a4e;
     display: table-cell;
     width: 30%;
 }
 .bottom-cell-2 {
-    background-color: red;
+    background-color: #454e52;
     display: table-cell;
     width: 800px;
 }
 .bottom-cell-3 {
+    background-color: #404a4e;
     display: table-cell;
     width: 30%;
 }
