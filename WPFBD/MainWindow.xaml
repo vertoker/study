@@ -1,0 +1,45 @@
+﻿<Window x:Class="WPFBD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFBD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1000">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock TextAlignment="Right" Grid.Row="0" Grid.Column="2" Margin="0,10,10,0">Имя пользователя</TextBlock>
+        <TextBlock VerticalAlignment="BOTTOM" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Margin="150,0,0,10">Преподователи</TextBlock>
+        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FullName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path=Post}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стаж" Binding="{Binding Path=Experience}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кафедра" Binding="{Binding Path=Department}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Background="Green" Height="40" Width="150" Grid.Column="0" Click="Add">Добавить</Button>
+            <Button Background="Gray" Height="40" Width="150" Grid.Column="1" Click="Modify">Изменить</Button>
+            <Button Background="Red" Height="40" Width="150" Grid.Column="2" Click="Remove">Удалить</Button>
+        </Grid>
+        
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+S:\Чураков\WPFBD\WPFBD\bin\Debug\WPFBD.exe.config
+S:\Чураков\WPFBD\WPFBD\bin\Debug\WPFBD.exe
+S:\Чураков\WPFBD\WPFBD\bin\Debug\WPFBD.pdb
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csprojAssemblyReference.cache
+S:\Чураков\WPFBD\WPFBD\obj\Debug\MainWindow.g.cs
+S:\Чураков\WPFBD\WPFBD\obj\Debug\App.g.cs
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD_MarkupCompile.cache
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD_MarkupCompile.lref
+S:\Чураков\WPFBD\WPFBD\obj\Debug\MainWindow.baml
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.g.resources
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.Properties.Resources.resources
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csproj.GenerateResource.cache
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csproj.CoreCompileInputs.cache
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.exe
+S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.pdb
