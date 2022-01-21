@@ -13,3 +13,5 @@ S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csproj.GenerateResource.cache
 S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csproj.CoreCompileInputs.cache
 S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.exe
 S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.pdb
+S:\Чураков\WPFBD\WPFBD\obj\Debug\AddWindow.g.cs
+S:\Чураков\WPFBD\WPFBD\obj\Debug\AddWindow.baml

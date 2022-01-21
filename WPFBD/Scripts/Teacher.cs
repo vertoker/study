@@ -11,10 +11,10 @@ namespace WPFBD.Scripts
     /// </summary>
     public class Teacher
     {
-        private readonly string _fullName;
-        private readonly string _post;
-        private readonly int _experience;
-        private readonly string _department;
+        private string _fullName;
+        private string _post;
+        private int _experience;
+        private string _department;
 
         public string FullName => _fullName;
         public string Post => _post;

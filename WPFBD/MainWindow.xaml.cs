@@ -33,8 +33,11 @@ namespace WPFBD
 
         private void Add(object sender, RoutedEventArgs e)
         {
+            AddWindow addWindow = new AddWindow();
+            addWindow.Owner = this;
+            addWindow.Show();
+
             _db.Add(new Teacher());
-            MessageBox.Show("Add");
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
