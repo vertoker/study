@@ -31,7 +31,6 @@ namespace WPFBD.Scripts
             modelBuilder.Entity<TeacherDB>().HasOne(t => t.Role).WithMany(r => r.Teachers).HasForeignKey(t => t.ID);
         }
 
-
         public static List<TeacherDB> GetTeachers()
         {
             using (ApplicationContextDB db = new ApplicationContextDB())
@@ -39,6 +38,7 @@ namespace WPFBD.Scripts
                 List<TeacherDB> teacherList = db.Teachers.ToList();
                 foreach (var i in teacherList)
                     i.Role = db.Roles.Single(r => r.ID == i.ID);
+
                 return teacherList;
             }
         }

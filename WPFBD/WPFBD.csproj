@@ -14,6 +14,7 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -170,7 +171,6 @@
     <Compile Include="Scripts\ApplicationContextDB.cs" />
     <Compile Include="Scripts\Phone.cs" />
     <Compile Include="Scripts\RoleDB.cs" />
-    <Compile Include="Scripts\Teacher.cs" />
     <Compile Include="Scripts\TeacherDB.cs" />
     <Page Include="AddWindow.xaml">
       <SubType>Designer</SubType>

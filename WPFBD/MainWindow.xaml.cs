@@ -19,16 +19,11 @@ namespace WPFBD
 {
     public partial class MainWindow : Window
     {
-        private List<Teacher> _db = new List<Teacher>();
+        private List<TeacherDB> _db = new List<TeacherDB>();
         public MainWindow()
         {
             InitializeComponent();
-
-            _db.Add(new Teacher("Чураков", "Константин", "Эдуардович", "Ученик", 3, "Информационные системы"));
-            _db.Add(new Teacher("Данила", "Куликов", "Михайлович", "Ученик", 3, "Информационные системы"));
-            _db.Add(new Teacher("Что-то", "Где-то", "Когда-то", "Лучшая", 666, "В принципе всё"));
-
-            DataGrid.ItemsSource = _db;
+            UpdateTable();
         }
 
         private void Add(object sender, RoutedEventArgs e)
@@ -37,7 +32,7 @@ namespace WPFBD
             addWindow.Owner = this;
             addWindow.Show();
 
-            _db.Add(new Teacher());
+            _db.Add(new TeacherDB());
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
@@ -47,6 +42,12 @@ namespace WPFBD
         private void Remove(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Remove");
+            DataGrid.ItemsSource = _db;
+        }
+
+        private void UpdateTable()
+        {
+            _db = ApplicationContextDB.GetTeachers();
             DataGrid.ItemsSource = _db;
         }
 

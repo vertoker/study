@@ -40,7 +40,7 @@ namespace WPFBD.Scripts
 
         }
 
-        public TeacherDB(int id, string firstName, string lastName, string patronymic, string post, RoleDB role, int experience, string department)
+        public TeacherDB(int id, RoleDB role, string firstName, string lastName, string patronymic, string post, int experience, string department)
         {
             _id = id;
             _fullName = string.Join(" ", firstName, lastName, patronymic);
