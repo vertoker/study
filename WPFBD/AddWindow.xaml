@@ -30,13 +30,13 @@
             </Grid.RowDefinitions>
 
             <TextBlock Grid.Row="0" FontSize="25" VerticalAlignment="Top">ФИО</TextBlock>
-            <TextBox Grid.Row="0" VerticalAlignment="Bottom" Height="30" MaxLength="100"></TextBox>
+            <TextBox x:Name="FullNameTextBox" Grid.Row="0" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
             <TextBlock Grid.Row="2" FontSize="25" VerticalAlignment="Top">Должность</TextBlock>
-            <TextBox Grid.Row="2" VerticalAlignment="Bottom" Height="30" MaxLength="100"></TextBox>
+            <TextBox x:Name="RoleNameTextBox" Grid.Row="2" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
             <TextBlock Grid.Row="4" FontSize="25" VerticalAlignment="Top">Стаж</TextBlock>
-            <TextBox Grid.Row="4" VerticalAlignment="Bottom" Height="30" MaxLength="100"></TextBox>
+            <TextBox x:Name="ExperienceTextBox" Grid.Row="4" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
             <TextBlock Grid.Row="6" FontSize="25" VerticalAlignment="Top">Кафедра</TextBlock>
-            <TextBox Grid.Row="6" VerticalAlignment="Bottom" Height="30" MaxLength="100"></TextBox>
+            <TextBox x:Name="DepartmentTextBox" Grid.Row="6" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
         </Grid>
     </Grid>
 </Window>

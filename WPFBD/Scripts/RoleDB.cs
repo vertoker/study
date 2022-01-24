@@ -9,26 +9,11 @@ namespace WPFBD.Scripts
     /// <summary>
     /// Таблица базы данных для работы БД (роли)
     /// </summary>
-    public class RoleDB
+    public class role
     {
-        private int _id;
-        private string _roleName;
-        private List<TeacherDB> _teachers;
-
-        public int ID => _id;
-        public string RoleName => _roleName;
-        public List<TeacherDB> Teachers => _teachers;
-
-        public RoleDB()
-        {
-
-        }
-
-        public RoleDB(int id, string roleName, List<TeacherDB> teachers)
-        {
-            _id = id;
-            _roleName = roleName;
-            _teachers = teachers;
-        }
+        [System.ComponentModel.DataAnnotations.Key]
+        public int ID { get; set; }
+        public string ROLENAME { get; set; }
+        public List<teacher> TEACHERS { get; set; }
     }
 }

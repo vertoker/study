@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -11,11 +12,8 @@ namespace WPFBD.Scripts
 {
     class ApplicationContextDB : DbContext
     {
-        private DbSet<TeacherDB> _teachers;
-        private DbSet<RoleDB> _roles;
-
-        public DbSet<TeacherDB> Teachers => _teachers;
-        public DbSet<RoleDB> Roles => _roles;
+        public DbSet<teacher> teacher { get; set; }
+        public DbSet<role> role { get; set; }
 
         public ApplicationContextDB()
         {
@@ -24,21 +22,20 @@ namespace WPFBD.Scripts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=127.0.0.1; port=3306; user=root; password=root; database=TeachersDB");
+            optionsBuilder.UseMySQL("server=127.0.0.1; port=3306; user=root; password=root; database=teacherdb");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<TeacherDB>().HasOne(t => t.Role).WithMany(r => r.Teachers).HasForeignKey(t => t.ID);
+            modelBuilder.Entity<teacher>().HasOne(t => t.ROLEOBJECT).WithMany(r => r.TEACHERS).HasForeignKey(t => t.ROLE);
         }
 
-        public static List<TeacherDB> GetTeachers()
+        public static List<teacher> GetTeachers()
         {
             using (ApplicationContextDB db = new ApplicationContextDB())
             {
-                List<TeacherDB> teacherList = db.Teachers.ToList();
+                List<teacher> teacherList = db.teacher.ToList();
                 foreach (var i in teacherList)
-                    i.Role = db.Roles.Single(r => r.ID == i.ID);
-
+                    i.ROLEOBJECT = db.role.Single(r => r.ID == i.ID);
                 return teacherList;
             }
         }

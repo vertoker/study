@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using WPFBD.Scripts;
+
 namespace WPFBD
 {
     /// <summary>
@@ -26,7 +28,9 @@ namespace WPFBD
 
         private void Add(object sender, RoutedEventArgs e)
         {
-
+            /*teacher teacher = new teacher();
+            teacher.FULLNAME = FullNameTextBox.Text;
+            teacher.ROLE = RoleNameTextBox.Text;*/
         }
     }
 }

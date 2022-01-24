@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `teacher` (
-  `ID` int(100) NOT NULL,
+  `ID` int NOT NULL,
   `FULLNAME` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `POST` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `EXPERIENCE` int(5) NOT NULL,

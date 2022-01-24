@@ -19,7 +19,7 @@ namespace WPFBD
 {
     public partial class MainWindow : Window
     {
-        private List<TeacherDB> _db = new List<TeacherDB>();
+        private List<teacher> _db = new List<teacher>();
         public MainWindow()
         {
             InitializeComponent();
@@ -32,7 +32,7 @@ namespace WPFBD
             addWindow.Owner = this;
             addWindow.Show();
 
-            _db.Add(new TeacherDB());
+            _db.Add(new teacher());
         }
         private void Modify(object sender, RoutedEventArgs e)
         {

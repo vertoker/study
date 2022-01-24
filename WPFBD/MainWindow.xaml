@@ -20,12 +20,12 @@
         
         <TextBlock TextAlignment="Right" Grid.Row="0" Grid.Column="2" Margin="0,10,10,0">Имя пользователя</TextBlock>
         <TextBlock VerticalAlignment="BOTTOM" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Margin="150,0,0,10">Преподователи</TextBlock>
-        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1">
+        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FullName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Должность" Binding="{Binding Path=Post}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Стаж" Binding="{Binding Path=Experience}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Кафедра" Binding="{Binding Path=Department}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FULLNAME}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Должность" Binding="{Binding Path=ROLEOBJECT.ROLENAME}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стаж" Binding="{Binding Path=EXPERIENCE}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Кафедра" Binding="{Binding Path=DEPARTMENT}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
