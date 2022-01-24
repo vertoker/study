@@ -28,9 +28,14 @@ namespace WPFBD
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            /*teacher teacher = new teacher();
+            teacher teacher = new teacher();
             teacher.FULLNAME = FullNameTextBox.Text;
-            teacher.ROLE = RoleNameTextBox.Text;*/
+            teacher.SetRole(RoleNameTextBox.Text);
+            teacher.DEPARTMENT = DepartmentTextBox.Text;
+            teacher.EXPERIENCE = int.Parse(ExperienceTextBox.Text);
+
+            ApplicationContextDB.Add(teacher);
+            Close();
         }
     }
 }

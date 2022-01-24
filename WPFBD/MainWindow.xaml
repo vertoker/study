@@ -17,10 +17,12 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="150"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        
+
         <TextBlock TextAlignment="Right" Grid.Row="0" Grid.Column="2" Margin="0,10,10,0">Имя пользователя</TextBlock>
         <TextBlock VerticalAlignment="BOTTOM" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Margin="150,0,0,10">Преподователи</TextBlock>
-        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False">
+        <Button Background="LightGray" Height="40" Grid.Column="2" Click="Add" VerticalAlignment="Bottom" Margin="5,5,5,5">Выйти</Button>
+
+        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FULLNAME}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Должность" Binding="{Binding Path=ROLEOBJECT.ROLENAME}"></DataGridTextColumn>
@@ -40,6 +42,6 @@
             <Button Background="Gray" Height="40" Width="150" Grid.Column="1" Click="Modify">Изменить</Button>
             <Button Background="Red" Height="40" Width="150" Grid.Column="2" Click="Remove">Удалить</Button>
         </Grid>
-        
+
     </Grid>
 </Window>

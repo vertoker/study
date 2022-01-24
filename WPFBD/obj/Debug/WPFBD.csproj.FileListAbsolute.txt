@@ -164,3 +164,5 @@ S:\Чураков\WPFBD\WPFBD\bin\Debug\System.Numerics.Vectors.xml
 S:\Чураков\WPFBD\WPFBD\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 S:\Чураков\WPFBD\WPFBD\bin\Debug\System.Threading.Tasks.Extensions.xml
 S:\Чураков\WPFBD\WPFBD\obj\Debug\WPFBD.csproj.CopyComplete
+S:\Чураков\WPFBD\WPFBD\obj\Debug\ModifyWindow.g.cs
+S:\Чураков\WPFBD\WPFBD\obj\Debug\ModifyWindow.baml

@@ -18,5 +18,10 @@ namespace WPFBD.Scripts
         public role ROLEOBJECT { get; set; }
         public string DEPARTMENT { get; set; }
         public int EXPERIENCE { get; set; }
+
+        public void SetRole(string roleName)
+        {
+
+        }
     }
 }

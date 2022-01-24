@@ -19,7 +19,7 @@ namespace WPFBD
 {
     public partial class MainWindow : Window
     {
-        private List<teacher> _db = new List<teacher>();
+        //private List<teacher> _db = new List<teacher>();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,24 +31,21 @@ namespace WPFBD
             AddWindow addWindow = new AddWindow();
             addWindow.Owner = this;
             addWindow.Show();
-
-            _db.Add(new teacher());
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Modify");
-            DataGrid.ItemsSource = _db;
+            ModifyWindow modifyWindow = new ModifyWindow();
+            modifyWindow.Owner = this;
+            modifyWindow.Show();
         }
         private void Remove(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Remove");
-            DataGrid.ItemsSource = _db;
         }
 
         private void UpdateTable()
         {
-            _db = ApplicationContextDB.GetTeachers();
-            DataGrid.ItemsSource = _db;
+            DataGrid.ItemsSource = ApplicationContextDB.GetDatabase();
         }
 
         private void Lab5()

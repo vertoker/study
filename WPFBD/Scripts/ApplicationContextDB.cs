@@ -29,7 +29,7 @@ namespace WPFBD.Scripts
             modelBuilder.Entity<teacher>().HasOne(t => t.ROLEOBJECT).WithMany(r => r.TEACHERS).HasForeignKey(t => t.ROLE);
         }
 
-        public static List<teacher> GetTeachers()
+        public static List<teacher> GetDatabase()
         {
             using (ApplicationContextDB db = new ApplicationContextDB())
             {
@@ -38,6 +38,29 @@ namespace WPFBD.Scripts
                     i.ROLEOBJECT = db.role.Single(r => r.ID == i.ID);
                 return teacherList;
             }
+        }
+        public static void SetDatabase()
+        {
+
+        }
+
+        public static void Add(teacher teacher)
+        {
+
+        }
+        public static teacher Get(int id)
+        {
+            teacher teacher = new teacher();
+            teacher.ROLEOBJECT = new role();
+            return teacher;
+        }
+        public static void Set(teacher teacher)
+        {
+
+        }
+        public static void Delete(teacher teacher)
+        {
+
         }
     }
 }

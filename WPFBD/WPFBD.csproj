@@ -168,10 +168,14 @@
     <Compile Include="AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ModifyWindow.xaml.cs">
+      <DependentUpon>ModifyWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scripts\ApplicationContextDB.cs" />
     <Compile Include="Scripts\Phone.cs" />
     <Compile Include="Scripts\RoleDB.cs" />
     <Compile Include="Scripts\TeacherDB.cs" />
+    <Compile Include="Scripts\User.cs" />
     <Page Include="AddWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -188,6 +192,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModifyWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
