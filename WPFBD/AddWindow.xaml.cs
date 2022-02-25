@@ -35,6 +35,13 @@ namespace WPFBD
         {
             MainWindow main = (MainWindow)Owner;
             role role = RoleComboBox.SelectedItem as role;
+
+            if (FullNameTextBox.Text == string.Empty || role == null || DepartmentTextBox.Text == string.Empty || ExperienceTextBox.Text == string.Empty)
+            {
+                MessageBox.Show("Заполните все поля");
+                return;
+            }
+
             teacher teacher = new teacher
             {
                 FULLNAME = FullNameTextBox.Text,
@@ -42,7 +49,14 @@ namespace WPFBD
                 DEPARTMENT = DepartmentTextBox.Text
             };
             if (int.TryParse(ExperienceTextBox.Text, out int result))
+            {
                 teacher.EXPERIENCE = result;
+            }
+            else
+            {
+                MessageBox.Show("Стаж должен быть целочисленным числом");
+                return;
+            }
 
             ApplicationContextDB.Add(teacher);
             main.UpdateTable();

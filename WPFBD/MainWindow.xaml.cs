@@ -42,7 +42,16 @@ namespace WPFBD
         }
         private void Remove(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Remove");
+            teacher selected = (teacher)DataGrid.SelectedItem;
+            if (selected == null)
+                return;
+
+            var result = MessageBox.Show("Вы уверены, что хотите удалить элемент базы данных?", "Окно потверждения", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                ApplicationContextDB.Delete(selected);
+                UpdateTable();
+            }
         }
 
         public int GetTeachersCount => DataGrid.Items.Count;
