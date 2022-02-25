@@ -21,20 +21,31 @@ namespace WPFBD
     /// </summary>
     public partial class AddWindow : Window
     {
+        private readonly List<role> roles;
+
         public AddWindow()
         {
             InitializeComponent();
+            roles = ApplicationContextDB.GetRoles();
+            RoleComboBox.ItemsSource = roles;
+            //MessageBox.Show(roles.Count.ToString());
         }
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            teacher teacher = new teacher();
-            teacher.FULLNAME = FullNameTextBox.Text;
-            teacher.SetRole(RoleNameTextBox.Text);
-            teacher.DEPARTMENT = DepartmentTextBox.Text;
-            teacher.EXPERIENCE = int.Parse(ExperienceTextBox.Text);
+            MainWindow main = (MainWindow)Owner;
+            role role = RoleComboBox.SelectedItem as role;
+            teacher teacher = new teacher
+            {
+                FULLNAME = FullNameTextBox.Text,
+                ROLE = role.ID,
+                DEPARTMENT = DepartmentTextBox.Text
+            };
+            if (int.TryParse(ExperienceTextBox.Text, out int result))
+                teacher.EXPERIENCE = result;
 
             ApplicationContextDB.Add(teacher);
+            main.UpdateTable();
             Close();
         }
     }

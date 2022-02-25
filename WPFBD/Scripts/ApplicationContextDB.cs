@@ -22,21 +22,29 @@ namespace WPFBD.Scripts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySQL("server=127.0.0.1; port=3306; user=root; password=root; database=teacherdb");
+            optionsBuilder.UseMySQL("server=127.0.0.1; port=3307; user=root; password=root; database=teacherdb");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<teacher>().HasOne(t => t.ROLEOBJECT).WithMany(r => r.TEACHERS).HasForeignKey(t => t.ROLE);
         }
 
-        public static List<teacher> GetDatabase()
+        public static List<teacher> GetTeachers()
         {
             using (ApplicationContextDB db = new ApplicationContextDB())
             {
                 List<teacher> teacherList = db.teacher.ToList();
                 foreach (var i in teacherList)
-                    i.ROLEOBJECT = db.role.Single(r => r.ID == i.ID);
+                    i.ROLEOBJECT = db.role.Single(r => r.ID == i.ROLE);
                 return teacherList;
+            }
+        }
+        public static List<role> GetRoles()
+        {
+            using (ApplicationContextDB db = new ApplicationContextDB())
+            {
+                List<role> rolesList = db.role.ToList();
+                return rolesList;
             }
         }
         public static void SetDatabase()
@@ -46,21 +54,32 @@ namespace WPFBD.Scripts
 
         public static void Add(teacher teacher)
         {
-
+            using (ApplicationContextDB db = new ApplicationContextDB())
+            {
+                db.teacher.Add(teacher);
+                db.SaveChanges();
+            }
         }
-        public static teacher Get(int id)
+        public static void Modify(teacher teacher)
         {
-            teacher teacher = new teacher();
-            teacher.ROLEOBJECT = new role();
-            return teacher;
-        }
-        public static void Set(teacher teacher)
-        {
+            using (ApplicationContextDB db = new ApplicationContextDB())
+            {
+                teacher t = db.teacher.Single(tch => tch.ID == teacher.ID);
+                t.FULLNAME = teacher.FULLNAME;
+                t.ROLE = teacher.ROLE;
+                t.DEPARTMENT = teacher.DEPARTMENT;
+                t.EXPERIENCE = teacher.EXPERIENCE;
 
+                db.SaveChanges();
+            }
         }
         public static void Delete(teacher teacher)
         {
-
+            using (ApplicationContextDB db = new ApplicationContextDB())
+            {
+                db.teacher.Remove(teacher);
+                db.SaveChanges();
+            }
         }
     }
 }

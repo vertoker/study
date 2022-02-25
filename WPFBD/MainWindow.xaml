@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFBD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1000">
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"></RowDefinition>
@@ -18,11 +18,13 @@
             <ColumnDefinition Width="150"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock TextAlignment="Right" Grid.Row="0" Grid.Column="2" Margin="0,10,10,0">Имя пользователя</TextBlock>
-        <TextBlock VerticalAlignment="BOTTOM" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="2" Margin="150,0,0,10">Преподователи</TextBlock>
-        <Button Background="LightGray" Height="40" Grid.Column="2" Click="Add" VerticalAlignment="Bottom" Margin="5,5,5,5">Выйти</Button>
+        <!-- Cool comment -->
 
-        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True">
+        <TextBlock TextAlignment="Right" Grid.Row="0" Grid.Column="2" Margin="0,10,10,0" FontFamily="Times New Roman" FontSize="16">Имя пользователя</TextBlock>
+
+        <Button Grid.Row="0" Grid.Column="1" Width="150" Height="30" FontFamily="Times New Roman" FontSize="20" BorderBrush="Black" BorderThickness="2" Background="White" VerticalAlignment="Bottom" Margin="0,0,0,10">Преподователи</Button>
+
+        <DataGrid ColumnWidth="*" x:Name="DataGrid" CanUserAddRows="False" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" IsReadOnly="True" FontFamily="Times New Roman" BorderBrush="Black" BorderThickness="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ФИО" Binding="{Binding Path=FULLNAME}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Должность" Binding="{Binding Path=ROLEOBJECT.ROLENAME}"></DataGridTextColumn>
@@ -38,9 +40,9 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Button Background="Green" Height="40" Width="150" Grid.Column="0" Click="Add">Добавить</Button>
-            <Button Background="Gray" Height="40" Width="150" Grid.Column="1" Click="Modify">Изменить</Button>
-            <Button Background="Red" Height="40" Width="150" Grid.Column="2" Click="Remove">Удалить</Button>
+            <Button Background="Green" Height="40" Width="150" Grid.Column="0" Click="Add" FontFamily="Times New Roman" FontSize="25" BorderBrush="Black" BorderThickness="3">Добавить</Button>
+            <Button Background="Gray" Height="40" Width="150" Grid.Column="1" Click="Modify" FontFamily="Times New Roman" FontSize="25" BorderBrush="Black" BorderThickness="3">Изменить</Button>
+            <Button Background="Red" Height="40" Width="150" Grid.Column="2" Click="Remove" FontFamily="Times New Roman" FontSize="25" BorderBrush="Black" BorderThickness="3">Удалить</Button>
         </Grid>
 
     </Grid>

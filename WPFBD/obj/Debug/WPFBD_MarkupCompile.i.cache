@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-S:\Чураков\WPFBD\WPFBD\obj\Debug\
+S:\Чураков\WPFBD\obj\Debug\
 WPFBD
 none
 false
 DEBUG;TRACE
-S:\Чураков\WPFBD\WPFBD\App.xaml
+S:\Чураков\WPFBD\App.xaml
 3-655022912
 
 13396675818
-551016773845
+551832415838
 AddWindow.xaml;MainWindow.xaml;ModifyWindow.xaml;
 
-False
+True
 

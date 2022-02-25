@@ -19,7 +19,6 @@ namespace WPFBD
 {
     public partial class MainWindow : Window
     {
-        //private List<teacher> _db = new List<teacher>();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,14 +27,17 @@ namespace WPFBD
 
         private void Add(object sender, RoutedEventArgs e)
         {
-            AddWindow addWindow = new AddWindow();
-            addWindow.Owner = this;
+            AddWindow addWindow = new AddWindow { Owner = this };
             addWindow.Show();
         }
         private void Modify(object sender, RoutedEventArgs e)
         {
-            ModifyWindow modifyWindow = new ModifyWindow();
-            modifyWindow.Owner = this;
+            teacher selected = (teacher)DataGrid.SelectedItem;
+            if (selected == null)
+                return;
+
+            ModifyWindow modifyWindow = new ModifyWindow { Owner = this };
+            modifyWindow.Load(selected);
             modifyWindow.Show();
         }
         private void Remove(object sender, RoutedEventArgs e)
@@ -43,19 +45,10 @@ namespace WPFBD
             MessageBox.Show("Remove");
         }
 
-        private void UpdateTable()
+        public int GetTeachersCount => DataGrid.Items.Count;
+        public void UpdateTable()
         {
-            DataGrid.ItemsSource = ApplicationContextDB.GetDatabase();
-        }
-
-        private void Lab5()
-        {
-            List<Phone> db = new List<Phone>();
-
-            db.Add(new Phone("Iphone 6S", "Apple", 54990));
-            db.Add(new Phone("Lumia 950", "Microsoft", 39990));
-
-            DataGrid.ItemsSource = db;
+            DataGrid.ItemsSource = ApplicationContextDB.GetTeachers();
         }
 
     }

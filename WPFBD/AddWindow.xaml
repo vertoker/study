@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFBD"
         mc:Ignorable="d"
-        Title="Добавление" Height="500" Width="300">
+        Title="Добавление" Height="500" Width="300" ResizeMode="NoResize">
 
     <Grid Background="LightGray">
         <Grid.RowDefinitions>
@@ -15,8 +15,8 @@
             <RowDefinition Height="100"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" Text="Добавление" FontSize="20"/>
-        <Button Background="Green" Height="40" Width="150" Grid.Row="2" Click="Add">Сохранить</Button>
+        <TextBlock VerticalAlignment="Center" TextAlignment="Center" Grid.Row="0" Text="Добавление" FontSize="30" FontFamily="Times New Roman"/>
+        <Button Background="Green" Height="40" Width="150" Grid.Row="2" Click="Add" BorderBrush="Black" BorderThickness="3" FontFamily="Times New Roman" FontSize="25">Сохранить</Button>
 
         <Grid Grid.Row="1" Margin="10,0,10,0">
             <Grid.RowDefinitions>
@@ -29,13 +29,22 @@
                 <RowDefinition Height="60"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" FontSize="25" VerticalAlignment="Top">ФИО</TextBlock>
+            <TextBlock Grid.Row="0" FontSize="25" VerticalAlignment="Top" FontFamily="Times New Roman">ФИО</TextBlock>
             <TextBox x:Name="FullNameTextBox" Grid.Row="0" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
-            <TextBlock Grid.Row="2" FontSize="25" VerticalAlignment="Top">Должность</TextBlock>
-            <TextBox x:Name="RoleNameTextBox" Grid.Row="2" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
-            <TextBlock Grid.Row="4" FontSize="25" VerticalAlignment="Top">Стаж</TextBlock>
+            <TextBlock Grid.Row="2" FontSize="25" VerticalAlignment="Top" FontFamily="Times New Roman">Должность</TextBlock>
+            <!--<TextBox x:Name="RoleNameTextBox" Grid.Row="2" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>-->
+
+            <ComboBox Name="RoleComboBox" Grid.Row="2" Grid.Column="0" FontSize="25" Height="40" Margin="0,0,0,40" Grid.RowSpan="3">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=ROLENAME}"></TextBlock>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <TextBlock Grid.Row="4" FontSize="25" VerticalAlignment="Top" FontFamily="Times New Roman">Стаж</TextBlock>
             <TextBox x:Name="ExperienceTextBox" Grid.Row="4" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
-            <TextBlock Grid.Row="6" FontSize="25" VerticalAlignment="Top">Кафедра</TextBlock>
+            <TextBlock Grid.Row="6" FontSize="25" VerticalAlignment="Top" FontFamily="Times New Roman">Кафедра</TextBlock>
             <TextBox x:Name="DepartmentTextBox" Grid.Row="6" VerticalAlignment="Bottom" Height="30" MaxLength="100" FontSize="15" VerticalContentAlignment="Center"></TextBox>
         </Grid>
     </Grid>

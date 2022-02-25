@@ -18,26 +18,38 @@ namespace WPFBD
 {
     public partial class ModifyWindow : Window
     {
+        private readonly List<role> roles;
         teacher _teacher;
+
         public ModifyWindow()
         {
             InitializeComponent();
+            roles = ApplicationContextDB.GetRoles();
+            RoleComboBox.ItemsSource = roles;
+        }
 
-            _teacher = ApplicationContextDB.Get(0);
+        public void Load(teacher teacher)
+        {
+            _teacher = teacher;
             FullNameTextBox.Text = _teacher.FULLNAME;
-            RoleNameTextBox.Text = _teacher.ROLEOBJECT.ROLENAME;
+            RoleComboBox.SelectedIndex = _teacher.ROLE - 1;
             DepartmentTextBox.Text = _teacher.DEPARTMENT;
             ExperienceTextBox.Text = _teacher.EXPERIENCE.ToString();
         }
 
         private void Modify(object sender, RoutedEventArgs e)
         {
-            _teacher.FULLNAME = FullNameTextBox.Text;
-            _teacher.SetRole(RoleNameTextBox.Text);
-            _teacher.DEPARTMENT = DepartmentTextBox.Text;
-            _teacher.EXPERIENCE = int.Parse(ExperienceTextBox.Text);
+            MainWindow main = (MainWindow)Owner;
+            role role = RoleComboBox.SelectedItem as role;
 
-            ApplicationContextDB.Set(_teacher);
+            _teacher.FULLNAME = FullNameTextBox.Text;
+            _teacher.ROLE = role.ID;
+            _teacher.DEPARTMENT = DepartmentTextBox.Text;
+            if (int.TryParse(ExperienceTextBox.Text, out int result))
+                _teacher.EXPERIENCE = result;
+
+            ApplicationContextDB.Modify(_teacher);
+            main.UpdateTable();
             Close();
         }
     }
