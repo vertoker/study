@@ -1,0 +1,108 @@
+2022.01.29 12:05:26 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at e:\Study\scala-study\example_project\.metals\lsp.trace.json or C:\Users\vertog\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.01.29 12:05:28 INFO  logging to file E:\Study\scala-study\example_project\.metals\metals.log
+2022.01.29 12:05:28 INFO  Started: Metals version 0.11.1 in workspace 'E:\Study\scala-study\example_project' for client Visual Studio Code 1.63.2.
+2022.01.29 12:05:28 INFO  Parse release: 17.0.2
+2022.01.29 12:05:32 INFO  time: initialize in 4.04s
+2022.01.29 12:05:35 WARN  Build server is not auto-connectable.
+2022.01.29 12:05:35 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:05:48 INFO  no build target found for E:\Study\scala-study\example_project\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.1.0
+џэт. 29, 2022 12:05:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+џэт. 29, 2022 12:05:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7
+2022.01.29 12:05:50 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:05:56 INFO  time: code lens generation in 5.35s
+2022.01.29 12:05:56 INFO  time: code lens generation in 5.58s
+2022.01.29 12:05:56 INFO  time: code lens generation in 5.39s
+2022.01.29 12:39:50 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:40:04 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:40:07 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:40:14 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:40:58 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+џэт. 29, 2022 12:41:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+java.util.concurrent.CompletionException: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:332)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptNow(CompletableFuture.java:747)
+	at java.base/java.util.concurrent.CompletableFuture.uniAcceptStage(CompletableFuture.java:735)
+	at java.base/java.util.concurrent.CompletableFuture.thenAcceptAsync(CompletableFuture.java:2186)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.thenAccept(FutureConvertersImpl.scala:37)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:279)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: scala.meta.internal.metals.debug.BuildTargetNotFoundForPathException: No build target could be found for the path: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+	at scala.meta.internal.metals.debug.DebugProvider.debugDiscovery(DebugProvider.scala:365)
+	at scala.meta.internal.metals.MetalsLanguageServer.executeCommand(MetalsLanguageServer.scala:1777)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	... 9 more
+
+2022.01.29 12:42:44 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:43:53 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:47:37 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:48:06 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:48:15 WARN  no build target for: E:\Study\scala-study\example_project\src\test\scala\Test1.scala
+2022.01.29 12:51:43 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:52:02 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 12:52:22 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:05:47 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:06:03 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:06:07 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:06:44 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:06:54 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:14:12 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:14:45 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:15:20 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 13:33:53 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:06:13 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:06:17 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:07:29 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:07:29 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:07:33 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:08:31 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:08:34 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:09:09 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:09:52 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:09:55 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:13:34 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+џэт. 29, 2022 2:13:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1397
+2022.01.29 14:15:46 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:22:37 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:22:57 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:23:28 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:26:52 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 14:27:06 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 20:44:15 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at e:\Study\scala-study\example_project\.metals\lsp.trace.json or C:\Users\vertog\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.01.29 20:44:18 INFO  logging to file E:\Study\scala-study\example_project\.metals\metals.log
+2022.01.29 20:44:18 INFO  Started: Metals version 0.11.1 in workspace 'E:\Study\scala-study\example_project' for client Visual Studio Code 1.63.2.
+2022.01.29 20:44:18 INFO  Parse release: 17.0.2
+2022.01.29 20:44:22 INFO  time: initialize in 4.39s
+2022.01.29 20:44:27 WARN  Build server is not auto-connectable.
+2022.01.29 20:44:27 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.29 20:44:28 INFO  skipping build import with status 'Dismissed'
+2022.01.29 20:44:40 INFO  no build target found for E:\Study\scala-study\example_project\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.01.29 20:44:48 INFO  time: code lens generation in 18s
+2022.01.30 10:38:24 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at e:\Study\scala-study\example_project\.metals\lsp.trace.json or C:\Users\vertog\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.01.30 10:38:25 INFO  logging to file E:\Study\scala-study\example_project\.metals\metals.log
+2022.01.30 10:38:25 INFO  Started: Metals version 0.11.1 in workspace 'E:\Study\scala-study\example_project' for client Visual Studio Code 1.63.2.
+2022.01.30 10:38:25 INFO  Parse release: 17.0.2
+2022.01.30 10:38:29 INFO  time: initialize in 3.61s
+2022.01.30 10:38:33 WARN  Build server is not auto-connectable.
+2022.01.30 10:38:34 WARN  no build target for: E:\Study\scala-study\example_project\src\main\scala\Main.scala
+2022.01.30 10:38:34 INFO  skipping build import with status 'Dismissed'
+2022.01.30 10:38:42 INFO  no build target found for E:\Study\scala-study\example_project\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.01.30 10:38:47 INFO  time: code lens generation in 12s
+2022.01.30 18:11:25 INFO  time: code lens generation in 2.62s
