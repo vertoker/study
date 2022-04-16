@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+
+using WebApp.Entities;
+using WebApp.Interfaces;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -11,11 +14,33 @@ namespace WebApp.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        [HttpGet]
-        [Route(nameof(Get))]
-        public IEnumerable<ProductEntity> Get()
+        private readonly IProductService _productService;
+        public ProductController(IProductService productService)
         {
-            return new List<ProductEntity>();
+            _productService = productService;
+        }
+
+        [HttpPost]
+        [Route("")]
+        public IActionResult Create(ProductModel model)
+        {
+            _productService.AddProduct(model.Name, model.Description, model.Price, model.PhotoURL);
+            return Ok();
+        }
+
+        [HttpGet()]
+        [Route("")]
+        public IActionResult Get(int id)
+        {
+            var product = _productService.GetProduct(id);
+            var result = new ProductModel()
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                PhotoURL = product.PhotoURL
+            };
+            return Ok(result);
         }
     }
 }

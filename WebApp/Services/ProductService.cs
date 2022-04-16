@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using WebApp.Entities;
 using WebApp.Interfaces;
+using System.Linq;
 
 namespace WebApp.Services
 {
     public class ProductService : IProductService
     {
-        private readonly List<ProductEntity> _store = new List<ProductEntity>();
-        private int counterID = 0;
+        private readonly static List<ProductEntity> _store = new List<ProductEntity>();
+        private static int counterID = 0;
 
         public List<ProductEntity> GetProducts()
         {
@@ -16,7 +17,7 @@ namespace WebApp.Services
         }
         public ProductEntity GetProduct(int index)
         {
-            return _store[index];
+            return _store.FirstOrDefault(item => item.ID == index);
         }
         public void AddProduct(string name, string description, float price, string photoURL)
         {
