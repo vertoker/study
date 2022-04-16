@@ -8,27 +8,24 @@ namespace WebApp.Services
     public class ProductService : IProductService
     {
         private readonly List<ProductEntity> _store = new List<ProductEntity>();
+        private int counterID = 0;
 
-        [Route(nameof(GetProducts))]
         public List<ProductEntity> GetProducts()
         {
             return _store;
         }
-
-        [Route(nameof(GetProduct))]
         public ProductEntity GetProduct(int index)
         {
             return _store[index];
         }
-
-        [Route(nameof(AddProduct))]
         public void AddProduct(string name, string description, float price, string photoURL)
         {
             ProductExceptionCheck(name, price);
 
+            counterID++;
             ProductEntity product = new ProductEntity()
             {
-                ID = _store.Count + 1,
+                ID = counterID,
                 Name = name,
                 Description = description,
                 Price = price,
@@ -36,8 +33,6 @@ namespace WebApp.Services
             };
             _store.Add(product);
         }
-
-        [Route(nameof(UpdateProduct))]
         public void UpdateProduct(int index, string name, string description, float price, string photoURL)
         {
             ProductExceptionCheck(name, price);
@@ -47,12 +42,11 @@ namespace WebApp.Services
             _store[index].Price = price;
             _store[index].PhotoURL = photoURL;
         }
-
-        [Route(nameof(DeleteProduct))]
         public void DeleteProduct(int index)
         {
             _store.RemoveAt(index);
         }
+
         private static void ProductExceptionCheck(string name, float price)
         {
             if (string.IsNullOrEmpty(name))
