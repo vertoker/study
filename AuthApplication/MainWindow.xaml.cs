@@ -15,27 +15,31 @@ using System.Windows.Shapes;
 
 namespace AuthApplication
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private static Page[] _pages;
+        private static Frame _frame;
+
         public MainWindow()
         {
             InitializeComponent();
+            _frame = FrameMain;
+            InitializePages();
+            SwitchActivePage(0);
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private static void InitializePages()
         {
-            string login = loginInput.Text;
-            string password = passwordInput.Text;
-            UserController.Login(login, password);
+            _pages = new Page[] 
+            {
+                new LoginPage(),
+                new RegistrationPage()
+            };
         }
-        private void Registration_Click(object sender, RoutedEventArgs e)
+
+        public static void SwitchActivePage(int id)
         {
-            string login = loginInput.Text;
-            string password = passwordInput.Text;
-            //UserController.Login(login, password);
+            _frame.Navigate(_pages[id]);
         }
     }
 }

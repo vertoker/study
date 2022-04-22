@@ -36,3 +36,7 @@ C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\re
 C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\AuthApplication.pdb
 C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\AuthApplication.genruntimeconfig.cache
 C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\ref\AuthApplication.dll
+C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\LoginPage.g.cs
+C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\LoginPage.baml
+C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\RegistrationPage.g.cs
+C:\Users\user\Desktop\Чураков\AuthApplication\obj\Debug\net6.0-windows\RegistrationPage.baml

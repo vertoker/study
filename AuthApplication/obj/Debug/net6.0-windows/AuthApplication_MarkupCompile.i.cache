@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\user\Desktop\Чураков\AuthApplication\App.xaml
-11407045341
+3-808750975
 
-13-852701955
+15-2041390684
 208-1531156392
-MainWindow.xaml;
+LoginPage.xaml;MainWindow.xaml;RegistrationPage.xaml;
 
 False
 

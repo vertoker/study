@@ -13,8 +13,8 @@ namespace AuthApplication
         private DbSet<user>? _users;
         private DbSet<role>? _roles;
 
-        internal DbSet<user>? Users { get => _users; set => _users = value; }
-        internal DbSet<role>? Roles { get => _roles; set => _roles = value; }
+        internal DbSet<user>? User { get => _users; set => _users = value; }
+        internal DbSet<role>? Role { get => _roles; set => _roles = value; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
