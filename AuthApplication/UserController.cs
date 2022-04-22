@@ -95,7 +95,7 @@ namespace AuthApplication
                 context.User.Add(newUser);
                 context.SaveChanges();
 
-                ShowMessage(string.Join(string.Empty, "Вы создали новую учётную запись!"));
+                ShowMessage(string.Join(string.Empty, "Здраствуйте, ", name, ", вы создали новую учётную запись!"));
             }
             catch (Exception)
             {
