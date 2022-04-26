@@ -73,6 +73,14 @@ namespace AuthApplication
                 }
 
                 ApplicationContext context = new ApplicationContext();
+
+                user userObj = context.User.FirstOrDefault(u => u.Login == login);
+                if (userObj == null)
+                {
+                    ShowMessage("Пользователь с таким логином уже существует");
+                    return;
+                }
+
                 role roleObj = context.Role.FirstOrDefault(role => role.RoleName == name);
                 if (roleObj == null)
                 {
@@ -82,6 +90,7 @@ namespace AuthApplication
                         Users = new List<user>()
                     };
                 }
+
                 user newUser = new user()
                 {
                     Login = login,
