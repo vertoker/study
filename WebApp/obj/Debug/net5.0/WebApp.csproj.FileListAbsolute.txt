@@ -55,3 +55,10 @@ S:\my-study\WebApp\obj\Debug\net5.0\WebApp.dll
 S:\my-study\WebApp\obj\Debug\net5.0\ref\WebApp.dll
 S:\my-study\WebApp\obj\Debug\net5.0\WebApp.pdb
 S:\my-study\WebApp\obj\Debug\net5.0\WebApp.genruntimeconfig.cache
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+S:\my-study\WebApp\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

@@ -63,7 +63,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPut]
-        [Route("")]
+        [Route("{id}")]
         public IActionResult Update(int id, OrderStatus orderStatus)
         {
             var entity = _orderService.GetOrder(id);

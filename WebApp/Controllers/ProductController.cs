@@ -62,7 +62,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPut]
-        [Route("")]
+        [Route("{id}")]
         public IActionResult Update(int id, ProductModel model)
         {
             var entity = _productService.GetProduct(id);
@@ -76,7 +76,7 @@ namespace WebApp.Controllers
         }
 
         [HttpDelete]
-        [Route("")]
+        [Route("{id}")]
         public IActionResult Delete(int id)
         {
             var entity = _productService.GetProduct(id);
