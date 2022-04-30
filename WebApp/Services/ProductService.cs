@@ -15,10 +15,12 @@ namespace WebApp.Services
         {
             return _store;
         }
-        public ProductEntity GetProduct(int index)
+
+        public ProductEntity GetProduct(int id)
         {
-            return _store.FirstOrDefault(item => item.ID == index);
+            return _store.FirstOrDefault(item => item.ID == id);
         }
+
         public void AddProduct(string name, string description, float price, string photoURL)
         {
             ProductExceptionCheck(name, price);
@@ -34,18 +36,22 @@ namespace WebApp.Services
             };
             _store.Add(product);
         }
-        public void UpdateProduct(int index, string name, string description, float price, string photoURL)
+
+        public void UpdateProduct(int id, string name, string description, float price, string photoURL)
         {
             ProductExceptionCheck(name, price);
+            var entity = GetProduct(id);
 
-            _store[index].Name = name;
-            _store[index].Description = description;
-            _store[index].Price = price;
-            _store[index].PhotoURL = photoURL;
+            entity.Name = name;
+            entity.Description = description;
+            entity.Price = price;
+            entity.PhotoURL = photoURL;
         }
-        public void DeleteProduct(int index)
+
+        public void DeleteProduct(int id)
         {
-            _store.RemoveAt(index);
+            var entity = GetProduct(id);
+            _store.Remove(entity);
         }
 
         private static void ProductExceptionCheck(string name, float price)
