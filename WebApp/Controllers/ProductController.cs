@@ -25,18 +25,18 @@ namespace WebApp.Controllers
         [Route("{id}")]
         public IActionResult Get(int id)
         {
-            var product = _productService.GetProduct(id);
-            if (product == null)
+            var entity = _productService.GetProduct(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
             var result = new ProductModel()
             {
-                Name = product.Name,
-                Description = product.Description,
-                Price = product.Price,
-                PhotoURL = product.PhotoURL
+                Name = entity.Name,
+                Description = entity.Description,
+                Price = entity.Price,
+                PhotoURL = entity.PhotoURL
             };
             return Ok(result);
         }
@@ -45,12 +45,12 @@ namespace WebApp.Controllers
         [Route("")]
         public IActionResult Get()
         {
-            var products = _productService.GetProducts();
-            if (products == null)
+            var entities = _productService.GetProducts();
+            if (entities == null)
             {
                 return NotFound();
             }
-            return Ok(products);
+            return Ok(entities);
         }
 
         [HttpPost]
@@ -65,7 +65,13 @@ namespace WebApp.Controllers
         [Route("")]
         public IActionResult Update(int id, ProductModel model)
         {
-            _productService.UpdateProduct(id, model.Name, model.Description, model.Price, model.PhotoURL);
+            var entity = _productService.GetProduct(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            _productService.UpdateProduct(id, entity, model.Name, model.Description, model.Price, model.PhotoURL);
             return Ok();
         }
 
@@ -73,7 +79,13 @@ namespace WebApp.Controllers
         [Route("")]
         public IActionResult Delete(int id)
         {
-            _productService.DeleteProduct(id);
+            var entity = _productService.GetProduct(id);
+            if (entity == null)
+            {
+                return NotFound();
+            }
+
+            _productService.DeleteProduct(id, entity);
             return Ok();
         }
     }

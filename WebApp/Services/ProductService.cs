@@ -47,10 +47,23 @@ namespace WebApp.Services
             entity.Price = price;
             entity.PhotoURL = photoURL;
         }
+        public void UpdateProduct(int id, ProductEntity entity, string name, string description, float price, string photoURL)
+        {
+            ProductExceptionCheck(name, price);
+
+            entity.Name = name;
+            entity.Description = description;
+            entity.Price = price;
+            entity.PhotoURL = photoURL;
+        }
 
         public void DeleteProduct(int id)
         {
             var entity = GetProduct(id);
+            _store.Remove(entity);
+        }
+        public void DeleteProduct(int id, ProductEntity entity)
+        {
             _store.Remove(entity);
         }
 
