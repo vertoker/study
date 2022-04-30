@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Linq;
 using System;
 
@@ -21,7 +22,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet()]
-        [Route("")]
+        [Route("{id}")]
         public IActionResult Get(int id)
         {
             var product = _productService.GetProduct(id);
@@ -40,7 +41,7 @@ namespace WebApp.Controllers
             return Ok(result);
         }
 
-        /*[HttpGet()]
+        [HttpGet()]
         [Route("")]
         public IActionResult Get()
         {
@@ -50,7 +51,7 @@ namespace WebApp.Controllers
                 return NotFound();
             }
             return Ok(products);
-        }*/
+        }
 
         [HttpPost]
         [Route("")]
