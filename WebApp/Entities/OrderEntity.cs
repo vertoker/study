@@ -4,6 +4,7 @@ namespace WebApp.Entities
 {
     public class OrderEntity
     {
+        [System.ComponentModel.DataAnnotations.Key]
         public int ID { get; set; }
         public Dictionary<int, int> Products { get; set; }
         public string Address { get; set; }

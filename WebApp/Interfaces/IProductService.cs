@@ -5,6 +5,7 @@ namespace WebApp.Interfaces
 {
     public interface IProductService
     {
+        void InitDB();
         void AddProduct(string name, string description, float price, string photoURL);
         void UpdateProduct(int id, string name, string description, float price, string photoURL);
         void UpdateProduct(int id, ProductEntity entity, string name, string description, float price, string photoURL);

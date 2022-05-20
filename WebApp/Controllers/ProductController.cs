@@ -19,6 +19,7 @@ namespace WebApp.Controllers
         public ProductController(IProductService productService)
         {
             _productService = productService;
+            _productService.InitDB();
         }
 
         [HttpGet()]

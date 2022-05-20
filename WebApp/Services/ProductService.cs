@@ -8,9 +8,13 @@ namespace WebApp.Services
 {
     public class ProductService : IProductService
     {
-        private readonly static List<ProductEntity> _store = new List<ProductEntity>();
+        private static List<ProductEntity> _store = new List<ProductEntity>();
         private static int counterID = 0;
 
+        public void InitDB()
+        {
+            _store = ApplicationContextDB.GetProducts();
+        }
         public List<ProductEntity> GetProducts()
         {
             return _store;
@@ -35,6 +39,8 @@ namespace WebApp.Services
                 PhotoURL = photoURL
             };
             _store.Add(product);
+
+            ApplicationContextDB.UpdateProducts(_store);
         }
 
         public void UpdateProduct(int id, string name, string description, float price, string photoURL)
@@ -46,6 +52,8 @@ namespace WebApp.Services
             entity.Description = description;
             entity.Price = price;
             entity.PhotoURL = photoURL;
+
+            ApplicationContextDB.UpdateProducts(_store);
         }
         public void UpdateProduct(int id, ProductEntity entity, string name, string description, float price, string photoURL)
         {
@@ -55,16 +63,22 @@ namespace WebApp.Services
             entity.Description = description;
             entity.Price = price;
             entity.PhotoURL = photoURL;
+
+            ApplicationContextDB.UpdateProducts(_store);
         }
 
         public void DeleteProduct(int id)
         {
             var entity = GetProduct(id);
             _store.Remove(entity);
+
+            ApplicationContextDB.UpdateProducts(_store);
         }
         public void DeleteProduct(int id, ProductEntity entity)
         {
             _store.Remove(entity);
+
+            ApplicationContextDB.UpdateProducts(_store);
         }
 
         private static void ProductExceptionCheck(string name, float price)

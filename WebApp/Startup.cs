@@ -28,7 +28,7 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            /*services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     {
                         options.RequireHttpsMetadata = false;
@@ -52,7 +52,7 @@ namespace WebApp
                             ValidateIssuerSigningKey = true,
                         };
                     });
-            services.AddControllersWithViews();
+            services.AddControllersWithViews();*/
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -74,10 +74,14 @@ namespace WebApp
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp v1"));
             }
 
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

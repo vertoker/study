@@ -20,6 +20,7 @@ namespace WebApp.Controllers
         public OrderController(IOrderService orderService)
         {
             _orderService = orderService;
+            _orderService.InitDB();
         }
 
         [HttpGet()]
