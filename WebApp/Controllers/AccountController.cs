@@ -7,22 +7,16 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 
 using WebApp.Options;
-using WebApp.Models;
+using WebApp.Entities;
 
 namespace TokenApp.Controllers
 {
     public class AccountController : Controller
     {
-        private List<UserModel> testDB = new List<UserModel>
-        {
-            new UserModel { Login="admin@gmail.com", Password="12345", Role = UserRole.Admin},
-            new UserModel { Login="qwerty@gmail.com", Password="55555", Role = UserRole.User }
-        };
-
         [HttpPost("/token")]
         public IActionResult Token(string username, string password)
         {
-            var identity = GetIdentity(username, password);
+            var identity = ApplicationContextDB.GetIdentity(username, password);
             if (identity == null)
             {
                 return BadRequest( new { errorText = "Invalid username or password." });
@@ -48,22 +42,14 @@ namespace TokenApp.Controllers
             return Json(response);
         }
 
-        private ClaimsIdentity GetIdentity(string username, string password)
+        [HttpPost]
+        [Route("")]
+        public IActionResult Create(string login, string password, UserRole role)
         {
-            UserModel user = testDB.FirstOrDefault(x => x.Login == username && x.Password == password);
-            if (user != null)
-            {
-                var claims = new List<Claim>
-                {
-                    new Claim("Name", user.Login),
-                    new Claim("Role", user.Role.ToString())
-                };
-                ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-                return claimsIdentity;
-            }
-
-            // если пользователя не найдено
-            return null;
+            if (ApplicationContextDB.GetIdentity(login, password) != null)
+                return BadRequest( new { errorText = "Invalid username or password." } );
+            ApplicationContextDB.AddUser(login, password, role);
+            return Ok();
         }
     }
 }

@@ -8,8 +8,8 @@ namespace WebApp.Interfaces
         void InitDB();
         void AddOrder(Dictionary<int, int> products, string address, string description, OrderStatus orderStatus);
         void UpdateStatus(int id, OrderStatus orderStatus);
-        void UpdateStatus(int id, OrderEntity entity, OrderStatus orderStatus);
-        OrderEntity GetOrder(int id);
-        List<OrderEntity> GetOrders();
+        void UpdateStatus(int id, order entity, OrderStatus orderStatus);
+        order GetOrder(int id);
+        List<order> GetOrders();
     }
 }

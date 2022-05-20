@@ -35,11 +35,11 @@ namespace WebApp.Controllers
 
             var result = new OrderModel()
             {
-                Products = entity.Products,
                 Address = entity.Address,
                 Description = entity.Description,
-                Status = entity.Status
+                Status = (OrderStatus)entity.Status
             };
+            result.SetDictionary(entity.Products);
             return Ok(result);
         }
 

@@ -8,19 +8,19 @@ namespace WebApp.Services
 {
     public class ProductService : IProductService
     {
-        private static List<ProductEntity> _store = new List<ProductEntity>();
+        private static List<product> _store = new List<product>();
         private static int counterID = 0;
 
         public void InitDB()
         {
-            _store = ApplicationContextDB.GetProducts();
+            _store = ApplicationContextDB.GetProducts(out counterID);
         }
-        public List<ProductEntity> GetProducts()
+        public List<product> GetProducts()
         {
             return _store;
         }
 
-        public ProductEntity GetProduct(int id)
+        public product GetProduct(int id)
         {
             return _store.FirstOrDefault(item => item.ID == id);
         }
@@ -30,7 +30,7 @@ namespace WebApp.Services
             ProductExceptionCheck(name, price);
 
             counterID++;
-            ProductEntity product = new ProductEntity()
+            product product = new product()
             {
                 ID = counterID,
                 Name = name,
@@ -40,7 +40,7 @@ namespace WebApp.Services
             };
             _store.Add(product);
 
-            ApplicationContextDB.UpdateProducts(_store);
+            ApplicationContextDB.UpdateProducts(_store, counterID);
         }
 
         public void UpdateProduct(int id, string name, string description, float price, string photoURL)
@@ -53,9 +53,9 @@ namespace WebApp.Services
             entity.Price = price;
             entity.PhotoURL = photoURL;
 
-            ApplicationContextDB.UpdateProducts(_store);
+            ApplicationContextDB.UpdateProducts(_store, counterID);
         }
-        public void UpdateProduct(int id, ProductEntity entity, string name, string description, float price, string photoURL)
+        public void UpdateProduct(int id, product entity, string name, string description, float price, string photoURL)
         {
             ProductExceptionCheck(name, price);
 
@@ -64,7 +64,7 @@ namespace WebApp.Services
             entity.Price = price;
             entity.PhotoURL = photoURL;
 
-            ApplicationContextDB.UpdateProducts(_store);
+            ApplicationContextDB.UpdateProducts(_store, counterID);
         }
 
         public void DeleteProduct(int id)
@@ -72,13 +72,13 @@ namespace WebApp.Services
             var entity = GetProduct(id);
             _store.Remove(entity);
 
-            ApplicationContextDB.UpdateProducts(_store);
+            ApplicationContextDB.UpdateProducts(_store, counterID);
         }
-        public void DeleteProduct(int id, ProductEntity entity)
+        public void DeleteProduct(int id, product entity)
         {
             _store.Remove(entity);
 
-            ApplicationContextDB.UpdateProducts(_store);
+            ApplicationContextDB.UpdateProducts(_store, counterID);
         }
 
         private static void ProductExceptionCheck(string name, float price)

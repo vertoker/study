@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2XZGf6lmZFjk9WPP7AoBUFjH0AXs9oLSME7S+PxxgqMlVJegW1jLUNi82dMmvQTxuCT211bPPHZd6NHtnMasDw==",
+  "dgSpecHash": "cU4UORSCOyM/eN2lMEC7O4dmkiQsi5YQ7OrAPnsug2zlySXCa4nb2U7i3jZakHKDu3V7eT5gyXeDE0w16U0XeQ==",
   "success": true,
   "projectFilePath": "G:\\my-study\\WebApp\\WebApp.csproj",
   "expectedPackageFiles": [
@@ -39,11 +39,7 @@
     "C:\\Users\\verto\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\verto\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\verto\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.7.1\\system.identitymodel.tokens.jwt.6.7.1.nupkg.sha512",
-    "C:\\Users\\verto\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
-    "C:\\Users\\verto\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.15\\microsoft.netcore.app.host.win-x64.5.0.15.nupkg.sha512",
-    "C:\\Users\\verto\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\verto\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\verto\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
+    "C:\\Users\\verto\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }

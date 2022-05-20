@@ -8,12 +8,12 @@ namespace WebApp.Services
 {
     public class OrderService : IOrderService
     {
-        private static List<OrderEntity> _store = new List<OrderEntity>();
+        private static List<order> _store = new List<order>();
         private static int counterID = 0;
 
         public void InitDB()
         {
-            _store = ApplicationContextDB.GetOrders();
+            _store = ApplicationContextDB.GetOrders(out counterID);
         }
         public void AddOrder(Dictionary<int, int> products, string address, string description, OrderStatus orderStatus)
         {
@@ -23,17 +23,17 @@ namespace WebApp.Services
                 throw new System.Exception("Order status is not selected");
 
             counterID++;
-            OrderEntity order = new OrderEntity()
+            order order = new order()
             {
                 ID = counterID,
-                Products = products,
                 Address = address,
                 Description = description,
-                Status = orderStatus
+                Status = (byte)orderStatus
             };
+            order.SetDictionary(products);
             _store.Add(order);
 
-            ApplicationContextDB.UpdateOrders(_store);
+            ApplicationContextDB.UpdateOrders(_store, counterID);
         }
         public void UpdateStatus(int id, OrderStatus orderStatus)
         {
@@ -41,24 +41,24 @@ namespace WebApp.Services
                 throw new System.Exception("Order status is not selected");
 
             var entity = GetOrder(id);
-            entity.Status = orderStatus;
+            entity.Status = (byte)orderStatus;
 
-            ApplicationContextDB.UpdateOrders(_store);
+            ApplicationContextDB.UpdateOrders(_store, counterID);
         }
-        public void UpdateStatus(int id, OrderEntity entity, OrderStatus orderStatus)
+        public void UpdateStatus(int id, order entity, OrderStatus orderStatus)
         {
             if ((byte)orderStatus > 2)
                 throw new System.Exception("Order status is not selected");
 
-            entity.Status = orderStatus;
+            entity.Status = (byte)orderStatus;
 
-            ApplicationContextDB.UpdateOrders(_store);
+            ApplicationContextDB.UpdateOrders(_store, counterID);
         }
-        public OrderEntity GetOrder(int id)
+        public order GetOrder(int id)
         {
             return _store.FirstOrDefault(item => item.ID == id);
         }
-        public List<OrderEntity> GetOrders()
+        public List<order> GetOrders()
         {
             return _store;
         }

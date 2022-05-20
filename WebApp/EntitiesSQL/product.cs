@@ -1,8 +1,10 @@
-﻿namespace WebApp.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApp.Entities
 {
-    public class ProductEntity
+    public class product
     {
-        [System.ComponentModel.DataAnnotations.Key]
+        [Required, Key]
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
