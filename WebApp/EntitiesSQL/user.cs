@@ -6,12 +6,12 @@ namespace WebApp.Entities
     public class user
     {
         [Required, Key]
-        public int ID { get; set; } 
-        public string Login { get; set; } = "";
-        public string Password { get; set; } = "";
-        public byte UserRole { get; set; } = 0;
+        public int id { get; set; } 
+        public string login { get; set; } = "";
+        public string password { get; set; } = "";
+        public byte user_role { get; set; } = 0;
 
-        public List<order> Orders { get; set; }
+        public List<order> orders { get; set; }
     }
 }
 

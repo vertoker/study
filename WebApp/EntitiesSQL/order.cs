@@ -1,26 +1,26 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
+using WebApp.Models;
 
 namespace WebApp.Entities
 {
     public class order
     {
         [Required, Key]
-        public int ID { get; set; }
-        public string Products { get; set; }// ID продукта и его количество
-        public string Address { get; set; }
-        public string Description { get; set; }
-        public byte Status { get; set; }
+        public int id { get; set; }
+        public string products_id { get; set; }// ID продукта
+        public string products_count { get; set; }// Количества продукта
+        public string address { get; set; }
+        public string description { get; set; }
+        public byte status { get; set; }
 
-        public int UserID { get; set; }
-        public user UserObject { get; set; }
+        public int user_id { get; set; }
+        public user user_object { get; set; }
 
-        public void SetDictionary(Dictionary<int, int> products)
+        public void SetDictionary(int[] productsID, int[] productsCount)
         {
-            Products = string.Join(' ', products);
-            Products.Replace('[', ' ');
-            Products.Replace(',', ' ');
-            Products.Replace(']', ' ');
+            products_id = string.Join(" ", productsID);
+            products_count = string.Join(" ", productsCount);
         }
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Май 20 2022 г., 22:01
+-- Время создания: Май 23 2022 г., 19:41
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -28,18 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `data` (
-  `ID` int(11) NOT NULL,
-  `CounterOrder` int(11) NOT NULL,
-  `CounterProduct` int(11) NOT NULL,
-  `CounterUser` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `counter_order` int(11) NOT NULL,
+  `counter_product` int(11) NOT NULL,
+  `counter_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `data`
 --
 
-INSERT INTO `data` (`ID`, `CounterOrder`, `CounterProduct`, `CounterUser`) VALUES
-(0, 0, 0, 1);
+INSERT INTO `data` (`id`, `counter_order`, `counter_product`, `counter_user`) VALUES
+(0, 2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -48,13 +48,21 @@ INSERT INTO `data` (`ID`, `CounterOrder`, `CounterProduct`, `CounterUser`) VALUE
 --
 
 CREATE TABLE `order` (
-  `ID` int(11) NOT NULL,
-  `Products` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `UserID` int(11) NOT NULL,
-  `Address` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Status` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `products_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `products_count` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `order`
+--
+
+INSERT INTO `order` (`id`, `products_id`, `products_count`, `user_id`, `address`, `description`, `status`) VALUES
+(2, '0 1', '2 5', 3, 'Крауля 168', 'Доставить к охраннику', 0);
 
 -- --------------------------------------------------------
 
@@ -63,12 +71,20 @@ CREATE TABLE `order` (
 --
 
 CREATE TABLE `product` (
-  `ID` int(11) NOT NULL,
-  `Name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Description` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Price` float NOT NULL,
-  `PhotoURL` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` float NOT NULL,
+  `photo_url` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `description`, `price`, `photo_url`) VALUES
+(1, 'Пицца Пеперонни', 'Сочная, нежная начинка, покрытая наслаждением от колбасы боварского качества', 100, 'нету'),
+(2, 'Пицца Пеперонни', 'Сочная, нежная начинка, покрытая наслаждением от колбасы боварского качества', 100, 'нету');
 
 -- --------------------------------------------------------
 
@@ -77,18 +93,18 @@ CREATE TABLE `product` (
 --
 
 CREATE TABLE `user` (
-  `ID` int(11) NOT NULL,
-  `Login` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Password` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `UserRole` tinyint(4) NOT NULL
+  `id` int(11) NOT NULL,
+  `login` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_role` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `user`
 --
 
-INSERT INTO `user` (`ID`, `Login`, `Password`, `UserRole`) VALUES
-(1, '123', '321', 0);
+INSERT INTO `user` (`id`, `login`, `password`, `user_role`) VALUES
+(3, '123', '321', 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -98,26 +114,26 @@ INSERT INTO `user` (`ID`, `Login`, `Password`, `UserRole`) VALUES
 -- Индексы таблицы `data`
 --
 ALTER TABLE `data`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `UserID` (`UserID`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `UserID` (`user_id`);
 
 --
 -- Индексы таблицы `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
@@ -127,7 +143,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT для таблицы `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -137,7 +153,7 @@ ALTER TABLE `user`
 -- Ограничения внешнего ключа таблицы `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`);
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

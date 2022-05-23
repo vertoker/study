@@ -107,3 +107,12 @@ G:\my-study\WebApp\obj\Debug\net5.0\WebApp.RazorTargetAssemblyInfo.cache
 G:\my-study\WebApp\obj\Debug\net5.0\WebApp.csproj.CopyComplete
 G:\my-study\WebApp\obj\Debug\net5.0\WebApp.genruntimeconfig.cache
 G:\my-study\WebApp\obj\Debug\net5.0\ref\WebApp.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Humanizer.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+S:\my-study\WebApp\bin\Debug\net5.0\MySqlConnector.dll
+S:\my-study\WebApp\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+S:\my-study\WebApp\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll

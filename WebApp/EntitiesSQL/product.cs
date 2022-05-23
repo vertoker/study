@@ -5,10 +5,10 @@ namespace WebApp.Entities
     public class product
     {
         [Required, Key]
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public float Price { get; set; }
-        public string PhotoURL { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public float price { get; set; }
+        public string photo_url { get; set; }
     }
 }

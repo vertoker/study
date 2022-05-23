@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using WebApp.Entities;
+using WebApp.Models;
 using WebApp.Interfaces;
 using System.Linq;
 
@@ -13,16 +14,26 @@ namespace WebApp.Services
 
         public void InitDB()
         {
-            _store = ApplicationContextDB.GetProducts(out counterID);
+            _store = ApplicationContextDB.GetProducts(ref counterID);
         }
-        public List<product> GetProducts()
+        public List<ProductModel> GetProducts()
         {
-            return _store;
+            var result = new List<ProductModel>();
+            foreach (var item in _store)
+            {
+                result.Add(new ProductModel(item.name, item.description, item.price, item.photo_url));
+            }
+            return result;
         }
 
-        public product GetProduct(int id)
+        public ProductModel GetProduct(int id)
         {
-            return _store.FirstOrDefault(item => item.ID == id);
+            var product = _store.FirstOrDefault(item => item.id == id);
+            return new ProductModel(product.name, product.description, product.price, product.photo_url);
+        }
+        public product GetProductData(int id)
+        {
+            return _store.FirstOrDefault(item => item.id == id);
         }
 
         public void AddProduct(string name, string description, float price, string photoURL)
@@ -32,11 +43,11 @@ namespace WebApp.Services
             counterID++;
             product product = new product()
             {
-                ID = counterID,
-                Name = name,
-                Description = description,
-                Price = price,
-                PhotoURL = photoURL
+                id = counterID,
+                name = name,
+                description = description,
+                price = price,
+                photo_url = photoURL
             };
             _store.Add(product);
 
@@ -48,10 +59,10 @@ namespace WebApp.Services
             ProductExceptionCheck(name, price);
             var entity = GetProduct(id);
 
-            entity.Name = name;
-            entity.Description = description;
-            entity.Price = price;
-            entity.PhotoURL = photoURL;
+            entity.name = name;
+            entity.description = description;
+            entity.price = price;
+            entity.photo_url = photoURL;
 
             ApplicationContextDB.UpdateProducts(_store, counterID);
         }
@@ -59,17 +70,17 @@ namespace WebApp.Services
         {
             ProductExceptionCheck(name, price);
 
-            entity.Name = name;
-            entity.Description = description;
-            entity.Price = price;
-            entity.PhotoURL = photoURL;
+            entity.name = name;
+            entity.description = description;
+            entity.price = price;
+            entity.photo_url = photoURL;
 
             ApplicationContextDB.UpdateProducts(_store, counterID);
         }
 
         public void DeleteProduct(int id)
         {
-            var entity = GetProduct(id);
+            var entity = GetProductData(id);
             _store.Remove(entity);
 
             ApplicationContextDB.UpdateProducts(_store, counterID);

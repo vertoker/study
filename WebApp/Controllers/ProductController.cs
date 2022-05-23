@@ -31,15 +31,7 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-
-            var result = new ProductModel()
-            {
-                Name = entity.Name,
-                Description = entity.Description,
-                Price = entity.Price,
-                PhotoURL = entity.PhotoURL
-            };
-            return Ok(result);
+            return Ok(entity);
         }
 
         [HttpGet()]
@@ -58,7 +50,7 @@ namespace WebApp.Controllers
         [Route("")]
         public IActionResult Create(ProductModel model)
         {
-            _productService.AddProduct(model.Name, model.Description, model.Price, model.PhotoURL);
+            _productService.AddProduct(model.name, model.description, model.price, model.photo_url);
             return Ok();
         }
 
@@ -66,13 +58,13 @@ namespace WebApp.Controllers
         [Route("{id}")]
         public IActionResult Update(int id, ProductModel model)
         {
-            var entity = _productService.GetProduct(id);
+            var entity = _productService.GetProductData(id);
             if (entity == null)
             {
                 return NotFound();
             }
 
-            _productService.UpdateProduct(id, entity, model.Name, model.Description, model.Price, model.PhotoURL);
+            _productService.UpdateProduct(id, entity, model.name, model.description, model.price, model.photo_url);
             return Ok();
         }
 
@@ -80,7 +72,7 @@ namespace WebApp.Controllers
         [Route("{id}")]
         public IActionResult Delete(int id)
         {
-            var entity = _productService.GetProduct(id);
+            var entity = _productService.GetProductData(id);
             if (entity == null)
             {
                 return NotFound();

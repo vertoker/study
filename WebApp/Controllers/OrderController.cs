@@ -32,15 +32,7 @@ namespace WebApp.Controllers
             {
                 return NotFound();
             }
-
-            var result = new OrderModel()
-            {
-                Address = entity.Address,
-                Description = entity.Description,
-                Status = (OrderStatus)entity.Status
-            };
-            result.SetDictionary(entity.Products);
-            return Ok(result);
+            return Ok(entity);
         }
 
         [HttpGet()]
@@ -59,7 +51,7 @@ namespace WebApp.Controllers
         [Route("")]
         public IActionResult Create(OrderModel model)
         {
-            _orderService.AddOrder(model.Products, model.Address, model.Description, model.Status);
+            _orderService.AddOrder(model.products_id, model.products_count, model.address, model.description, model.status, model.user_id);
             return Ok();
         }
 
@@ -67,7 +59,7 @@ namespace WebApp.Controllers
         [Route("{id}")]
         public IActionResult Update(int id, OrderStatus orderStatus)
         {
-            var entity = _orderService.GetOrder(id);
+            var entity = _orderService.GetOrderData(id);
             if (entity == null)
             {
                 return NotFound();
