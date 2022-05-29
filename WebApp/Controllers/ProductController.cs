@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
 using System.Text.Json;
 using System.Linq;
 using System;
@@ -24,6 +25,7 @@ namespace WebApp.Controllers
 
         [HttpGet()]
         [Route("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             var entity = _productService.GetProduct(id);
@@ -36,6 +38,7 @@ namespace WebApp.Controllers
 
         [HttpGet()]
         [Route("")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
             var entities = _productService.GetProducts();
@@ -48,6 +51,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(ProductModel model)
         {
             _productService.AddProduct(model.name, model.description, model.price, model.photo_url);
@@ -56,6 +60,7 @@ namespace WebApp.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id, ProductModel model)
         {
             var entity = _productService.GetProductData(id);
@@ -70,6 +75,7 @@ namespace WebApp.Controllers
 
         [HttpDelete]
         [Route("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
             var entity = _productService.GetProductData(id);

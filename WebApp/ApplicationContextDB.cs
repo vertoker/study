@@ -90,7 +90,7 @@ internal class ApplicationContextDB : DbContext
         db.data.ToArray()[0].counter_user = id + 1;
         db.SaveChanges();
     }
-    public static user FindUser(order owner, int userID)
+    public static user FindUser(int userID)
     {
         using ApplicationContextDB db = new ApplicationContextDB();
         user user = db.user.FirstOrDefault((user user) => user.id == userID);
@@ -109,7 +109,7 @@ internal class ApplicationContextDB : DbContext
             var claims = new List<Claim>
                 {
                     new Claim(ClaimsIdentity.DefaultNameClaimType, user.login),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, user.user_role.ToString())
+                    new Claim(ClaimsIdentity.DefaultRoleClaimType, ((UserRole)user.user_role).ToString())
                 };
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
             return claimsIdentity;

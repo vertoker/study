@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 using WebApp.Options;
 using WebApp.Entities;
@@ -36,7 +37,8 @@ namespace TokenApp.Controllers
             var response = new
             {
                 access_token = encodedJwt,
-                username = identity.Name
+                username = identity.Name,
+                role = identity.Claims.ToArray()[1].Value
             };
 
             return Json(response);

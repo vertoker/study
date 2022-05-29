@@ -6,8 +6,7 @@ namespace WebApp.Models
 {
     public class OrderModelGet// Для запроса ВЫДАЧИ 
     {
-        public ProductModel[] products_objects { get; set; }// Продукты
-        public int[] products_count { get; set; }// Количество продукта
+        public ProductModelCounted[] products_objects { get; set; }// Продукты
         public string address { get; set; } = "";
         public string description { get; set; } = "";
         public int user_id { get; set; } = 0;
@@ -19,10 +18,9 @@ namespace WebApp.Models
             products_count = productsCount.Split(" ").Select(int.Parse).ToArray();
         }
 
-        public OrderModelGet(ProductModel[] products_objects, int[] products_count, string address, string description, int user_id, OrderStatus status)
+        public OrderModelGet(ProductModelCounted[] products_objects, string address, string description, int user_id, OrderStatus status)
         {
             this.products_objects = products_objects;
-            this.products_count = products_count;
             this.address = address;
             this.description = description;
             this.user_id = user_id;

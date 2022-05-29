@@ -1,5 +1,4 @@
-﻿
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Text.Json;
@@ -9,6 +8,7 @@ using System;
 using WebApp.Entities;
 using WebApp.Interfaces;
 using WebApp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApp.Controllers
 {
@@ -25,6 +25,7 @@ namespace WebApp.Controllers
 
         [HttpGet()]
         [Route("{id}")]
+        [Authorize]
         public IActionResult Get(int id)
         {
             var entity = _orderService.GetOrder(id);
@@ -37,6 +38,7 @@ namespace WebApp.Controllers
 
         [HttpGet()]
         [Route("")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
             var entities = _orderService.GetOrders();
@@ -49,6 +51,7 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [Route("")]
+        [Authorize]
         public IActionResult Create(OrderModelPost model)
         {
             _orderService.AddOrder(model);
@@ -57,6 +60,7 @@ namespace WebApp.Controllers
 
         [HttpPut]
         [Route("{id}")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Update(int id, OrderStatus orderStatus)
         {
             var entity = _orderService.GetOrderData(id);

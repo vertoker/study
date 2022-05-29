@@ -51,8 +51,8 @@ namespace WebApp.Services
         {
             var o = _store.FirstOrDefault(item => item.id == id);
             OrderModelGet.SetDictionary(o.products_id, o.products_count, out int[] products_id, out int[] products_count);
-            var products_objects = FillProducts(products_id);
-            return new OrderModelGet(products_objects, products_count, o.address, o.description, o.user_id, (OrderStatus)o.status);
+            var products_objects = FillProducts(products_id, products_count);
+            return new OrderModelGet(products_objects, o.address, o.description, o.user_id, (OrderStatus)o.status);
         }
         public order GetOrderData(int id)
         {
@@ -65,25 +65,25 @@ namespace WebApp.Services
             foreach (var o in _store)
             {
                 OrderModelPost.SetDictionary(o.products_id, o.products_count, out int[] products_id, out int[] products_count);
-                var products_objects = FillProducts(products_id, products);
-                result.Add(new OrderModelGet(products_objects, products_count, o.address, o.description, o.user_id, (OrderStatus)o.status));
+                var products_objects = FillProducts(products_id, products_count, products);
+                result.Add(new OrderModelGet(products_objects, o.address, o.description, o.user_id, (OrderStatus)o.status));
             }
             return result;
         }
 
-        private ProductModel[] FillProducts(int[] products_id)
+        private ProductModelCounted[] FillProducts(int[] products_id, int[] products_count)
         {
             var products = ApplicationContextDB.GetProducts();
-            return FillProducts(products_id, products);
+            return FillProducts(products_id, products_count, products);
         }
-        private ProductModel[] FillProducts(int[] products_id, List<product> products)
+        private ProductModelCounted[] FillProducts(int[] products_id, int[] products_count, List<product> products)
         {
             int length = products_id.Length;
-            ProductModel[] result = new ProductModel[length];
+            ProductModelCounted[] result = new ProductModelCounted[length];
             for (int i = 0; i < length; i++)
             {
                 var p = products.FirstOrDefault((product p) => { return p.id == products_id[i]; });
-                result[i] = new ProductModel(p.name, p.description, p.price, p.photo_url);
+                result[i] = new ProductModelCounted(p.name, p.description, p.price, p.photo_url, products_count[i]);
             }
             return result;
         }
