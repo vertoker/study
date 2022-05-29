@@ -4,10 +4,10 @@ using WebApp.Entities;
 
 namespace WebApp.Models
 {
-    public class OrderModel
+    public class OrderModelGet// Для запроса ВЫДАЧИ 
     {
-        public int[] products_id { get; set; }// ID продукта
-        public int[] products_count { get; set; }// Количества продукта
+        public ProductModel[] products_objects { get; set; }// Продукты
+        public int[] products_count { get; set; }// Количество продукта
         public string address { get; set; } = "";
         public string description { get; set; } = "";
         public int user_id { get; set; } = 0;
@@ -19,9 +19,9 @@ namespace WebApp.Models
             products_count = productsCount.Split(" ").Select(int.Parse).ToArray();
         }
 
-        public OrderModel(int[] products_id, int[] products_count, string address, string description, int user_id, OrderStatus status)
+        public OrderModelGet(ProductModel[] products_objects, int[] products_count, string address, string description, int user_id, OrderStatus status)
         {
-            this.products_id = products_id;
+            this.products_objects = products_objects;
             this.products_count = products_count;
             this.address = address;
             this.description = description;

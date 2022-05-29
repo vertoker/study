@@ -11,7 +11,7 @@ namespace WebApp.Entities
         public string password { get; set; } = "";
         public byte user_role { get; set; } = 0;
 
-        public List<order> orders { get; set; }
+        //public List<order> orders { get; set; }
     }
 }
 

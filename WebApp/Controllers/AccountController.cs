@@ -14,9 +14,9 @@ namespace TokenApp.Controllers
     public class AccountController : Controller
     {
         [HttpPost("/token")]
-        public IActionResult Token(string username, string password)
+        public IActionResult Token(string login, string password)
         {
-            var identity = ApplicationContextDB.GetIdentity(username, password);
+            var identity = ApplicationContextDB.GetIdentity(login, password);
             if (identity == null)
             {
                 return BadRequest( new { errorText = "Invalid username or password." });

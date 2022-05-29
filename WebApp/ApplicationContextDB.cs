@@ -25,7 +25,7 @@ internal class ApplicationContextDB : DbContext
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<order>().HasOne(x => x.user_object).WithMany(x => x.orders).HasForeignKey(e => e.user_id);
+        /*modelBuilder.Entity<order>().HasOne(x => x.user_object).WithMany(x => x.orders).HasForeignKey(e => e.user_id);*/
     }
 
     public static List<order> GetOrders(ref int counter)
@@ -33,6 +33,11 @@ internal class ApplicationContextDB : DbContext
         using ApplicationContextDB db = new ApplicationContextDB();
         counter = db.data.ToArray()[0].counter_order;
         return db.order.ToList();
+    }
+    public static List<product> GetProducts()
+    {
+        using ApplicationContextDB db = new ApplicationContextDB();
+        return db.product.ToList();
     }
     public static List<product> GetProducts(ref int counter)
     {
@@ -43,15 +48,17 @@ internal class ApplicationContextDB : DbContext
     public static void UpdateOrders(List<order> orders, int counter)
     {
         using ApplicationContextDB db = new ApplicationContextDB();
-        foreach (var order in orders)
+        /*foreach (var order in orders)
         {
             if (order.user_object == null)
             {
                 user user = db.user.FirstOrDefault((user user) => user.id == order.user_id);
                 order.user_object = user;
+                if (user.orders == null)
+                    user.orders = new List<order>();
                 user.orders.Add(order);
             }
-        }
+        }*/
         foreach (var order in db.order)
             db.order.Remove(order);
         db.order.AddRange(orders);
@@ -93,10 +100,10 @@ internal class ApplicationContextDB : DbContext
         db.SaveChanges();*/
         return user;
     }
-    public static ClaimsIdentity GetIdentity(string username, string password)
+    public static ClaimsIdentity GetIdentity(string login, string password)
     {
         using ApplicationContextDB db = new ApplicationContextDB();
-        user user = db.user.FirstOrDefault(x => x.login == username && x.password == password);
+        user user = db.user.FirstOrDefault(x => x.login == login && x.password == password);
         if (user != null)
         {
             var claims = new List<Claim>
@@ -109,5 +116,10 @@ internal class ApplicationContextDB : DbContext
         }
 
         return null;
+    }
+    public static user[] GetAllUsers()
+    {
+        using ApplicationContextDB db = new ApplicationContextDB();
+        return db.user.ToArray();
     }
 }

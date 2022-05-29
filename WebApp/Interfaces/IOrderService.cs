@@ -7,10 +7,10 @@ namespace WebApp.Interfaces
     public interface IOrderService
     {
         void InitDB();
-        void AddOrder(int[] productsID, int[] productsCount, string address, string description, OrderStatus orderStatus, int userID);
+        void AddOrder(OrderModelPost orderModelPost);
         void UpdateStatus(int id, order entity, OrderStatus orderStatus);
-        OrderModel GetOrder(int id);
+        OrderModelGet GetOrder(int id);
         order GetOrderData(int id);
-        List<OrderModel> GetOrders();
+        List<OrderModelGet> GetOrders();
     }
 }

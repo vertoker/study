@@ -15,7 +15,7 @@ namespace WebApp.Entities
         public byte status { get; set; }
 
         public int user_id { get; set; }
-        public user user_object { get; set; }
+        //public user user_object { get; set; }
 
         public void SetDictionary(int[] productsID, int[] productsCount)
         {

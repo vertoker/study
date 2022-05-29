@@ -49,9 +49,9 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [Route("")]
-        public IActionResult Create(OrderModel model)
+        public IActionResult Create(OrderModelPost model)
         {
-            _orderService.AddOrder(model.products_id, model.products_count, model.address, model.description, model.status, model.user_id);
+            _orderService.AddOrder(model);
             return Ok();
         }
 
