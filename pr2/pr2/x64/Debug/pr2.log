@@ -1,0 +1,4 @@
+﻿  pr2.cpp
+D:\my-study\pr2\pr2\pr2.cpp(114,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr2\pr2\pr2.cpp(349,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  pr2.vcxproj -> D:\my-study\pr2\x64\Debug\pr2.exe
