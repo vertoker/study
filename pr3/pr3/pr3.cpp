@@ -36,55 +36,54 @@ int Clamp(int value, int min, int max) {
         return max;
     return value;
 }
+string CharToString(char x) {
+    string s(1, x);
+    return s;
+}
 
 enum Suit
 {
     Diamonds = 0, Hearts = 1, Clubs = 2, Spades = 3
 };
-
-static void Print(Suit suit) {
+static string ToString(Suit suit) {
     switch (suit)
     {
-    case Suit::Diamonds: cout << static_cast<char>(4); break;
-    case Suit::Hearts: cout << static_cast<char>(3); break;
-    case Suit::Clubs: cout << static_cast<char>(5); break;
-    case Suit::Spades: cout << static_cast<char>(6); break;
+    case Suit::Diamonds: return CharToString(static_cast<char>(4));
+    case Suit::Hearts: return CharToString(static_cast<char>(3));
+    case Suit::Clubs: return CharToString(static_cast<char>(5));
+    case Suit::Spades: return CharToString(static_cast<char>(6));
     }
 }
-static void PrintFull(Suit suit) {
+static string ToStringFull(Suit suit) {
     switch (suit)
     {
-    case Suit::Diamonds: cout << static_cast<char>(4) << " (бубны)"; break;
-    case Suit::Hearts: cout << static_cast<char>(3) << " (черви)"; break;
-    case Suit::Clubs: cout << static_cast<char>(5) << " (трефы)"; break;
-    case Suit::Spades: cout << static_cast<char>(6) << " (пики)"; break;
+    case Suit::Diamonds: return CharToString(static_cast<char>(4)) + " (бубны)";
+    case Suit::Hearts: return CharToString(static_cast<char>(3)) + " (черви)";
+    case Suit::Clubs: return CharToString(static_cast<char>(5)) + " (трефы)";
+    case Suit::Spades: return CharToString(static_cast<char>(6)) + " (пики)";
     }
 }
-
 enum Number {
     Card6 = 0, Card7 = 1, Card8 = 2, Card9 = 3, Card10 = 4,
     CardJack = 5, CardQueen = 6, CardKing = 7, CardAce = 8
 };
-
-static void Print(Number number) {
+static string ToString(Number number) {
     switch (number)
     {
-    case Number::Card6: cout << '6'; break;
-    case Number::Card7: cout << '7'; break;
-    case Number::Card8: cout << '8'; break;
-    case Number::Card9: cout << '9'; break;
-    case Number::Card10: cout << '10'; break;
-    case Number::CardJack: cout << 'J'; break;
-    case Number::CardQueen: cout << 'Q'; break;
-    case Number::CardKing: cout << 'K'; break;
-    case Number::CardAce: cout << 'A'; break;
+    case Number::Card6: return "6";
+    case Number::Card7: return "7";
+    case Number::Card8: return "8";
+    case Number::Card9: return "9";
+    case Number::Card10: return "10";
+    case Number::CardJack: return "J";
+    case Number::CardQueen: return "Q";
+    case Number::CardKing: return "K";
+    case Number::CardAce: return "A";
     }
 }
-
 enum DecisionType {
     Human = 0, Bot = 1
 };
-
 static string ToString(DecisionType type) {
     switch (type)
     {
@@ -115,45 +114,23 @@ public:
     }
 
     void Print() {
-        PrintNumber();
-        PrintSuit();
+        cout /*<< "Карта "*/ << ToString(_number) << ToStringFull(_suit) << endl;
     }
-    void PrintTable() {
-        PrintNumberTable();
-        PrintSuitTable();
-        cout << ' ';
+    void Print(int id) {
+        cout /*<< "Карта "*/ << ToString(_number) << ToStringFull(_suit) << " => " << id << endl;
     }
-
-    void PrintNumber() {
-        cout << "Карта ";
-        PrintNumberTable();
-    }
-    void PrintNumberTable() {
-    }
-    void PrintSuit() {
-        switch (_suit)
-        {
-        }
-        cout << endl;
-    }
-    void PrintSuitTable() {
-        switch (_suit)
-        {
-        case Suit::Diamonds: cout << static_cast<char>(4); break;
-        case Suit::Hearts: cout << static_cast<char>(3); break;
-        case Suit::Clubs: cout << static_cast<char>(5); break;
-        case Suit::Spades: cout << static_cast<char>(6); break;
-        }
+    void PrintTable(int id) {
+        cout << ToString(_number) << ToString(_suit) << " (" << id << ") ";
     }
 };
 
 class Deck {
 public:
-    Card cards[36];
+    Card* cards;
     int length = 0;
 
     Deck() {
-
+        cards = new Card[36];
     }
 
     void Fill() {
@@ -186,7 +163,7 @@ public:
             return;
         }
         for (int i = 0; i < length; i++)
-            cards[i].Print();
+            cards[i].Print(i);
     }
 
     void Add(Card card) {
@@ -251,11 +228,20 @@ private:
 class Table {
 public:
     CardComparison comparisons[6];
+    bool isFirst = true;
+    int length = 0;
 
     Table() {
 
     }
 
+    void Attack(vector<Card> attackSorted) {
+        length = attackSorted.size();
+        for (int i = 0; i < length; i++)
+        {
+            comparisons[i].SetAttack(attackSorted[i]);
+        }
+    }
     bool CanDefense(vector<Card> attackSorted, Deck deck, Suit trump) {
         vector<int> usedCardsID;
 
@@ -273,17 +259,15 @@ public:
                     usedCardsID.push_back(i);
                 }
             }
+            return false;
         }
     }
-    void SetAttack(vector<Card> attackSorted) {
-        for (int i = 0; i < 6; i++)
-        {
-            comparisons[i].SetAttack(attackSorted[i]);
-        }
+    void Defense() {
+
     }
     void Print() {
-        for (auto comparison : comparisons)
-            comparison.cardAttack.PrintTable();
+        for (int i = 0; i < length; i++)
+            comparisons[i].cardAttack.PrintTable(i);
         cout << endl;
     }
 };
@@ -331,8 +315,16 @@ private:
     vector<Card> HumanDecision(Deck deck, Table table) {
         cout << "Ваша колода" << endl;
         deck.Print();
-        cout << "Выкинутые карты на столе: " << endl;
-        table.Print();
+
+        if (table.length > 0) {
+            cout << "Выкинутые карты на столе: " << endl;
+            table.Print();
+        }
+        else {
+            cout << "На столе нету карт" << endl;
+        }
+        cout << endl;
+
         return SelectAttackCards(deck);
     }
     vector<Card> BotDecision(Deck deck, Table table) {
@@ -370,22 +362,29 @@ public:
 
         decks = new Deck[count];
         players = new Decision[count];
-        for (int i = 0; i < count; i++)
+        for (size_t i = 0; i < count; i++)
         {
-            decks[i] = Deck();
             players[i] = Decision();
+            decks[i] = Deck();
         }
         players[0].decisionType = DecisionType::Human;
     }
 
     void Game() {
         cout << "Игра началась" << endl << endl;
+
+        for (size_t x = 0; x < count; x++)
+        {
+            for (size_t y = 0; y < 6; y++) {
+                decks[x].Add(dispencer.PopLast());
+            }
+        }
+
         cout << "Козырная карта" << endl;
         dispencer.cards[0].Print();
         trump = dispencer.cards[0]._suit;
-        cout << "Козырная масть - ";
-        PrintFull(trump);
-        cout << endl << endl;
+        //cout << "Козырная масть - " << ToStringFull(trump) << endl;
+        cout << endl;
 
         bool inGame = true;
         int counterCurrent = 0;
@@ -403,11 +402,17 @@ public:
                 continue;
             }
 
-            cout << "Игрок #" << counterCurrent + 1 << " - " << ToString(players[counterCurrent].decisionType) << endl;
-            int next = Clamp(counterCurrent + 1, 0, count);
-            cout << "Идёт нападение на игрока #" << next + 1 << " - " << ToString(players[next].decisionType) << endl;
+            cout << "Нападает игрок #" << counterCurrent + 1 << " - " << ToString(players[counterCurrent].decisionType) << endl;
 
             vector<Card> attackDeck = players[counterCurrent].MakeDecision(decks[counterCurrent], table);
+            cout << endl;
+
+            int next = Clamp(counterCurrent + 1, 0, count);
+            cout << "Защищается игрок #" << next + 1 << " - " << ToString(players[next].decisionType) << endl;
+
+            if (table.CanDefense(attackDeck, decks[next], trump)) {
+                cout << "Игрок может защититься" << endl;
+            }
 
             counterCurrent++;
             if (counterCurrent == count)
@@ -444,6 +449,6 @@ int main()
     setlocale(LC_ALL, "Russian");
     srand(time(NULL));
 
-    GameController controller = GameController(EnterNumber("Введите количество игроков (от 2 до 7): "));
+    GameController controller = GameController(EnterNumber("Введите количество игроков (от 2 до 5): "));
     controller.Game();
 }
