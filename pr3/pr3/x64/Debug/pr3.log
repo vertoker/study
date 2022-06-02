@@ -1,14 +1,13 @@
 ﻿  pr3.cpp
-G:\my-study\pr3\pr3\pr3.cpp(1,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(142,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(239,1): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(450,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(264): warning C4715: Table::CanDefense: значение возвращается не при всех путях выполнения
-G:\my-study\pr3\pr3\pr3.cpp(83): warning C4715: ToString: значение возвращается не при всех путях выполнения
-G:\my-study\pr3\pr3\pr3.cpp(65): warning C4715: ToStringFull: значение возвращается не при всех путях выполнения
-G:\my-study\pr3\pr3\pr3.cpp(56): warning C4715: ToString: значение возвращается не при всех путях выполнения
-  pr3.vcxproj -> G:\my-study\pr3\x64\Debug\pr3.exe
+D:\my-study\pr3\pr3\pr3.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(146,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(318,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(588,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(87): warning C4715: ToString: значение возвращается не при всех путях выполнения
+D:\my-study\pr3\pr3\pr3.cpp(69): warning C4715: ToStringFull: значение возвращается не при всех путях выполнения
+D:\my-study\pr3\pr3\pr3.cpp(60): warning C4715: ToString: значение возвращается не при всех путях выполнения
+  pr3.vcxproj -> D:\my-study\pr3\x64\Debug\pr3.exe
