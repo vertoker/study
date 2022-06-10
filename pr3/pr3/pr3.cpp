@@ -374,12 +374,12 @@ public:
     vector<Card> MakeDecisionAttack(Deck& deck, int countNext) {
         if (decisionType == DecisionType::Human)
             return HumanDecisionAttack(deck, countNext);
-        return HumanDecisionAttack(deck, countNext);//Изменить потом
+        return BotDecisionAttack(deck, countNext);//Изменить потом
     }
     vector<Card> MakeDecisionDefense(vector<Card> attackSorted, Deck& deck, Suit trump, bool& isDefended) {
         if (decisionType == DecisionType::Human)
             return HumanDecisionDefense(attackSorted, deck, trump, isDefended);
-        return HumanDecisionDefense(attackSorted, deck, trump, isDefended);//Изменить потом
+        return BotDecisionDefense(attackSorted, deck, trump, isDefended);//Изменить потом
     }
     /*vector<Card> MakeDecisionContrAttack(vector<Card> bito, Deck deck, int attackCount) {
         if (decisionType == DecisionType::Human)
@@ -410,20 +410,31 @@ private:
         cout << "Количество карт у бота - " << deck.length << endl;
 
         vector<Card> attackSorted;
-        attackSorted.push_back(deck.Pop(rand() % deck.length));
+        Number num = deck.cards[rand() % deck.length]._number;
+        for (size_t i = deck.length - 1; i >= 0; i--)
+        {
+            if (deck.cards[i]._number == num) {
+                attackSorted.push_back(deck.Pop(rand() % deck.length));
+            }
+            if (attackSorted.size() == countNext) {
+                break;
+            }
+        }
+        return attackSorted;
+    }
+    vector<Card> BotDecisionDefense(vector<Card> attackSorted, Deck& deck, Suit trump, bool& isDefended) {
+        cout << "Количество карт у бота - " << deck.length << endl;
+        cout << "Выкинутые карты на столе: " << endl;
+        Table::Print(attackSorted);
 
-        //table.Print();
-        
-        //deck.Print();
-        //cout << "Выбранная карта" << endl;
-        //card.Print();
-        //int cardWeigth = card._weight;
-        //bool decision = weigth == 21 || weigth < 18;
-        /*if (decision)
-            cout << "Бот взял карту" << endl;
-        else
-            cout << "Бот спасовал карту" << endl;*/
-        return SelectAttackCards(deck, countNext);
+        Number num = deck.cards[rand() % deck.length]._number;
+        for (size_t i = deck.length - 1; i >= 0; i--)
+        {
+            if (deck.cards[i]._number == num) {
+                attackSorted.push_back(deck.Pop(rand() % deck.length));
+            }
+        }
+        return attackSorted;
     }
 };
 
