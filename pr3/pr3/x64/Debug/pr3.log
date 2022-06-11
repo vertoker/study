@@ -1,23 +1,27 @@
 ﻿  pr3.cpp
-G:\my-study\pr3\pr3\pr3.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-G:\my-study\pr3\pr3\pr3.cpp(155,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(326,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(573,1): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(2,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(3,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(4,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+D:\my-study\pr3\pr3\pr3.cpp(155,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(237,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(339,57): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(435,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(454,1): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(463,1): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(611,1): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
           with
           [
               _Ty=int
           ]
-G:\my-study\pr3\pr3\pr3.cpp(590,1): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(628,1): warning C4267: аргумент: преобразование из "size_t" в "_Ty"; возможна потеря данных
           with
           [
               _Ty=int
           ]
-G:\my-study\pr3\pr3\pr3.cpp(643,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-G:\my-study\pr3\pr3\pr3.cpp(78): warning C4715: ToStringFull: значение возвращается не при всех путях выполнения
-G:\my-study\pr3\pr3\pr3.cpp(96): warning C4715: ToString: значение возвращается не при всех путях выполнения
-G:\my-study\pr3\pr3\pr3.cpp(69): warning C4715: ToString: значение возвращается не при всех путях выполнения
-  pr3.vcxproj -> G:\my-study\pr3\x64\Debug\pr3.exe
+D:\my-study\pr3\pr3\pr3.cpp(681,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\my-study\pr3\pr3\pr3.cpp(78): warning C4715: ToStringFull: значение возвращается не при всех путях выполнения
+D:\my-study\pr3\pr3\pr3.cpp(96): warning C4715: ToString: значение возвращается не при всех путях выполнения
+D:\my-study\pr3\pr3\pr3.cpp(69): warning C4715: ToString: значение возвращается не при всех путях выполнения
+  pr3.vcxproj -> D:\my-study\pr3\x64\Debug\pr3.exe

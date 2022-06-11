@@ -147,7 +147,7 @@ public:
     }
 
     void Fill() {
-        length = 16;
+        length = 36;
         for (size_t x = 0; x < 9; x++)
         {
             for (size_t y = 0; y < 4; y++)
@@ -232,6 +232,19 @@ public:
             return true;
         }
         return false;
+    }
+    static void Sorting(vector<Card>& attackSorted) {
+        int size = attackSorted.size();
+        for (int i = 0; i < size; i++) {
+            for (int j = i + 1; j < size; j++)
+            {
+                if (!IsBigger(attackSorted[j], attackSorted[i])) {
+                    Card temp = attackSorted[i];
+                    attackSorted[i] = attackSorted[j];
+                    attackSorted[j] = temp;
+                }
+            }
+        }
     }
 private:
     static bool IsBigger(Card attack, Card defense) {
@@ -350,8 +363,8 @@ static vector<Card> SelectDefenseCards(vector<Card> attackSorted, Deck& deck, Su
         defenses.push_back(idDefense);
     } while (deck.CanPopLast() && attackSorted.size() != 0);
 
-    cout << defenses.size() << endl;
-    cout << attackSorted.size() << endl;
+    //cout << defenses.size() << endl;
+    //cout << attackSorted.size() << endl;
     isDefended = defenses.size() == attackSorted.size();
     sort(attacks.begin(), attacks.end());
     sort(defenses.begin(), defenses.end());
@@ -392,7 +405,10 @@ private:
         cout << "Ваша колода" << endl;
         deck.Print();
         cout << endl;
-        return SelectAttackCards(deck, countNext);
+
+        vector<Card> attackSorted = SelectAttackCards(deck, countNext);
+        CardComparison::Sorting(attackSorted);
+        return attackSorted;
     }
     vector<Card> HumanDecisionDefense(vector<Card> attackSorted, Deck& deck, Suit trump, bool& isDefended) {
         cout << "Ваша колода" << endl;
@@ -406,34 +422,55 @@ private:
         return SelectDefenseCards(attackSorted, deck, trump, isDefended);
     }
 
-    vector<Card> BotDecisionAttack(Deck deck, int countNext) {
+    vector<Card> BotDecisionAttack(Deck& deck, int countNext) {
         cout << "Количество карт у бота - " << deck.length << endl;
 
         vector<Card> attackSorted;
         Number num = deck.cards[rand() % deck.length]._number;
-        for (size_t i = deck.length - 1; i >= 0; i--)
+        for (size_t i = 0; i < 4; i++)
         {
-            if (deck.cards[i]._number == num) {
-                attackSorted.push_back(deck.Pop(rand() % deck.length));
+            for (size_t j = 0; j < deck.length; j++)
+            {
+                if (deck.cards[j]._number == num) {
+                    attackSorted.push_back(deck.Pop(j));
+                    break;
+                }
             }
             if (attackSorted.size() == countNext) {
                 break;
             }
         }
+        CardComparison::Sorting(attackSorted);
         return attackSorted;
     }
     vector<Card> BotDecisionDefense(vector<Card> attackSorted, Deck& deck, Suit trump, bool& isDefended) {
         cout << "Количество карт у бота - " << deck.length << endl;
         cout << "Выкинутые карты на столе: " << endl;
         Table::Print(attackSorted);
+        cout << "Карты у бота: " << endl;
+        deck.Print();
 
         Number num = deck.cards[rand() % deck.length]._number;
-        for (size_t i = deck.length - 1; i >= 0; i--)
+        int size = attackSorted.size();
+
+        for (size_t i = 0; i < size; i--)
         {
-            if (deck.cards[i]._number == num) {
-                attackSorted.push_back(deck.Pop(rand() % deck.length));
+            Card attack = attackSorted[i];
+
+            for (size_t j = 0; j < deck.length; j++)
+            {
+                if (CardComparison::CanDefense(attack, deck.cards[j], trump)) {
+                    attackSorted.push_back(deck.Pop(j));
+
+                    if (size * 2 == attackSorted.size()) {
+                        isDefended = true;
+                        return attackSorted;
+                    }
+                }
             }
         }
+
+        isDefended = false;
         return attackSorted;
     }
 };
@@ -508,6 +545,7 @@ public:
             bool isDefended;
             int lengthNext = decks[next].length;
             vector<Card> bito = players[next].MakeDecisionDefense(attackDeck, decks[next], trump, isDefended);
+
             if (isDefended) {
                 cout << "Игрок " << next + 1 << " защитился" << endl;
                 cout << "Карты идут в бито" << endl;
@@ -623,7 +661,7 @@ private:
         cout << "Результаты" << endl;
 
         cout << endl;
-        cout << "Список выбывших по счёту" << endl;
+        cout << "Список победивших по порядку" << endl;
         for (int i = 0; i < winnersID.size(); i++)
         {
             cout << "Игрок #" << winnersID.at(i) + 1 << endl;
