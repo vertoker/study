@@ -15,7 +15,33 @@
  * @returns {boolean}
  */
 function anagram(x, y) {
-    return undefined;
-}
+    var lettersX = x.toLowerCase().split('');
+    var lettersY = y.toLowerCase().split('');
 
-module.exports = anagram;
+    if (lettersX.length != lettersY.length) {
+        return false;
+    }
+
+    for (let i = 0; i < lettersX.length; i++) {
+        var index = -1;
+
+        for (let j = 0; j < lettersY.length; j++) {
+            if (lettersX[i] == lettersY[j]) {
+                index = j;
+                break;
+            }
+        }
+        
+        if (index != -1){
+            lettersY.slice(index, 1);
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+alert(anagram('Волос', 'Слово')) // true
+alert(anagram('Живу', 'Вижу')) // true
+alert(anagram('Слово 1', 'Слово 2')) // false
+//module.exports = anagram;

@@ -10,7 +10,26 @@
  * @returns {string}
  */
 function rle(value) {
-    return undefined;
-}
+    let result = '';
+    for (let i = 0; i < value.length;) {
+        let counter = 1;
+        for (let j = i + 1; j < value.length; j++) {
+            if (value[i] == value[j]) {
+                counter++;
+            }
+            else {
+                break;
+            }
+        }
 
-module.exports = rle;
+        if (counter > 1) {
+            result += counter;
+        }
+        result += value[i];
+        i += counter;
+    }
+    return result;
+}
+alert(rle('AAABC')) // '3ABC'
+alert(rle('AAAaaB')) // '3A2aB'
+//module.exports = rle;

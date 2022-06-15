@@ -12,8 +12,19 @@
  * @param {object[]} list
  * @returns {undefined|number}
  */
+
 function census(list) {
-    return -1;
+    let maxAge = 0;
+    let index = undefined;
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].age > maxAge && list[i].gender == 'Male') {
+            maxAge = list[i].age;
+            index = i + 1;
+        }
+    }
+    return index;
 }
 
-module.exports = census;
+alert(census([{ age: 12, gender: 'Male' }, { age: 40, gender: 'Male' }])) // 2
+alert(census([{ age: 40, gender: 'Female' }])) // undefined
+//module.exports = census;
