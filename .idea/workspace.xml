@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Чураков.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_project/churakov_pages/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_project/churakov_pages/templates/home.html" afterDir="false" />
+    <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="add pages and several pages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_project/churakov_project/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_project/churakov_project/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_project/churakov_project/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_project/churakov_project/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +68,14 @@
       <option name="presentableId" value="Default" />
       <updated>1662117377825</updated>
     </task>
+    <task id="LOCAL-00001" summary="add pages and several pages">
+      <created>1662178139519</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662178139519</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -88,5 +88,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add pages and several pages" />
+    <option name="LAST_COMMIT_MESSAGE" value="add pages and several pages" />
   </component>
 </project>
