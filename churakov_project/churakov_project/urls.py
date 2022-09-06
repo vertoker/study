@@ -20,6 +20,6 @@ from churakov_pages import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('about/', views.aboutPage),
-    path('', views.homePage)
+    path('', views.homePage, name='home'),
+    path('about/', views.aboutPage, name='about')
 ]

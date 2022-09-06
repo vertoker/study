@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Broad Page</title>
+</head>
+<body>
+    <h1>Board Page</h1>
+    <ul>
+        {% for post in object_list %}
+        <li>{{ post }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
