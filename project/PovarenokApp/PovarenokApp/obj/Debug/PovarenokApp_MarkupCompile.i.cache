@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 S:\Чураков\project\PovarenokApp\PovarenokApp\App.xaml
-11151548125
+6-1884372590
 2973642344
-13-30053701
+261608076627
 18-509313345
-MainWindow.xaml;
+MainWindow.xaml;Pages\AuthPage.xaml;Pages\CartPage.xaml;Pages\EditProductPage.xaml;Pages\ProductPage.xaml;Pages\ProductsPage.xaml;
 
 False
 

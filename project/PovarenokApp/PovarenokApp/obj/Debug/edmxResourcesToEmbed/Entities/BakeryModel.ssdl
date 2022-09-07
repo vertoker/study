@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PovarenokModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Buyers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="text" Nullable="false" />
+    <Property Name="UserLogin" Type="text" Nullable="false" />
+    <Property Name="UserPassword" Type="text" Nullable="false" />
+    <Property Name="UserRole" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="OrderStatus" Type="text" />
+    <Property Name="OrderDeliveryDate" Type="datetime" />
+    <Property Name="OrderPickupPoint" Type="text" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="text" />
+    <Property Name="ProductDescription" Type="text" />
+    <Property Name="ProductCategory" Type="text" />
+    <Property Name="ProductManufacturer" Type="text" />
+    <Property Name="ProductCost" Type="decimal" Precision="19" Scale="4" />
+    <Property Name="ProductDiscountAmount" Type="tinyint" />
+    <Property Name="ProductQuantityInStock" Type="int" />
+    <Property Name="ProductStatus" Type="text" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="text" Nullable="false" />
+  </EntityType>
+  <Association Name="Roles(RoleID)">
+    <End Role="Buyers" Type="Self.Buyers" Multiplicity="1" />
+    <End Role="Buyers1" Type="Self.Buyers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Buyers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Buyers1">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PovarenokModelContainer">
+    <EntitySet Name="Buyers" EntityType="Self.Buyers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Roles(RoleID)" Association="Self.Roles(RoleID)">
+      <End Role="Buyers" EntitySet="Buyers" />
+      <End Role="Buyers1" EntitySet="Buyers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

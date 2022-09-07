@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PovarenokApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Поварёнок" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="Wheat"></Grid>
+        <Grid Grid.Row="2" Background="Wheat"></Grid>
+
+        <Image Source="Assets/logo.png" Width="100" HorizontalAlignment="Left"></Image>
+        <TextBlock FontFamily="Consolas" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Text="Роль: " Margin="0,0,30,0" x:Name="RoleName"></TextBlock>
+        <TextBlock FontFamily="Times New Roman" FontSize="34" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Заголовок" x:Name="HeaderText"></TextBlock>
+        <Frame x:Name="FrameMain" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
     </Grid>
 </Window>

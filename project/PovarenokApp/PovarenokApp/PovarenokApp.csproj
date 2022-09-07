@@ -64,6 +64,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataBase\ApplicationContextDB.cs" />
+    <Compile Include="DataBase\Converter.cs" />
+    <Compile Include="DataBase\Order.cs" />
+    <Compile Include="DataBase\Product.cs" />
+    <Compile Include="DataBase\ProductType.cs" />
+    <Compile Include="DataBase\Role.cs" />
+    <Compile Include="DataBase\User.cs" />
+    <Compile Include="Scripts\AuthHolder.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -77,17 +85,69 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BakeryModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\BakeryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BakeryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entities\BakeryModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BakeryModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Buyers.cs">
+      <DependentUpon>BakeryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Orders.cs">
+      <DependentUpon>BakeryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Products.cs">
+      <DependentUpon>BakeryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Role.cs">
+      <DependentUpon>BakeryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AuthPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\EditProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\AuthPage.xaml.cs">
+      <DependentUpon>AuthPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CartPage.xaml.cs">
+      <DependentUpon>CartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\EditProductPage.xaml.cs">
+      <DependentUpon>EditProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductPage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ProductsPage.xaml.cs">
+      <DependentUpon>ProductsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -109,6 +169,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BakeryModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Assets\.DS_Store" />
+    <None Include="Assets\README-Template.md" />
+    <None Include="Assets\README-Template_rus.md" />
     <None Include="Entities\BakeryModel.edmx.diagram">
       <DependentUpon>BakeryModel.edmx</DependentUpon>
     </None>
@@ -122,9 +185,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\icon.ico" />
+    <Resource Include="Assets\logo.png" />
     <Content Include="Entities\BakeryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>BakeryModel.Context.cs</LastGenOutput>
+      <DependentUpon>BakeryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\BakeryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BakeryModel.edmx</DependentUpon>
+      <LastGenOutput>BakeryModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

@@ -13,5 +13,7 @@ namespace PovarenokApp
     /// </summary>
     public partial class App : Application
     {
+        public static Entities.PovarenokEntities Context
+        { get; } = new Entities.PovarenokEntities();
     }
 }
