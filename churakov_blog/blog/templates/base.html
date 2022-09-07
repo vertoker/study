@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <title>Title</title>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="/">Студенческий блог</a>
+    </h1>
+  </header>
+  <a href="{% url 'post_new' %}">+ Сделать новую запись</a>
+  <div class="container">
+    {%block context%}
+    {%endblock context%}
+  </div>
+</body>
+</html>
