@@ -12,6 +12,15 @@
       <a href="/">Студенческий блог</a>
     </h1>
   </header>
+
+  {% if user.is_authenticated %}
+    <p>Привет {{ user.username }}</p>
+  {% else %}
+    <p><a href="{% url 'signup' %}">Вы не вошли</a></p>
+    <p><a href="{% url 'login' %}"></a></p>
+  {% endif %}
+  <p><a href="{% url 'logout' %}">Выход</a></p>
+
   <a href="{% url 'post_new' %}">+ Сделать новую запись</a>
   <div class="container">
     {%block context%}
