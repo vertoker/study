@@ -20,9 +20,32 @@ namespace PovarenokApp.Pages
     /// </summary>
     public partial class ProductsPage : Page
     {
+        public class TestProduct
+        {
+            public string Title;
+        }
+
+        private static TestProduct[] test = new TestProduct[] 
+        {
+            new TestProduct(){ Title = "Товар 1" },
+            new TestProduct(){ Title = "Товар 2" }
+        };
+
         public ProductsPage()
         {
             InitializeComponent();
+
+            LViewServices.ItemsSource = test;
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

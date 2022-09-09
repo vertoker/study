@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PovarenokApp.DataBase
+using PovarenokApp.Data.Enum;
+
+namespace PovarenokApp.Data
 {
-    struct User
+    struct UserModel
     {
         public string FirstName, LastName;
         public string Login, Password;
         public Role Role;
 
-        public static User Empty = new User()
+        public static UserModel Empty = new UserModel()
         {
             FirstName = string.Empty,
             LastName = string.Empty,
@@ -21,7 +23,7 @@ namespace PovarenokApp.DataBase
             Role = Role.NotUser
         };
 
-        public static User SuperUser = new User()
+        public static UserModel SuperUser = new UserModel()
         {
             FirstName = string.Empty,
             LastName = string.Empty,
