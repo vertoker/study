@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3307
--- Время создания: Май 29 2022 г., 17:51
+-- Время создания: Сен 09 2022 г., 10:02
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -39,7 +39,7 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `counter_order`, `counter_product`, `counter_user`) VALUES
-(0, 3, 3, 1);
+(0, 4, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `order` (
 
 INSERT INTO `order` (`id`, `products_id`, `products_count`, `user_id`, `address`, `description`, `status`) VALUES
 (2, '1 2', '2 5', 3, 'Крауля 168', 'Доставить к охраннику', 2),
-(3, '1', '15', 3, 'string', 'string', 0);
+(3, '1', '15', 3, 'string', 'string', 2);
 
 -- --------------------------------------------------------
 
@@ -105,6 +105,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `login`, `password`, `user_role`) VALUES
+(1, 'login', 'password', 1),
 (3, '123', '321', 0);
 
 --
