@@ -64,14 +64,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DataBase\ApplicationContextDB.cs" />
-    <Compile Include="DataBase\Converter.cs" />
-    <Compile Include="DataBase\Order.cs" />
-    <Compile Include="DataBase\Product.cs" />
-    <Compile Include="DataBase\ProductType.cs" />
-    <Compile Include="DataBase\Role.cs" />
-    <Compile Include="DataBase\User.cs" />
+    <Compile Include="Scripts\ApplicationContextDB.cs" />
+    <Compile Include="Data\Address.cs" />
     <Compile Include="Scripts\AuthHolder.cs" />
+    <Compile Include="Scripts\Converter.cs" />
+    <Compile Include="Data\Enum\OrderStatus.cs" />
+    <Compile Include="Data\Enum\ProductType.cs" />
+    <Compile Include="Data\Enum\Role.cs" />
+    <Compile Include="Data\OrderEntity.cs" />
+    <Compile Include="Data\ProductEntity.cs" />
+    <Compile Include="Data\UserEntity.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

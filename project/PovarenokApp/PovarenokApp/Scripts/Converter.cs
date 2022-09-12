@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PovarenokApp.Data
+using PovarenokApp.Data;
+using PovarenokApp.Data.Enum;
+
+namespace PovarenokApp.Scripts
 {
     static class Converter
     {
@@ -28,11 +31,6 @@ namespace PovarenokApp.Data
                 case "наборы": return ProductType.Set;
             }
             return ProductType.Empty;
-        }
-
-        public static User GetUser()
-        {
-            return User.Empty;
         }
     }
 }

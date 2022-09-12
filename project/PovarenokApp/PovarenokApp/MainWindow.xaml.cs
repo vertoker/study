@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-using PovarenokApp.DataBase;
+using PovarenokApp.Data.Enum;
 using PovarenokApp.Scripts;
 
 namespace PovarenokApp
@@ -38,7 +38,7 @@ namespace PovarenokApp
         {
             main.FrameMain.Navigate(pages[id]);
             main.HeaderText.Text = pages[id].Title;
-            main.RoleName.Text = GetRoleStatus(AuthHolder.ActiveUser.Role);
+            main.RoleName.Text = GetRoleStatus((Role)AuthHolder.ActiveUser.role);
         }
 
         public MainWindow()

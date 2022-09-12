@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PovarenokApp.Data
+namespace PovarenokApp.Data.Enum
 {
-    class AddressEntity
+    enum OrderStatus : byte
     {
-        public int id;
-        public string address;
+        Undefined = 0,
+        New = 1,
+        Complete = 2
     }
 }

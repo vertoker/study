@@ -30,7 +30,9 @@ namespace PovarenokApp.Pages
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             if (AuthHolder.Auth(LoginInputField.Text, PasswordInputField.Text))
+            {
                 MainWindow.OpenPage(1);
+            }
         }
     }
 }

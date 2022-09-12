@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PovarenokApp.DataBase
+namespace PovarenokApp.Data
 {
-    struct Order
+    struct Address
     {
-
+        public int id;
+        public string address;
     }
 }
