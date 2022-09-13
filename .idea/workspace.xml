@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="complete task 5 attempt 2">
-      <change afterPath="$PROJECT_DIR$/churakov_blog/accounts/accounts.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_blog/accounts/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_blog/blog/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_blog/blog/templates/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_blog/blog/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/templates/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/users/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/churakov_users/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_blog/blog/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_blog/blog/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_blog/churakov_blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_blog/churakov_blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_blog/churakov_blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_blog/churakov_blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_blog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_blog/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -53,6 +50,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="S:\Чураков\churakov_users\templates\registration" />
       <recent name="S:\Чураков\churakov_blog\blog\templates\registration" />
       <recent name="S:\Чураков\churakov_blog\blog\static" />
       <recent name="S:\Чураков\churakov_project\churakov_pages" />
