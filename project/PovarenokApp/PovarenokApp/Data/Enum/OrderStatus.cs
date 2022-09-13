@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PovarenokApp.Data.Enum
 {
-    enum OrderStatus : byte
+    public enum OrderStatus : byte
     {
         Undefined = 0,
         New = 1,

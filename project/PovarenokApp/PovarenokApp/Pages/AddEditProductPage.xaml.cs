@@ -1,0 +1,92 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+using PovarenokApp.Scripts;
+using PovarenokApp.Data;
+
+namespace PovarenokApp.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для EditProductPage.xaml
+    /// </summary>
+    public partial class AddEditProductPage : Page
+    {
+        private static AddEditProductPage instance;
+        private int id;
+
+        public AddEditProductPage()
+        {
+            instance = this;
+            InitializeComponent();
+        }
+
+        public static void EditProduct(ProductEntity product)
+        {
+            instance.id = product.id;
+            instance.InputFieldTitle.Text = product.title;
+            instance.InputFieldCost.Text = product.cost.ToString("0.00");
+            instance.InputFieldDiscount.Text = product.discount_amount.ToString();
+            instance.InputFieldType.Text = product.type.ToString();
+        }
+
+        private void BtnSelectImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (ErrorCheck(out string errorMessage))
+                MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            else
+                ApplicationContextDB.EditProduct(id, 
+                    instance.InputFieldTitle.Text,
+                    float.Parse(instance.InputFieldCost.Text),
+                    int.Parse(instance.InputFieldDiscount.Text),
+                    int.Parse(instance.InputFieldType.Text));
+        }
+
+        private bool ErrorCheck(out string errorMessage)
+        {
+            bool error = false;
+            var errorBuilder = new StringBuilder();
+
+            if (string.IsNullOrEmpty(InputFieldTitle.Text))
+                errorBuilder.AppendLine("Укажите название\n");
+
+            var checkTitle = ApplicationContextDB.Products.FirstOrDefault(p => p.title.ToLower() == InputFieldTitle.Text);
+            if (checkTitle.IsEmpty())
+                errorBuilder.AppendLine("Такой товар уже есть в базе данных\n");
+
+            decimal cost = 0;
+            if (!decimal.TryParse(InputFieldCost.Text, out cost) || cost <= 0)
+                errorBuilder.AppendLine("Стоимость товара должна быть положительным числом\n");
+
+            if (!string.IsNullOrEmpty(InputFieldDiscount.Text))
+            {
+                int discount = 0;
+                if (!int.TryParse(InputFieldDiscount.Text, out discount) || discount < 0 || discount > 100)
+                    errorBuilder.AppendLine("Размер скидки - целое число в диапозоне от 0 до 100%\n");
+            }
+
+            error = errorBuilder.Length > 0;
+            if (error)
+                errorBuilder.Insert(0, "Устраните следующие ошибки: \n");
+
+            errorMessage = errorBuilder.ToString();
+            return error;
+        }
+    }
+}

@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using PovarenokApp.Scripts;
+using PovarenokApp.Data;
 
 namespace PovarenokApp.Pages
 {
@@ -27,16 +28,31 @@ namespace PovarenokApp.Pages
             InitializeComponent();
 
             LViewServices.ItemsSource = ApplicationContextDB.Products;
+            LViewServices.
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            AddEditProductPage.EditProduct((ProductEntity)LViewServices.SelectedItem);
+            MainWindow.OpenPage(2);
         }
 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void UpdateSelection()
+        {
+
+        }
+
+        private Visibility AdminButtonsVisibility
+        {
+            get
+            {
+                return LViewServices.SelectedIndex != -1 ? Visibility.Visible : Visibility.Collapsed;
+            }
         }
     }
 }

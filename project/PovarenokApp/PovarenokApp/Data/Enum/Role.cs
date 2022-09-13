@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PovarenokApp.Data.Enum
 {
-    enum Role : byte
+    public enum Role : byte
     {
         NotUser = 0,
         Client = 1,

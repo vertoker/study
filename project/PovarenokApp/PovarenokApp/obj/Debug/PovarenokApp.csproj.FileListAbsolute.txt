@@ -22,11 +22,11 @@ S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\PovarenokApp.exe
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\PovarenokApp.pdb
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AuthPage.g.cs
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\CartPage.g.cs
-S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\EditProductPage.g.cs
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductPage.g.cs
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductsPage.g.cs
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AuthPage.baml
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\CartPage.baml
-S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\EditProductPage.baml
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductPage.baml
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductsPage.baml
+S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AddEditProductPage.g.cs
+S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AddEditProductPage.baml

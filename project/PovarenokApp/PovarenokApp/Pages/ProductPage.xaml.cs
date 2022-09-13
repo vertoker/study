@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using PovarenokApp.Data;
+
 namespace PovarenokApp.Pages
 {
     /// <summary>
@@ -23,6 +25,11 @@ namespace PovarenokApp.Pages
         public ProductPage()
         {
             InitializeComponent();
+        }
+
+        public static void Show(ProductEntity product)
+        {
+
         }
     }
 }

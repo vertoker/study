@@ -29,9 +29,8 @@ namespace PovarenokApp
         {
             new Pages.AuthPage(),
             new Pages.ProductsPage(),
-            new Pages.ProductPage(),
-            new Pages.CartPage(),
-            new Pages.EditProductPage()
+            new Pages.AddEditProductPage(),
+            new Pages.CartPage()
         };
 
         public static void OpenPage(int id)

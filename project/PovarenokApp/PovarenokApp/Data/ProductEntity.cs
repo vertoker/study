@@ -8,15 +8,20 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    struct ProductEntity
+    public struct ProductEntity
     {
         public int id;
         public int type;
         public float cost;
         public int discount_amount;
         public int quantity_in_stock;
-        public string description;
+        public string title;
         public byte[] image;
+
+        public bool IsEmpty()
+        {
+            return string.IsNullOrEmpty(title);
+        }
 
         public string DiscountText
         {
@@ -29,16 +34,17 @@ namespace PovarenokApp.Data
             }
         }
 
-        public string Cost => cost.ToString("0.00");
+        public string Title => title;
+        public string Cost => cost.ToString("0.00") + " ";
 
         public string TotalCost
         {
             get
             {
                 if (discount_amount == 0)
-                    return cost.ToString("0.00");
+                    return cost.ToString("0.00") + " рублей";
                 else
-                    return (cost * (1 - (float)discount_amount / 100)).ToString("0.00");
+                    return (cost * (1 - (float)discount_amount / 100)).ToString("0.00") + " рублей";
             }
         }
 
@@ -63,7 +69,5 @@ namespace PovarenokApp.Data
                     return "#D1FFD1";
             }
         }
-
-
     }
 }

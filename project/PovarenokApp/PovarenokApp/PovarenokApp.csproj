@@ -121,7 +121,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\EditProductPage.xaml">
+    <Page Include="Pages\AddEditProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -141,8 +141,8 @@
     <Compile Include="Pages\CartPage.xaml.cs">
       <DependentUpon>CartPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\EditProductPage.xaml.cs">
-      <DependentUpon>EditProductPage.xaml</DependentUpon>
+    <Compile Include="Pages\AddEditProductPage.xaml.cs">
+      <DependentUpon>AddEditProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>

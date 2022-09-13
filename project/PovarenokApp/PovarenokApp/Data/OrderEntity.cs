@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PovarenokApp.Data
 {
-    struct OrderEntity
+    public struct OrderEntity
     {
         public int id;
         public string order_products;

@@ -8,7 +8,7 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    struct UserEntity
+    public struct UserEntity
     {
         public int id;
         public string first_name, last_name, patronymic;

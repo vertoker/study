@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PovarenokApp.Data.Enum
 {
-    enum ProductType
+    public enum ProductType
     {
         Empty = 0,
         Fork = 1,

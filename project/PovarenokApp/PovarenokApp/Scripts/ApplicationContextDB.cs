@@ -47,7 +47,7 @@ namespace PovarenokApp.Scripts
                 id = 0,
                 cost = 150,
                 type = (int)ProductType.Fork,
-                description = "fork 1",
+                title = "fork 1",
                 quantity_in_stock = 10,
                 discount_amount = 0
             },
@@ -56,7 +56,7 @@ namespace PovarenokApp.Scripts
                 id = 1,
                 cost = 200,
                 type = (int)ProductType.Fork,
-                description = "fork 2",
+                title = "fork 2",
                 quantity_in_stock = 25,
                 discount_amount = 10
             },
@@ -65,7 +65,7 @@ namespace PovarenokApp.Scripts
                 id = 2,
                 cost = 300,
                 type = (int)ProductType.Spoon,
-                description = "spoon 1",
+                title = "spoon 1",
                 quantity_in_stock = 0,
                 discount_amount = 5
             },
@@ -74,7 +74,7 @@ namespace PovarenokApp.Scripts
                 id = 3,
                 cost = 400,
                 type = (int)ProductType.Spoon,
-                description = "spoon 2",
+                title = "spoon 2",
                 quantity_in_stock = 1000,
                 discount_amount = 15
             },
@@ -83,7 +83,7 @@ namespace PovarenokApp.Scripts
                 id = 4,
                 cost = 500,
                 type = (int)ProductType.Set,
-                description = "fork 1",
+                title = "set 1",
                 quantity_in_stock = 999999,
                 discount_amount = 5
             }
@@ -113,5 +113,15 @@ namespace PovarenokApp.Scripts
             }
         };
         #endregion
+
+        public static void AddProduct(string title, float cost, int discount, int type)
+        {
+
+        }
+
+        public static void EditProduct(int id, string title, float cost, int discount, int type)
+        {
+
+        }
     }
 }
