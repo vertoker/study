@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="complete task 5 attempt 2">
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/users/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/users/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/churakov_users/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/users/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
