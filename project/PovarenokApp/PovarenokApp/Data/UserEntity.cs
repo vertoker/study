@@ -19,6 +19,10 @@ namespace PovarenokApp.Data
         {
             return login == null || password == null;
         }
+        public bool IsAdmin()
+        {
+            return (Role)role == Role.Admin;
+        }
 
         public static UserEntity Empty = new UserEntity()
         {

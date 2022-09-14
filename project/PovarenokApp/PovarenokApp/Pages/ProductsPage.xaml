@@ -14,11 +14,6 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="0">
-            <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Width="200" Height="30" FontSize="18" Background="Orange" Visibility="{Binding AdminButtonsVisibility}"></Button>
-            <Button Content="Удалить" Name="BtnDelete" Click="BtnDelete_Click" Width="200" Height="30" FontSize="18" Background="Orange" Visibility="{Binding AdminButtonsVisibility}"></Button>
-        </StackPanel>
-
         <ListView Grid.Row="1" Name="LViewServices">
             <ListView.ItemTemplate>
                 <DataTemplate>

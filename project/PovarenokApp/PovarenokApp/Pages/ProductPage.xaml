@@ -9,6 +9,35 @@
       Title="Просмотр товара">
 
     <Grid>
-        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Название:  " FontFamily="Consolas" FontSize="24"></TextBlock>
+                    <TextBox Name="InputFieldTitle" Width="250" Height="30" IsReadOnly="True"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Стоимость: " FontFamily="Consolas" FontSize="24"></TextBlock>
+                    <TextBox Name="InputFieldCost" Width="250" Height="30" IsReadOnly="True"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Скидка:    " FontFamily="Consolas" FontSize="24"></TextBlock>
+                    <TextBox Name="InputFieldDiscount" Width="250" Height="30" IsReadOnly="True"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Тип товара:" FontFamily="Consolas" FontSize="24"></TextBlock>
+                    <TextBox Name="InputFieldType" Width="250" Height="30" IsReadOnly="True"></TextBox>
+                </StackPanel>
+                <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Width="250" Height="30" FontSize="18" Background="Orange" HorizontalAlignment="Right"></Button>
+                <Button Content="Удалить" Name="BtnDelete" Click="BtnDelete_Click" Width="250" Height="30" FontSize="18" Background="Orange" HorizontalAlignment="Right"></Button>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center">
+                <Border Margin="5" Height="175" Width="175" BorderBrush="Orange" BorderThickness="1">
+                    <Image x:Name="ImageService"></Image>
+                </Border>
+                <Button Height="30" Width="175" Margin="5" Name="BtnSelectImage" Click="BtnSelectImage_Click" Content="Выбрать фотографию" Background="Orange"></Button>
+                <Button Height="30" Width="175" Margin="5" Name="BtnSave" Click="BtnSave_Click" Content="Сохранить" Background="Orange"></Button>
+            </StackPanel>
+        </StackPanel>
+        <Button Content="Назад" Name="BtnBack" Click="BtnBack_Click" Width="250" Height="30" FontSize="18" Background="Orange" VerticalAlignment="Bottom"></Button>
     </Grid>
 </Page>

@@ -28,18 +28,13 @@ namespace PovarenokApp.Pages
             InitializeComponent();
 
             LViewServices.ItemsSource = ApplicationContextDB.Products;
-            LViewServices.
+            LViewServices.SelectionChanged += BtnProduct_Selectiom;
         }
 
-        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        private void BtnProduct_Selectiom(object sender, RoutedEventArgs e)
         {
-            AddEditProductPage.EditProduct((ProductEntity)LViewServices.SelectedItem);
+            ProductPage.LoadProduct((ProductEntity)LViewServices.SelectedItem);
             MainWindow.OpenPage(2);
-        }
-
-        private void BtnDelete_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void UpdateSelection()
@@ -51,7 +46,7 @@ namespace PovarenokApp.Pages
         {
             get
             {
-                return LViewServices.SelectedIndex != -1 ? Visibility.Visible : Visibility.Collapsed;
+                return Visibility.Collapsed;
             }
         }
     }

@@ -29,7 +29,7 @@ namespace PovarenokApp
         {
             new Pages.AuthPage(),
             new Pages.ProductsPage(),
-            new Pages.AddEditProductPage(),
+            new Pages.ProductPage(),
             new Pages.CartPage()
         };
 

@@ -28,5 +28,3 @@ S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AuthPage.bam
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\CartPage.baml
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductPage.baml
 S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\ProductsPage.baml
-S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AddEditProductPage.g.cs
-S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\Pages\AddEditProductPage.baml
