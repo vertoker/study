@@ -15,6 +15,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-success ml-2" type="submit">Войти</button>
+    <a href="{% url 'password_reset' %}" class="btn btn-outline-secondary ml-2">Восстановить пароль</a>
 </form>
 {% endblock %}
 </body>
