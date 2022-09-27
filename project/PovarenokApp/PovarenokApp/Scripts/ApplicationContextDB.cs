@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 using PovarenokApp.Data;
 using PovarenokApp.Data.Enum;
 
@@ -112,16 +112,61 @@ namespace PovarenokApp.Scripts
                 order_status = (int)OrderStatus.New
             }
         };
+
+        public static List<TableCounterEntity> Counters = new List<TableCounterEntity>()
+        {
+            new TableCounterEntity()//Addresses
+            {
+                id = 0,
+                counter = 2
+            },
+            new TableCounterEntity()//Users
+            {
+                id = 1,
+                counter = 1
+            },
+            new TableCounterEntity()//Products
+            {
+                id = 2,
+                counter = 5
+            },
+            new TableCounterEntity()//Orders
+            {
+                id = 3,
+                counter = 2
+            }
+        };
         #endregion
 
         public static void AddProduct(string title, float cost, int discount, int type)
         {
-
+            Products.Add(new ProductEntity()
+            {
+                id = Counters[2].GetNext(),
+                title = title,
+                cost = cost,
+                discount_amount = discount,
+                type = type
+            });
         }
 
         public static void EditProduct(int id, string title, float cost, int discount, int type)
         {
+            int index = Products.FindIndex((ProductEntity p) => { return p.id == id; });
+            Products[index] = new ProductEntity()
+            {
+                id = id,
+                title = title,
+                cost = cost,
+                discount_amount = discount,
+                type = type
+            };
+        }
 
+        public static void DeleteProduct(int id)
+        {
+            int index = Products.FindIndex((ProductEntity p) => { return p.id == id; });
+            Products.RemoveAt(index);
         }
     }
 }

@@ -21,25 +21,30 @@ namespace PovarenokApp.Pages
     /// <summary>
     /// Логика взаимодействия для ProductsPage.xaml
     /// </summary>
-    public partial class ProductsPage : Page
+    public partial class ProductsPage : Page, IPage
     {
         public ProductsPage()
         {
             InitializeComponent();
-
-            LViewServices.ItemsSource = ApplicationContextDB.Products;
-            LViewServices.SelectionChanged += BtnProduct_Selectiom;
+            LViewServices.SelectionChanged += BtnProduct_Selection;
         }
 
-        private void BtnProduct_Selectiom(object sender, RoutedEventArgs e)
+        public void Enable()
+        {
+            LViewServices.SelectionChanged -= BtnProduct_Selection;
+            LViewServices.ItemsSource = null;
+            LViewServices.ItemsSource = ApplicationContextDB.Products;
+            LViewServices.SelectionChanged += BtnProduct_Selection;
+        }
+        public void Disable()
+        {
+            //LViewServices.ItemsSource = null;
+        }
+
+        private void BtnProduct_Selection(object sender, RoutedEventArgs e)
         {
             ProductPage.LoadProduct((ProductEntity)LViewServices.SelectedItem);
             MainWindow.OpenPage(2);
-        }
-
-        private void UpdateSelection()
-        {
-
         }
 
         private Visibility AdminButtonsVisibility
@@ -48,6 +53,11 @@ namespace PovarenokApp.Pages
             {
                 return Visibility.Collapsed;
             }
+        }
+
+        private void AddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenPage(2);
         }
     }
 }

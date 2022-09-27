@@ -18,11 +18,20 @@ namespace PovarenokApp.Pages
     /// <summary>
     /// Логика взаимодействия для CartPage.xaml
     /// </summary>
-    public partial class CartPage : Page
+    public partial class CartPage : Page, IPage
     {
         public CartPage()
         {
             InitializeComponent();
+        }
+
+        public void Enable()
+        {
+
+        }
+        public void Disable()
+        {
+
         }
     }
 }

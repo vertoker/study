@@ -14,6 +14,10 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
+        <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="30" x:Name="AddProduct" Click="AddProduct_Click">
+            Добавить продукт
+        </Button>
+
         <ListView Grid.Row="1" Name="LViewServices">
             <ListView.ItemTemplate>
                 <DataTemplate>

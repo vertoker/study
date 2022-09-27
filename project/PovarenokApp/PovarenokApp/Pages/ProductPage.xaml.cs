@@ -21,7 +21,7 @@ namespace PovarenokApp.Pages
     /// <summary>
     /// Логика взаимодействия для ProductPage.xaml
     /// </summary>
-    public partial class ProductPage : Page
+    public partial class ProductPage : Page, IPage
     {
         private static ProductPage instance;
         private int id;
@@ -44,10 +44,18 @@ namespace PovarenokApp.Pages
 
         public void UpdateAdminEditComboVisibility()
         {
-            MessageBox.Show(AuthHolder.ActiveUser.IsAdmin().ToString() + " " + readMode.ToString(), "123", MessageBoxButton.OK, MessageBoxImage.Error);
             bool value = AuthHolder.ActiveUser.IsAdmin() && readMode;
             BtnEdit.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
             BtnDelete.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public void Enable()
+        {
+
+        }
+        public void Disable()
+        {
+
         }
 
         public ProductPage()
@@ -64,6 +72,13 @@ namespace PovarenokApp.Pages
             instance.InputFieldCost.Text = product.cost.ToString("0.00");
             instance.InputFieldDiscount.Text = product.discount_amount.ToString();
             instance.InputFieldType.Text = product.type.ToString();
+
+            instance.UpdateAdminEditComboVisibility();
+        }
+
+        public static void AddProduct()
+        {
+
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -72,7 +87,8 @@ namespace PovarenokApp.Pages
         }
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            ApplicationContextDB.DeleteProduct(id);
+            MainWindow.OpenPage(1);
         }
         private void BtnSelectImage_Click(object sender, RoutedEventArgs e)
         {

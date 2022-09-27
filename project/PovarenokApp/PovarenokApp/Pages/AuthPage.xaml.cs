@@ -20,11 +20,20 @@ namespace PovarenokApp.Pages
     /// <summary>
     /// Логика взаимодействия для AuthPage.xaml
     /// </summary>
-    public partial class AuthPage : Page
+    public partial class AuthPage : Page, IPage
     {
         public AuthPage()
         {
             InitializeComponent();
+        }
+
+        public void Enable()
+        {
+
+        }
+        public void Disable()
+        {
+
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)

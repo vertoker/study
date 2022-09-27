@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 using PovarenokApp.Data.Enum;
 using PovarenokApp.Scripts;
+using PovarenokApp.Pages;
 
 namespace PovarenokApp
 {
@@ -25,6 +26,7 @@ namespace PovarenokApp
     {
         private static MainWindow main;
 
+        private static int activeID = 0;
         private static Page[] pages = new Page[]
         {
             new Pages.AuthPage(),
@@ -35,9 +37,12 @@ namespace PovarenokApp
 
         public static void OpenPage(int id)
         {
+            (pages[activeID] as IPage).Disable();
+            activeID = id;
             main.FrameMain.Navigate(pages[id]);
             main.HeaderText.Text = pages[id].Title;
             main.RoleName.Text = GetRoleStatus((Role)AuthHolder.ActiveUser.role);
+            (pages[activeID] as IPage).Enable();
         }
 
         public MainWindow()
