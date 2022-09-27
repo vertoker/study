@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\TableCounterEntity.cs" />
     <Compile Include="Pages\IPage.cs" />
     <Compile Include="Scripts\ApplicationContextDB.cs" />
     <Compile Include="Data\Address.cs" />
