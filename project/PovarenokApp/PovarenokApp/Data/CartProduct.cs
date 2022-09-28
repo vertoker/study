@@ -12,5 +12,10 @@ namespace PovarenokApp.Data
     {
         public int id;
         public int quantity;
+
+        public void Add(int count)
+        {
+            quantity += count;
+        }
     }
 }

@@ -10,22 +10,24 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Button Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="30" x:Name="AddProduct" Click="AddProduct_Click">
-            Добавить продукт
-        </Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Width="150" Height="30" x:Name="AddProduct" Click="AddProduct_Click" Visibility="{Binding AdminButtonsVisibility}">Добавить продукт</Button>
+            <Button Width="150" Height="30" x:Name="Cart" Click="Cart_Click">Корзина</Button>
+        </StackPanel>
 
-        <ListView Grid.Row="1" Name="LViewServices">
+        <ListView Grid.Row="0" Name="LViewServices">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Border>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="450"></ColumnDefinition>
+                                <ColumnDefinition Width="200" ></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
                             <Image Source="{Binding MainImage}"></Image>
@@ -37,6 +39,7 @@
                                     <TextBlock Width="auto" Text="{Binding TotalCost}" FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
+                            <Button x:Name="CartBtn" Grid.Column="2" Click="CartBtn_Click">Вот это надо доделать</Button>
                         </Grid>
                     </Border>
                 </DataTemplate>

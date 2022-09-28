@@ -22,8 +22,7 @@ namespace PovarenokApp.Pages
     /// </summary>
     public partial class CartPage : Page, IPage
     {
-        private List<int> products = new List<int>();
-        private List<int> quantities = new List<int>();
+        private List<CartProduct> products = new List<CartProduct>();
         private static CartPage instance;
 
         public CartPage()
@@ -41,17 +40,16 @@ namespace PovarenokApp.Pages
 
         }
 
-        public static void AddProduct(int id)
+        public static void AddProduct(ProductEntity product)
         {
-            var index = instance.products.IndexOf(id);
+            var index = instance.products.FindIndex((CartProduct cp) => { return cp.id == product.id; });
             if (index != -1)
             {
-                instance.products.Add(id);
-                instance.quantities.Add(0);
+                instance.products.Add(new CartProduct() { id = product.id, quantity = 1 });
             }
-            else
+            else if (product.quantity_in_stock < instance.products[index].quantity)
             {
-                instance
+                instance.products[index].Add(1);
             }
         }
         public void UpdateCart()
@@ -59,13 +57,27 @@ namespace PovarenokApp.Pages
             List<ProductEntity> productEntities = new List<ProductEntity>();
             for (int i = 0; i < products.Count; i++)
             {
-                var product = ApplicationContextDB.Products.FirstOrDefault((ProductEntity p) => { return p.id == products[i]; });
+                var product = ApplicationContextDB.Products.FirstOrDefault((ProductEntity p) => { return p.id == products[i].id; });
                 if (!product.IsEmpty())
                 {
+                    product.quantity_in_stock = products[i].quantity;
                     productEntities.Add(product);
                 }
             }
-            //Здесь UI отображение
+            LViewServices.ItemsSource = null;
+            LViewServices.ItemsSource = productEntities;
+        }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenPage(1);
+        }
+
+        private void CreateOrder_Click(object sender, RoutedEventArgs e)
+        {
+            LViewServices.ItemsSource = null;
+            MessageBox.Show("Ваш заказ был создан!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+            MainWindow.OpenPage(1);
         }
     }
 }

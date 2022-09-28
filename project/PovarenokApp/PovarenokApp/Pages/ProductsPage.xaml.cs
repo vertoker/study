@@ -27,6 +27,7 @@ namespace PovarenokApp.Pages
         {
             InitializeComponent();
             LViewServices.SelectionChanged += BtnProduct_Selection;
+            //LViewServices. += BtnCart_Add;
         }
 
         public void Enable()
@@ -46,12 +47,16 @@ namespace PovarenokApp.Pages
             ProductPage.LoadProduct((ProductEntity)LViewServices.SelectedItem);
             MainWindow.OpenPage(2);
         }
+        private void BtnCart_Add(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("12321");
+        }
 
-        private Visibility AdminButtonsVisibility
+        public Visibility AdminButtonsVisibility
         {
             get
             {
-                return Visibility.Collapsed;
+                return AuthHolder.ActiveUser.IsAdmin() ? Visibility.Visible : Visibility.Collapsed;
             }
         }
 
@@ -59,6 +64,16 @@ namespace PovarenokApp.Pages
         {
             ProductPage.AddProduct();
             MainWindow.OpenPage(2);
+        }
+
+        private void Cart_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.OpenPage(3);
+        }
+
+        private void CartBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show();
         }
     }
 }

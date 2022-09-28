@@ -9,6 +9,39 @@
       Title="Корзина">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button Width="150" Height="30" x:Name="CreateOrder" Click="CreateOrder_Click">Заказать</Button>
+            <Button Width="150" Height="30" x:Name="BackBtn" Click="BackBtn_Click">Назад</Button>
+        </StackPanel>
         
+        <ListView Grid.Row="0" Name="LViewServices">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="{Binding MainImage}"></Image>
+                            <StackPanel Grid.Column="1">
+                                <TextBlock Width="auto" Text="{Binding Title}" FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="auto" Text="{Binding Cost}" Visibility="{Binding DiscountVisibility}" TextDecorations="Strikethrough"
+                                               FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Width="auto" Text="{Binding TotalCost}" FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
