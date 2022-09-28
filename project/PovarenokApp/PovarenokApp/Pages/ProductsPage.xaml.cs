@@ -57,6 +57,7 @@ namespace PovarenokApp.Pages
 
         private void AddProduct_Click(object sender, RoutedEventArgs e)
         {
+            ProductPage.AddProduct();
             MainWindow.OpenPage(2);
         }
     }

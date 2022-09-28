@@ -138,11 +138,11 @@ namespace PovarenokApp.Scripts
         };
         #endregion
 
-        public static void AddProduct(string title, float cost, int discount, int type)
+        public static void AddProduct(int id, string title, float cost, int discount, int type)
         {
             Products.Add(new ProductEntity()
             {
-                id = Counters[2].GetNext(),
+                id = id,
                 title = title,
                 cost = cost,
                 discount_amount = discount,

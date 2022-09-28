@@ -27,6 +27,7 @@ namespace PovarenokApp.Pages
         private int id;
 
         private bool readMode;
+        private bool addMode = false;
 
         private void SetReadOnly(bool value)
         {
@@ -69,7 +70,7 @@ namespace PovarenokApp.Pages
         {
             instance.id = product.id;
             instance.InputFieldTitle.Text = product.title;
-            instance.InputFieldCost.Text = product.cost.ToString("0.00");
+            instance.InputFieldCost.Text = product.cost.ToString("0,00");
             instance.InputFieldDiscount.Text = product.discount_amount.ToString();
             instance.InputFieldType.Text = product.type.ToString();
 
@@ -78,7 +79,14 @@ namespace PovarenokApp.Pages
 
         public static void AddProduct()
         {
+            instance.id = ApplicationContextDB.Counters[2].GetNext();
+            instance.InputFieldTitle.Text = string.Empty;
+            instance.InputFieldCost.Text = "0,00";
+            instance.InputFieldDiscount.Text = "0";
+            instance.InputFieldType.Text = "0";
+            instance.addMode = true;
 
+            instance.SetReadOnly(false);
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -112,11 +120,23 @@ namespace PovarenokApp.Pages
                 MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             else
             {
-                ApplicationContextDB.EditProduct(id,
-                    instance.InputFieldTitle.Text,
-                    float.Parse(instance.InputFieldCost.Text),
-                    int.Parse(instance.InputFieldDiscount.Text),
-                    int.Parse(instance.InputFieldType.Text));
+                if (addMode)
+                {
+                    ApplicationContextDB.AddProduct(id,
+                        instance.InputFieldTitle.Text,
+                        float.Parse(instance.InputFieldCost.Text),
+                        int.Parse(instance.InputFieldDiscount.Text),
+                        int.Parse(instance.InputFieldType.Text));
+                    addMode = false;
+                }
+                else
+                {
+                    ApplicationContextDB.EditProduct(id,
+                        instance.InputFieldTitle.Text,
+                        float.Parse(instance.InputFieldCost.Text),
+                        int.Parse(instance.InputFieldDiscount.Text),
+                        int.Parse(instance.InputFieldType.Text));
+                }
                 SetReadOnly(true);
             }
         }
@@ -129,9 +149,9 @@ namespace PovarenokApp.Pages
             if (string.IsNullOrEmpty(InputFieldTitle.Text))
                 errorBuilder.AppendLine("Укажите название\n");
 
-            var checkTitle = ApplicationContextDB.Products.FirstOrDefault(p => p.title.ToLower() == InputFieldTitle.Text);
-            if (checkTitle.IsEmpty())
-                errorBuilder.AppendLine("Такой товар уже есть в базе данных\n");
+            /*var checkTitle = ApplicationContextDB.Products.FirstOrDefault(p => p.title.ToLower() == InputFieldTitle.Text);
+            if (!checkTitle.IsEmpty())
+                errorBuilder.AppendLine("Такой товар уже есть в базе данных\n");*/
 
             decimal cost = 0;
             if (!decimal.TryParse(InputFieldCost.Text, out cost) || cost <= 0)
