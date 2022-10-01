@@ -14,8 +14,8 @@
   <p>{{ object.body }}</p>
 </div>
 
-\\доделать
-
+<p><a href="{% url 'article_edit' article.pk %}">Редактировать</a> | <a href="{% url 'article_delete' article.pk %}">Удалить</a></p>
+<p>Вернуться ко <a href="{% url 'article_list' %}">всем статьям</a></p>
 {% endblock %}
 </body>
 </html>

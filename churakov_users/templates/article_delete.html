@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-
+{% extends 'base.html' %}
+{% block content %}
+<h1>Удалить</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Вы точно хотите удалить "{{ article.title }}"</p>
+    <button class="btn btn-danger ml-2" type="submit">Потвердить</button>
+</form>
+{% endblock %}
 </body>
 </html>

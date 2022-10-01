@@ -5,25 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="complete task 7">
-      <change afterPath="$PROJECT_DIR$/churakov_users/articles/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/article_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/article_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/article_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/article_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_change_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_change_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/registration/password_reset_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/churakov_users/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/churakov_users/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/churakov_users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/churakov_users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/churakov_users/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/pages/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/pages/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/pages/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/churakov_users/templates/article_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/article_delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/churakov_users/templates/article_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/article_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/churakov_users/templates/article_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/article_edit.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

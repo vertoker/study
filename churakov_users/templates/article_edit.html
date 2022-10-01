@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-
+{% extends 'base.html' %}
+{% block content %}
+<h1>Редактировать</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-info ml-2" type="submit">Обновить</button>
+</form>
+{% endblock %}
 </body>
 </html>
