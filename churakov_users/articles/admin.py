@@ -1,3 +1,11 @@
 from django.contrib import admin
+from . import models
 
-# Register your models here.
+class CommentInline(admin.StackedInline):
+    model = models.Comment
+
+class ArticleAdmin(admin.ModelAdmin):
+    inlines = [CommentInline,]
+
+admin.site.register(models.Article, ArticleAdmin)
+admin.site.register(models.Comment)

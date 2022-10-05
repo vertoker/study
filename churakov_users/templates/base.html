@@ -24,6 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto">
+                    <a class="btn btn-primary" href="{% url 'article_new' %}" role="button">Добавить статью</a>
                     <li class="nav-item">
                         <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">

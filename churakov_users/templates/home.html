@@ -10,14 +10,11 @@
 {% block title %}Дом{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Привет {{ user.username }}!
-  <p><a href="{% url 'logout' %}">Выйти</a></p>
-{% else %}
-  <p>Вы не вошли</p>
-  <a href="{% url 'login' %}">Войти</a>
-  <a href="{% url 'signup' %}">Регистрация</a>
-{% endif %}
+    <div class="jumbotron">
+        <h1 class="display-4">Газета дня</h1>
+        <p class="lead">Газета дня, сделанная с помощью Django</p>
+        <p><a class="btn btn-primary btn-lg" href="{% url 'article_list' %}" role="button">Все статьи</a></p>
+    </div>
 {% endblock %}
 </body>
 </html>

@@ -21,9 +21,17 @@
     {{ article.body }}
   </div>
   <div class="card-footer text-center text-muted">
-    <a href="{% url 'article_edit' article.pk %}">Редактировать</a> | <a href="{% url 'article_delete' article.pk %}">Удалить</a>
+    <a href="{% url 'article_edit' article.pk %}">Редактировать</a> |
+    <a href="{% url 'article_delete' article.pk %}">Удалить</a>
+    {% for comment in article.comments.all %}
+    <p>
+      <span class="font-weight-bold">{{ comment.author }} &middot</span>
+      {{ comment }}
+    </p>
+    {% endfor %}
   </div>
 </div>
+<p></p>
 {% endfor %}
 
 {% endblock content %}
