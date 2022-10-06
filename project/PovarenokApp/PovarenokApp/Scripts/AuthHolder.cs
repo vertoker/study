@@ -16,7 +16,7 @@ namespace PovarenokApp.Scripts
         public static bool Auth(string login, string password)
         {
             var entity = ApplicationContextDB.Users.FirstOrDefault((UserEntity user) => { return user.login == login && user.password == password; });
-            if (entity.IsEmpty())
+            if (entity == null)
                 return false;
             ActiveUser = entity;
             return true;

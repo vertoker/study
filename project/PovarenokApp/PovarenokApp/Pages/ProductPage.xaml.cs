@@ -45,7 +45,7 @@ namespace PovarenokApp.Pages
 
         public void UpdateAdminEditComboVisibility()
         {
-            bool value = AuthHolder.ActiveUser.IsAdmin() && readMode;
+            bool value = AuthHolder.ActiveUser == null && readMode;
             BtnEdit.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
             BtnDelete.Visibility = value ? Visibility.Visible : Visibility.Collapsed;
         }

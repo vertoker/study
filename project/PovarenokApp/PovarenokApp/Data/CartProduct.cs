@@ -8,14 +8,9 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    public struct CartProduct
+    public class CartProduct
     {
         public int id;
         public int quantity;
-
-        public void Add(int count)
-        {
-            quantity += count;
-        }
     }
 }

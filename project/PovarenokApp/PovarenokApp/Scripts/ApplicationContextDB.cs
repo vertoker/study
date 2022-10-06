@@ -168,5 +168,32 @@ namespace PovarenokApp.Scripts
             int index = Products.FindIndex((ProductEntity p) => { return p.id == id; });
             Products.RemoveAt(index);
         }
+
+        public static void CreateOrder(List<CartProduct> products)
+        {
+            foreach (var p in Products)
+            {
+                foreach (var cp in products)
+                {
+                    //MessageBox.Show(string.Join(" ", p.id, cp.id, p.quantity_in_stock, cp.quantity));
+                    if (p.id == cp.id)
+                    {
+                        p.quantity_in_stock -= cp.quantity;
+                    }
+                }
+            }
+
+            var order = new OrderEntity()
+            {
+                code = Counters[3].counter,
+                id = Counters[3].GetNext(),
+                order_products = string.Join(" ", products.Select((CartProduct cp) => { return cp.id; })),
+                order_quantities = string.Join(" ", products.Select((CartProduct cp) => { return cp.quantity; })),
+                date_order = DateTime.Now.ToString("dd.MM.yy"),
+                date_delivery = DateTime.Now.ToString("dd.MM.yy"),
+                order_status = (int)OrderStatus.New
+            };
+            Orders.Add(order);
+        }
     }
 }

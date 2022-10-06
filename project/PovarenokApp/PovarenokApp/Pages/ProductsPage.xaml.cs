@@ -73,7 +73,8 @@ namespace PovarenokApp.Pages
 
         private void CartBtn_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show();
+            var product = (ProductEntity)(sender as Button).DataContext;
+            CartPage.AddProduct(product);
         }
     }
 }

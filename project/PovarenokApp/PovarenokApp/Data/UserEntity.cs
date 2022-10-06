@@ -8,17 +8,13 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    public struct UserEntity
+    public class UserEntity
     {
         public int id;
         public string first_name, last_name, patronymic;
         public string login, password;
         public int role;
 
-        public bool IsEmpty()
-        {
-            return login == null || password == null;
-        }
         public bool IsAdmin()
         {
             return (Role)role == Role.Admin;

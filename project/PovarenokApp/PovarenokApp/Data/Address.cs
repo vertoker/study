@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PovarenokApp.Data
 {
-    public struct Address
+    public class Address
     {
         public int id;
         public string address;

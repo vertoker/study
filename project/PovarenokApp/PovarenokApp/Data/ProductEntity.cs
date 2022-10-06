@@ -8,7 +8,7 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    public struct ProductEntity
+    public class ProductEntity
     {
         public int id;
         public int type;
@@ -34,7 +34,7 @@ namespace PovarenokApp.Data
             }
         }
 
-        public string Title => title;
+        public string Title => string.Join(" ", title, ":", quantity_in_stock.ToString());
         public string Cost => cost.ToString("0.00") + " ";
 
         public string TotalCost
@@ -68,6 +68,20 @@ namespace PovarenokApp.Data
                 else
                     return "#D1FFD1";
             }
+        }
+
+        public ProductEntity DeepCopy()
+        {
+            return new ProductEntity()
+            {
+                id = id,
+                type = type,
+                cost = cost,
+                discount_amount = discount_amount,
+                quantity_in_stock = quantity_in_stock,
+                title = title,
+                image = image
+            };
         }
     }
 }

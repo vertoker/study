@@ -32,7 +32,7 @@
             </StackPanel>
             <StackPanel VerticalAlignment="Center">
                 <Border Margin="5" Height="175" Width="175" BorderBrush="Orange" BorderThickness="1">
-                    <Image x:Name="ImageService"></Image>
+                    <Image x:Name="ImageService"/>
                 </Border>
                 <Button Height="30" Width="175" Margin="5" Name="BtnSelectImage" Click="BtnSelectImage_Click" Content="Выбрать фотографию" Background="Orange"></Button>
                 <Button Height="30" Width="175" Margin="5" Name="BtnSave" Click="BtnSave_Click" Content="Сохранить" Background="Orange"></Button>

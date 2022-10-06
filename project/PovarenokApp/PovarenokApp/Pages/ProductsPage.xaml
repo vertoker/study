@@ -39,7 +39,7 @@
                                     <TextBlock Width="auto" Text="{Binding TotalCost}" FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
-                            <Button x:Name="CartBtn" Grid.Column="2" Click="CartBtn_Click">Вот это надо доделать</Button>
+                            <Button x:Name="CartBtn" Grid.Column="2" Click="CartBtn_Click">Добавить в корзину</Button>
                         </Grid>
                     </Border>
                 </DataTemplate>

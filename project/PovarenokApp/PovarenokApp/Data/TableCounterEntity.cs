@@ -8,7 +8,7 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Data
 {
-    public struct TableCounterEntity
+    public class TableCounterEntity
     {
         public int id;
         public int counter;

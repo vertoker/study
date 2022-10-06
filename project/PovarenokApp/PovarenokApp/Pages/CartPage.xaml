@@ -26,7 +26,8 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"></ColumnDefinition>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="450"></ColumnDefinition>
+                                <ColumnDefinition Width="200"></ColumnDefinition>
                             </Grid.ColumnDefinitions>
 
                             <Image Source="{Binding MainImage}"></Image>
@@ -38,6 +39,7 @@
                                     <TextBlock Width="auto" Text="{Binding TotalCost}" FontFamily="Consolas" FontSize="24" Foreground="Black" HorizontalAlignment="Left"></TextBlock>
                                 </StackPanel>
                             </StackPanel>
+                            <Button x:Name="DeleteBtn" Grid.Column="2" Click="DeleteBtn_Click">Удалить из корзины</Button>
                         </Grid>
                     </Border>
                 </DataTemplate>
