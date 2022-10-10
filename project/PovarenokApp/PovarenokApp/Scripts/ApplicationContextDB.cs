@@ -12,6 +12,30 @@ namespace PovarenokApp.Scripts
     class ApplicationContextDB
     {
         #region DataBase
+        public static List<TableCounterEntity> Counters = new List<TableCounterEntity>()
+        {
+            new TableCounterEntity()//Addresses
+            {
+                id = 0,
+                counter = 2
+            },
+            new TableCounterEntity()//Users
+            {
+                id = 1,
+                counter = 1
+            },
+            new TableCounterEntity()//Products
+            {
+                id = 2,
+                counter = 5
+            },
+            new TableCounterEntity()//Orders
+            {
+                id = 3,
+                counter = 2
+            }
+        };
+
         public static List<Address> Addresses = new List<Address>()
         {
             new Address()
@@ -49,7 +73,8 @@ namespace PovarenokApp.Scripts
                 type = (int)ProductType.Fork,
                 title = "fork 1",
                 quantity_in_stock = 10,
-                discount_amount = 0
+                discount_amount = 0,
+                image = null
             },
             new ProductEntity()
             {
@@ -58,7 +83,8 @@ namespace PovarenokApp.Scripts
                 type = (int)ProductType.Fork,
                 title = "fork 2",
                 quantity_in_stock = 25,
-                discount_amount = 10
+                discount_amount = 10,
+                image = null
             },
             new ProductEntity()
             {
@@ -67,7 +93,8 @@ namespace PovarenokApp.Scripts
                 type = (int)ProductType.Spoon,
                 title = "spoon 1",
                 quantity_in_stock = 0,
-                discount_amount = 5
+                discount_amount = 5,
+                image = null
             },
             new ProductEntity()
             {
@@ -76,7 +103,8 @@ namespace PovarenokApp.Scripts
                 type = (int)ProductType.Spoon,
                 title = "spoon 2",
                 quantity_in_stock = 1000,
-                discount_amount = 15
+                discount_amount = 15,
+                image = null
             },
             new ProductEntity()
             {
@@ -85,7 +113,8 @@ namespace PovarenokApp.Scripts
                 type = (int)ProductType.Set,
                 title = "set 1",
                 quantity_in_stock = 999999,
-                discount_amount = 5
+                discount_amount = 5,
+                image = null
             }
         };
 
@@ -98,7 +127,6 @@ namespace PovarenokApp.Scripts
                 order_quantities = "3 2",
                 date_order = "12.09.22",
                 date_delivery = "14.09.22",
-                code = 800,
                 order_status = (int)OrderStatus.Complete
             },
             new OrderEntity()
@@ -108,32 +136,7 @@ namespace PovarenokApp.Scripts
                 order_quantities = "10 10 10 10",
                 date_order = "16.09.22",
                 date_delivery = "19.09.22",
-                code = 801,
                 order_status = (int)OrderStatus.New
-            }
-        };
-
-        public static List<TableCounterEntity> Counters = new List<TableCounterEntity>()
-        {
-            new TableCounterEntity()//Addresses
-            {
-                id = 0,
-                counter = 2
-            },
-            new TableCounterEntity()//Users
-            {
-                id = 1,
-                counter = 1
-            },
-            new TableCounterEntity()//Products
-            {
-                id = 2,
-                counter = 5
-            },
-            new TableCounterEntity()//Orders
-            {
-                id = 3,
-                counter = 2
             }
         };
         #endregion
@@ -185,7 +188,6 @@ namespace PovarenokApp.Scripts
 
             var order = new OrderEntity()
             {
-                code = Counters[3].counter,
                 id = Counters[3].GetNext(),
                 order_products = string.Join(" ", products.Select((CartProduct cp) => { return cp.id; })),
                 order_quantities = string.Join(" ", products.Select((CartProduct cp) => { return cp.quantity; })),

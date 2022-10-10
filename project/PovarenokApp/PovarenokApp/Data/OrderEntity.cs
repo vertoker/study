@@ -15,7 +15,6 @@ namespace PovarenokApp.Data
         public string date_delivery;
         public int id_address;
         public int id_user;
-        public int code;
         public int order_status;
     }
 }

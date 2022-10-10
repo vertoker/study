@@ -1,46 +1,45 @@
 create database Povarenok;
 
-create table Roles
+create table Counters
 (
-  RoleID int primary key,
-  RoleName varchar(100) not null
+  CounterID int primary key,
+  TableCounter int not null
 );
-create table Buyers
+
+create table Addresses
+(
+  AddressID int primary key,
+  AddressName varchar(128)
+);
+
+create table Users
 (
   UserID int primary key,
-  UserSurname varchar(100) not null,
   UserName varchar(100) not null,
+  UserSurname varchar(100) not null,
   UserPatronymic varchar(100) not null,
   UserLogin text not null,
   UserPassword text not null,
-  UserRole int not null,
-  foreign key (UserRole) references Roles(RoleID) 
+  UserRole int not null
 );
+
 create table Products
 (
-  ProductArticleNumber nvarchar(100) primary key,
+  ProductID int primary key,
   ProductName text not null,
-  ProductDescription text not null,
-  ProductCategory text not null,
-  ProductPhoto int not null,
-  ProductManufacturer text not null,
+  ProductCategory int not null,
   ProductCost decimal(19,4) not null,
   ProductDiscountAmount tinyint null,
   ProductQuantityInStock int not null,
-  ProductStatus text not null
+  ProductImage image
 );
+
 create table Orders
 (
   OrderID int primary key,
-  OrderStatus text not null,
+  OrderProducts text not null,
+  OrderQuantities text not null,
+  OrderOrderDate datetime not null,
   OrderDeliveryDate datetime not null,
-  OrderPickupPoint text not null
-);
-create table OrdersProducts
-(
-  OrderID int not null,
-  ProductArticleNumber nvarchar(100)  not null,
-  Primary key (OrderID,ProductArticleNumber),
-  foreign key (OrderID) references Orders(OrderID),
-  foreign key (ProductArticleNumber) references Product(ProductArticleNumber)
+  OrderStatus int not null
 );
