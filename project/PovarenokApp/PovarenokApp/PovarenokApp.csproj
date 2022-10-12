@@ -85,33 +85,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\BakeryModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BakeryModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BakeryModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BakeryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\BakeryModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BakeryModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Buyers.cs">
-      <DependentUpon>BakeryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Orders.cs">
-      <DependentUpon>BakeryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Products.cs">
-      <DependentUpon>BakeryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Role.cs">
-      <DependentUpon>BakeryModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -163,16 +136,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entities\BakeryModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BakeryModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Assets\.DS_Store" />
     <None Include="Assets\README-Template.md" />
     <None Include="Assets\README-Template_rus.md" />
-    <None Include="Entities\BakeryModel.edmx.diagram">
-      <DependentUpon>BakeryModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -185,16 +151,6 @@
   <ItemGroup>
     <Resource Include="Assets\icon.ico" />
     <Resource Include="Assets\logo.png" />
-    <Content Include="Entities\BakeryModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BakeryModel.Context.cs</LastGenOutput>
-      <DependentUpon>BakeryModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Entities\BakeryModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BakeryModel.edmx</DependentUpon>
-      <LastGenOutput>BakeryModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
