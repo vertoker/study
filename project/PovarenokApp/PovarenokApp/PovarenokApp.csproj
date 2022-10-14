@@ -64,8 +64,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Addresses.cs">
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\CartProduct.cs" />
+    <Compile Include="Data\Counters.cs">
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ModelPovarenok.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPovarenok.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ModelPovarenok.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\ModelPovarenok.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelPovarenok.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Orders.cs">
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Products.cs">
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
     <Compile Include="Data\TableCounterEntity.cs" />
+    <Compile Include="Data\Users.cs">
+      <DependentUpon>ModelPovarenok.tt</DependentUpon>
+    </Compile>
     <Compile Include="Pages\IPage.cs" />
     <Compile Include="Scripts\ApplicationContextDB.cs" />
     <Compile Include="Data\Address.cs" />
@@ -139,6 +169,13 @@
     <None Include="Assets\.DS_Store" />
     <None Include="Assets\README-Template.md" />
     <None Include="Assets\README-Template_rus.md" />
+    <EntityDeploy Include="Data\ModelPovarenok.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelPovarenok.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\ModelPovarenok.edmx.diagram">
+      <DependentUpon>ModelPovarenok.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,6 +191,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\ModelPovarenok.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPovarenok.edmx</DependentUpon>
+      <LastGenOutput>ModelPovarenok.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Data\ModelPovarenok.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelPovarenok.edmx</DependentUpon>
+      <LastGenOutput>ModelPovarenok.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

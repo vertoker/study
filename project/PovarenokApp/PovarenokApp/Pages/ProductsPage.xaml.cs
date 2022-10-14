@@ -44,7 +44,7 @@ namespace PovarenokApp.Pages
 
         private void BtnProduct_Selection(object sender, RoutedEventArgs e)
         {
-            ProductPage.LoadProduct((ProductEntity)LViewServices.SelectedItem);
+            ProductPage.LoadProduct((Products)LViewServices.SelectedItem);
             MainWindow.OpenPage(2);
         }
         private void BtnCart_Add(object sender, RoutedEventArgs e)

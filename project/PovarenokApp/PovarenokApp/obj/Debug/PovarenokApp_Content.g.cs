@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/bakerymodel.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/bakerymodel.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/modelpovarenok.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("data/modelpovarenok.tt")]
 
 

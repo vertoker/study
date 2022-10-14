@@ -66,13 +66,13 @@ namespace PovarenokApp.Pages
             SetReadOnly(true);
         }
 
-        public static void LoadProduct(ProductEntity product)
+        public static void LoadProduct(Products product)
         {
-            instance.id = product.id;
-            instance.InputFieldTitle.Text = product.title;
-            instance.InputFieldCost.Text = product.cost.ToString("0,00");
-            instance.InputFieldDiscount.Text = product.discount_amount.ToString();
-            instance.InputFieldType.Text = product.type.ToString();
+            instance.id = product.ProductID;
+            instance.InputFieldTitle.Text = product.ProductName;
+            instance.InputFieldCost.Text = product.ProductCost.ToString("0,00");
+            instance.InputFieldDiscount.Text = product.ProductDiscountAmount.Value.ToString();
+            instance.InputFieldType.Text = product.ProductCategory.ToString();
 
             instance.UpdateAdminEditComboVisibility();
         }

@@ -11,11 +11,11 @@ namespace PovarenokApp.Scripts
 {
     static class AuthHolder
     {
-        public static UserEntity ActiveUser { get; private set; }
+        public static Users ActiveUser { get; private set; }
 
         public static bool Auth(string login, string password)
         {
-            var entity = ApplicationContextDB.Users.FirstOrDefault((UserEntity user) => { return user.login == login && user.password == password; });
+            var entity = ApplicationContextDB.Users.FirstOrDefault((Users user) => { return user.UserLogin == login && user.UserPassword == password; });
             if (entity == null)
                 return false;
             ActiveUser = entity;

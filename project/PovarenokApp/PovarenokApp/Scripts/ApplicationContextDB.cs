@@ -9,166 +9,44 @@ using PovarenokApp.Data.Enum;
 
 namespace PovarenokApp.Scripts
 {
-    class ApplicationContextDB
+    public static class ApplicationContextDB
     {
-        #region DataBase
-        public static List<TableCounterEntity> Counters = new List<TableCounterEntity>()
-        {
-            new TableCounterEntity()//Addresses
-            {
-                id = 0,
-                counter = 2
-            },
-            new TableCounterEntity()//Users
-            {
-                id = 1,
-                counter = 1
-            },
-            new TableCounterEntity()//Products
-            {
-                id = 2,
-                counter = 5
-            },
-            new TableCounterEntity()//Orders
-            {
-                id = 3,
-                counter = 2
-            }
-        };
+        public static List<Counters> Counters { get; } = DB.Counters.ToList();
+        public static List<Addresses> Addresses { get; } = DB.Addresses.ToList();
+        public static List<Users> Users { get; } = DB.Users.ToList();
+        public static List<Products> Products { get; } = DB.Products.ToList();
+        public static List<Orders> Orders { get; } = DB.Orders.ToList();
 
-        public static List<Address> Addresses = new List<Address>()
-        {
-            new Address()
-            {
-                id = 0,
-                address = "address 1"
-            },
-            new Address()
-            {
-                id = 1,
-                address = "address 2"
-            }
-        };
-
-        public static List<UserEntity> Users = new List<UserEntity>()
-        {
-            new UserEntity()
-            {
-                id = 0,
-                first_name = "kostya",
-                last_name = "churakov",
-                patronymic = "eduardovich",
-                login = "123",
-                password = "321",
-                role = (int)Role.Admin
-            }
-        };
-
-        public static List<ProductEntity> Products = new List<ProductEntity>()
-        {
-            new ProductEntity()
-            {
-                id = 0,
-                cost = 150,
-                type = (int)ProductType.Fork,
-                title = "fork 1",
-                quantity_in_stock = 10,
-                discount_amount = 0,
-                image = null
-            },
-            new ProductEntity()
-            {
-                id = 1,
-                cost = 200,
-                type = (int)ProductType.Fork,
-                title = "fork 2",
-                quantity_in_stock = 25,
-                discount_amount = 10,
-                image = null
-            },
-            new ProductEntity()
-            {
-                id = 2,
-                cost = 300,
-                type = (int)ProductType.Spoon,
-                title = "spoon 1",
-                quantity_in_stock = 0,
-                discount_amount = 5,
-                image = null
-            },
-            new ProductEntity()
-            {
-                id = 3,
-                cost = 400,
-                type = (int)ProductType.Spoon,
-                title = "spoon 2",
-                quantity_in_stock = 1000,
-                discount_amount = 15,
-                image = null
-            },
-            new ProductEntity()
-            {
-                id = 4,
-                cost = 500,
-                type = (int)ProductType.Set,
-                title = "set 1",
-                quantity_in_stock = 999999,
-                discount_amount = 5,
-                image = null
-            }
-        };
-
-        public static List<OrderEntity> Orders = new List<OrderEntity>()
-        {
-            new OrderEntity()
-            {
-                id = 0,
-                order_products = "0 1",
-                order_quantities = "3 2",
-                date_order = "12.09.22",
-                date_delivery = "14.09.22",
-                order_status = (int)OrderStatus.Complete
-            },
-            new OrderEntity()
-            {
-                id = 1,
-                order_products = "0 1 2 3",
-                order_quantities = "10 10 10 10",
-                date_order = "16.09.22",
-                date_delivery = "19.09.22",
-                order_status = (int)OrderStatus.New
-            }
-        };
-        #endregion
+        private static PovarenokEntitiesMain DB { get; } = new PovarenokEntitiesMain();
 
         public static void AddProduct(int id, string title, float cost, int discount, int type)
         {
-            Products.Add(new ProductEntity()
+            DB.Products.Add(new Products()
             {
-                id = id,
-                title = title,
-                cost = cost,
-                discount_amount = discount,
-                type = type
+                ProductID = id,
+                ProductName = title,
+                ProductCost = (decimal)cost,
+                ProductDiscountAmount = (byte)discount,
+                ProductCategory = type
             });
         }
 
         public static void EditProduct(int id, string title, float cost, int discount, int type)
         {
-            int index = Products.FindIndex((ProductEntity p) => { return p.id == id; });
-            Products[index] = new ProductEntity()
+            int index = Products.FindIndex((Products p) => { return p.ProductID == id; });
+            Products[index] = new Products()
             {
-                id = id,
-                title = title,
-                cost = cost,
-                discount_amount = discount,
-                type = type
+                ProductID = id,
+                ProductName = title,
+                ProductCost = (decimal)cost,
+                ProductDiscountAmount = (byte)discount,
+                ProductCategory = type
             };
         }
 
         public static void DeleteProduct(int id)
         {
-            int index = Products.FindIndex((ProductEntity p) => { return p.id == id; });
+            int index = Products.FindIndex((Products p) => { return p.ProductID == id; });
             Products.RemoveAt(index);
         }
 
@@ -179,21 +57,21 @@ namespace PovarenokApp.Scripts
                 foreach (var cp in products)
                 {
                     //MessageBox.Show(string.Join(" ", p.id, cp.id, p.quantity_in_stock, cp.quantity));
-                    if (p.id == cp.id)
+                    if (p.ProductID == cp.id)
                     {
-                        p.quantity_in_stock -= cp.quantity;
+                        p.ProductQuantityInStock -= cp.quantity;
                     }
                 }
             }
 
-            var order = new OrderEntity()
+            var order = new Orders()
             {
-                id = Counters[3].GetNext(),
-                order_products = string.Join(" ", products.Select((CartProduct cp) => { return cp.id; })),
-                order_quantities = string.Join(" ", products.Select((CartProduct cp) => { return cp.quantity; })),
-                date_order = DateTime.Now.ToString("dd.MM.yy"),
-                date_delivery = DateTime.Now.ToString("dd.MM.yy"),
-                order_status = (int)OrderStatus.New
+                OrderID = Counters[3].GetNext(),
+                OrderProducts = string.Join(" ", products.Select((CartProduct cp) => { return cp.id; })),
+                OrderQuantities = string.Join(" ", products.Select((CartProduct cp) => { return cp.quantity; })),
+                OrderOrderDate = DateTime.Now,
+                OrderDeliveryDate = DateTime.Now.AddDays(7),
+                OrderStatus = (int)OrderStatus.New
             };
             Orders.Add(order);
         }

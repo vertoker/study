@@ -41,7 +41,7 @@ namespace PovarenokApp
             activeID = id;
             main.FrameMain.Navigate(pages[id]);
             main.HeaderText.Text = pages[id].Title;
-            main.RoleName.Text = AuthHolder.ActiveUser == null ? string.Empty : GetRoleStatus((Role)AuthHolder.ActiveUser.role);
+            main.RoleName.Text = AuthHolder.ActiveUser == null ? string.Empty : GetRoleStatus((Role)AuthHolder.ActiveUser.UserRole);
             (pages[activeID] as IPage).Enable();
         }
 

@@ -1,4 +1,5 @@
 create database Povarenok;
+use Povarenok;
 
 create table Counters
 (

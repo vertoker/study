@@ -68,14 +68,14 @@ namespace PovarenokApp.Pages
         }
         public void UpdateCart()
         {
-            List<ProductEntity> productEntities = new List<ProductEntity>();
+            List<Products> productEntities = new List<Products>();
             for (int i = 0; i < products.Count; i++)
             {
-                var product = ApplicationContextDB.Products.FirstOrDefault((ProductEntity p) => { return p.id == products[i].id; }).DeepCopy();
+                var product = ApplicationContextDB.Products.FirstOrDefault((Products p) => { return p.ProductID == products[i].id; }).DeepCopy();
                 if (!product.IsEmpty())
                 {
-                    product.quantity_in_stock = products[i].quantity;
-                    product.cost *= product.quantity_in_stock;
+                    product.ProductQuantityInStock = products[i].quantity;
+                    product.ProductCost *= product.ProductQuantityInStock;
                     productEntities.Add(product);
                 }
             }
