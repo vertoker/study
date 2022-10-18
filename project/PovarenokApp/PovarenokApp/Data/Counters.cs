@@ -19,8 +19,8 @@ namespace PovarenokApp.Data
 
         public int GetNext()
         {
-            CounterID++;
-            return CounterID - 1;
+            TableCounter++;
+            return TableCounter - 1;
         }
     }
 }

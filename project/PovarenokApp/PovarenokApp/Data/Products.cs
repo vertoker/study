@@ -7,13 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.Windows;
-
 namespace PovarenokApp.Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows;
+
     public partial class Products
     {
         public int ProductID { get; set; }
@@ -23,6 +22,7 @@ namespace PovarenokApp.Data
         public Nullable<byte> ProductDiscountAmount { get; set; }
         public int ProductQuantityInStock { get; set; }
         public byte[] ProductImage { get; set; }
+
 
         public bool IsEmpty()
         {
@@ -50,7 +50,7 @@ namespace PovarenokApp.Data
                 if (ProductDiscountAmount == 0)
                     return ProductCost.ToString("0.00") + " рублей";
                 else
-                    return ((float)ProductCost * (1 - ProductDiscountAmount / 100f)).Value.ToString("0.00") + " рублей";
+                    return (ProductCost * (1 - ProductDiscountAmount / 100)).Value.ToString("0.00") + " рублей";
             }
         }
 

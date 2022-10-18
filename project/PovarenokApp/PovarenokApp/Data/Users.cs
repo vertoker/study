@@ -10,10 +10,9 @@
 namespace PovarenokApp.Data
 {
     using System;
-    using System.Collections.Generic;
     using PovarenokApp.Data.Enum;
-
-
+    using System.Collections.Generic;
+    
     public partial class Users
     {
         public int UserID { get; set; }

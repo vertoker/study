@@ -17,7 +17,7 @@ namespace PovarenokApp.Scripts
         public static List<Products> Products { get; } = DB.Products.ToList();
         public static List<Orders> Orders { get; } = DB.Orders.ToList();
 
-        private static PovarenokEntitiesMain DB { get; } = new PovarenokEntitiesMain();
+        private static PovarenokEntities1 DB { get; } = new PovarenokEntities1();
 
         public static void AddProduct(int id, string title, float cost, int discount, int type)
         {

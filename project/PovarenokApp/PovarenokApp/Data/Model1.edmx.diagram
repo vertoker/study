@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c4ac1a5bd4654259adb489c6db99f863" Name="Diagram1">
+      <Diagram DiagramId="77f891cb714040599b1e029f9a41b67c" Name="Diagram1">
         <EntityTypeShape EntityType="PovarenokModel.Addresses" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PovarenokModel.Counters" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PovarenokModel.Orders" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />

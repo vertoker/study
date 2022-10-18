@@ -13,10 +13,10 @@ namespace PovarenokApp.Data
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PovarenokEntitiesMain : DbContext
+    public partial class PovarenokEntities1 : DbContext
     {
-        public PovarenokEntitiesMain()
-            : base("name=PovarenokEntitiesMain")
+        public PovarenokEntities1()
+            : base("name=PovarenokEntities1")
         {
         }
     

@@ -115,7 +115,7 @@
           <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserRole" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="PovarenokEntitiesMain" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PovarenokEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Addresses" EntityType="Self.Addresses" />
           <EntitySet Name="Counters" EntityType="Self.Counters" />
           <EntitySet Name="Orders" EntityType="Self.Orders" />
@@ -127,7 +127,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PovarenokModelContainer" CdmEntityContainer="PovarenokEntitiesMain">
+        <EntityContainerMapping StorageEntityContainer="Хранилище PovarenokModelContainer" CdmEntityContainer="PovarenokEntities1">
           <EntitySetMapping Name="Addresses">
             <EntityTypeMapping TypeName="PovarenokModel.Addresses">
               <MappingFragment StoreEntitySet="Addresses">
