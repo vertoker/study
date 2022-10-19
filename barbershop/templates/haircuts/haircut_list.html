@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Причёски</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+        {% block content %}
+
+            {% if user.is_superuser %}
+                <p class="navbar-brand">Панель администратора</p>
+                <a class="btn btn-success" href="{% url 'haircut_new' %}">Добавить</a>
+            {% endif %}
+
+            <h1 class="display-4 text-center m-4">Причёски</h1>
+            {% for haircut in object_list %}
+                <div class="card bg-color m-4"
+                     onclick="window.location.replace('{% url 'haircut_detail' haircut.pk %}');">
+                    <img src="{{ haircut.image }}" alt="Картинка причёски"
+                         style="object-fit:cover; width:400px; height:400px;"
+                         class="rounded mx-auto d-block m-4">
+                    <div class="haircut-clickable card-body text-center">
+                        <h1 class="display-4">{{ haircut.title }}</h1>
+                        <p class="lead">{{ haircut.description }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endblock content %}
+</body>
+</html>

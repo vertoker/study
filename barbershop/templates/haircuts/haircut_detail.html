@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Причёска</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+        {% block content %}
+            <div class="post-entry">
+                <img src="{{ haircut.image }}" alt="Картинка причёски"
+                     style="object-fit:cover; width:600px; height:600px;"
+                     class="rounded m-5 mx-auto d-block">
+                <h1> {{ haircut.title }} </h1>
+                <p class="lead"> {{ haircut.description }} </p>
+            </div>
+
+            {% if user.is_superuser %}
+                <p>
+                <p class="navbar-brand">Панель администратора</p>
+                <a class="btn btn-primary" href="{% url 'haircut_edit' haircut.pk %}">Отредактировать</a>
+                <a class="btn btn-danger" href="{% url 'haircut_delete' haircut.pk %}">Удалить</a>
+            {% endif %}
+      {% endblock content %}
+</body>
+</html>
