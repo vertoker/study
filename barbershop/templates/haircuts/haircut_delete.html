@@ -5,14 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-{% extends 'base.html' %}
-{% block context %}
-<h1>Удалить пост</h1>
-<form action="" method="post">
-  {% csrf_token %}
-  <p>Вы точно хотите удалить пост "{{ post.title }}"?</p>
-  <input type="submit" value="Да" />
-</form>
-{% endblock context %}
+    {% extends 'base.html' %}
+        {% block content %}
+        <h1>Удалить причёску</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p>Вы точно хотите удалить причёску "{{ post.title }}"?</p>
+            <input type="submit" value="Да" class="btn btn-success"/>
+            <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-danger">Нет</a>
+        </form>
+    {% endblock content %}
 </body>
 </html>

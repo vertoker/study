@@ -8,11 +8,17 @@
     {% extends 'base.html' %}
         {% block content %}
             <div class="post-entry">
-                <img src="{{ haircut.image }}" alt="Картинка причёски"
+                <img src="{{ haircut.image1 }}" alt="Картинка причёски"
                      style="object-fit:cover; width:600px; height:600px;"
                      class="rounded m-5 mx-auto d-block">
-                <h1> {{ haircut.title }} </h1>
-                <p class="lead"> {{ haircut.description }} </p>
+                <div class="jumbotron">
+                    <h1 style="float: right;">{{ haircut.price }}₽</h1>
+                    <h1>{{ haircut.title }}</h1>
+                    <p class="lead">{{ haircut.description }}</p>
+                    <a href="{% url 'haircut_detail' haircut.pk %}"
+                        class="btn btn-success col-6 btn-lg"
+                        style="float: center;">Заказать</a>
+                </div>
             </div>
 
             {% if user.is_superuser %}
