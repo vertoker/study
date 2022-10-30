@@ -30,8 +30,8 @@
         <a class="btn btn-dark m-1" style="width: 150px;" href="{% url 'haircut_list' %}" role="button">Причёски</a>
         <a class="btn btn-dark m-1" style="width: 150px;" href="" role="button">Акции</a>
         <a class="btn btn-dark m-1" style="width: 150px;" href="" role="button">Блог</a>
-        <a class="btn btn-dark m-1" style="width: 150px;" href="" role="button">О нас</a>
-        <a class="btn btn-primary m-1" style="width: 150px;" href="" role="button">Записаться</a>
+        <a class="btn btn-dark m-1" style="width: 150px;" href="{% url 'about_us' %}" role="button">О нас</a>
+        <a class="btn btn-success m-1" style="width: 150px;" href="" role="button">Записаться</a>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             {% if user.is_authenticated %}
