@@ -3,9 +3,10 @@ from django.urls import reverse
 from django.contrib.postgres.fields import ArrayField
 from django import forms
 
-class Appointment(models.Model):
-    haircut = models.ForeignKey("haircuts.Haircut", on_delete=models.PROTECT, null=True)
+class Master(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.PROTECT, null=True)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False)
+    end_time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def get_absolute_url(self):
         return reverse('appointments_detail', args=[str(self.id)])

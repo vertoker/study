@@ -23,5 +23,5 @@ class HaircutUpdateView(UpdateView):
 
 class HaircutDeleteView(DeleteView):
     model = Haircut
-    template_name = 'haircut_delete.html'
+    template_name = 'master_delete.html'
     success_url = reverse_lazy('haircut_list')
