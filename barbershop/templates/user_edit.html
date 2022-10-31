@@ -7,12 +7,17 @@
 <body>
   {% extends 'base.html' %}
     {% block content %}
-      <h1>Изменить информацию о себе</h1>
-      <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Обновить"/>
-      </form>
+      {% if user.pk == 1 %}
+        <h1>Изменить информацию о себе</h1>
+        <form action="" method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <input type="submit" value="Обновить"/>
+        </form>
+      {% else %}
+        <h1>Вам нельзя редактироватьчужую информацию</h1>
+        <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться обратно</a>
+      {% endif %}
     {% endblock content %}
 </body>
 </html>

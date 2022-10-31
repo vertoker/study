@@ -14,12 +14,12 @@ class MasterDetailView(DetailView):
 class MasterCreateView(CreateView):
     model = Master
     template_name = 'master_new.html'
-    fields = ['user', 'start_time', 'end_time', 'begin_time', 'photo1', 'photo2', 'photo3', 'description']
+    fields = ['user', 'start_time', 'end_time', 'photo1', 'photo2', 'photo3', 'description', 'full_description']
 
 class MasterUpdateView(UpdateView):
     model = Master
     template_name = 'master_edit.html'
-    fields = ['user', 'start_time', 'end_time', 'begin_time', 'photo1', 'photo2', 'photo3', 'description']
+    fields = ['user', 'start_time', 'end_time', 'photo1', 'photo2', 'photo3', 'description', 'full_description']
 
 class MasterDeleteView(DeleteView):
     model = Master

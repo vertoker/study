@@ -13,4 +13,5 @@ class UserUpdateView(UpdateView):
     model = CustomUser
     template_name = 'user_edit.html'
     success_url = reverse_lazy('home')
+    #fields = '__all__'
     fields = ["username", "first_name", "last_name", "patronymic", "age", "gender"]

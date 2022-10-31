@@ -7,7 +7,7 @@ from .models import CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
-    list_display = ['first_name', 'last_name', 'email', 'age']
+    list_display = ["username", "first_name", "last_name", "patronymic", "age", "gender"]
     model = CustomUser
 
 admin.site.register(CustomUser, CustomUserAdmin)
