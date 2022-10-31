@@ -46,7 +46,7 @@
                             <h3 class="card-title">{{ master.user.first_name }} {{ master.user.last_name }}</h3>
                             <p class="card-text">{{ master.description }}</p>
                             <a href="{% url 'master_detail' master.pk %}" class="btn btn-primary">Посмотреть</a>
-                            <a href="{% url 'master_detail' master.pk %}" class="btn btn-success">Записаться</a>
+                            <a href="{% url 'master_detail' master.pk %}" class="btn btn-success">Записаться на стрижку</a>
                         </div>
                     </div>
                 {% endfor %}
