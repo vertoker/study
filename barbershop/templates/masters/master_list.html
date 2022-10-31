@@ -10,61 +10,21 @@
 
             {% if user.is_superuser %}
                 <p class="navbar-brand">Панель администратора</p>
-                <a class="btn btn-success" href="{% url 'haircut_new' %}">Добавить</a>
+                <a class="btn btn-success" href="{% url 'master_new' %}">Добавить</a>
             {% endif %}
 
-            <h1 class="display-4 text-center m-4">Причёски</h1>
+            <h1 class="display-4 text-center m-4">Мастера</h1>
             <div class="row">
-                {% for haircut in object_list %}
+                {% for master in object_list %}
                     <div class="card bg-color m-4" style="width:25rem;">
-                        <div id="carousel123" class="carousel slide carousel-fade" data-ride="carousel">
-                            <div class="carousel-inner">
-                                {% if haircut.image1 != None %}
-                                    <div class="carousel-item active" data-interval="1000">
-                                        <img class="card-img-top" src="{{ haircut.image1 }}" alt="Изображение причёски 1"
-                                             style="object-fit:cover; width:25rem; height:25rem;"
-                                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
-                                    </div>
-                                {% endif %}
-                                {% if haircut.image2 != None %}
-                                    <div class="carousel-item" data-interval="1000">
-                                        <img class="card-img-top" src="{{ haircut.image2 }}" alt="Изображение причёски 2"
-                                             style="object-fit:cover; width:25rem; height:25rem;"
-                                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
-                                    </div>
-                                {% endif %}
-                                {% if haircut.image3 != None %}
-                                    <div class="carousel-item" data-interval="1000">
-                                        <img class="card-img-top" src="{{ haircut.image3 }}" alt="Изображение причёски 3"
-                                             style="object-fit:cover; width:25rem; height:25rem;"
-                                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
-                                    </div>
-                                {% endif %}
-                                {% if haircut.image4 != None %}
-                                    <div class="carousel-item" data-interval="1000">
-                                        <img class="card-img-top" src="{{ haircut.image4 }}" alt="Изображение причёски 4"
-                                             style="object-fit:cover; width:25rem; height:25rem;"
-                                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
-                                    </div>
-                                {% endif %}
-                                {% if haircut.image5 != None %}
-                                    <div class="carousel-item" data-interval="1000">
-                                        <img class="card-img-top" src="{{ haircut.image5 }}" alt="Изображение причёски 5"
-                                             style="object-fit:cover; width:25rem; height:25rem;"
-                                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
-                                    </div>
-                                {% endif %}
-                            </div>
-                        </div>
+                        <img class="card-img-top" src="{{ master.photo }}" alt="Фото мастера"
+                             style="object-fit:cover; width:25rem; height:25rem;"
+                             onclick="window.location.href = '{% url 'haircut_detail' haircut.pk %}'">
                         <div class="card-body" style="width:25rem;">
-                            <h3 class="card-title pricing-card-title" style="float: right;">{{ haircut.price }}₽</h3>
-                            {% if haircut.old_price != None %}
-                                <h5 class="card-title pricing-card-title p-1" style="float: right; color: red;"><s>{{ haircut.old_price }}₽</s></h5>
-                            {% endif %}
-                            <h3 class="card-title">{{ haircut.title }}</h3>
-                            <p class="card-text">{{ haircut.description }}</p>
-                            <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-primary">Посмотреть</a>
-                            <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-success">Заказать</a>
+                            <h3 class="card-title">{{ master.user.first_name }} {{ master.user.last_name }}</h3>
+                            <p class="card-text">{{ master.description }}</p>
+                            <a href="{% url 'master_detail' haircut.pk %}" class="btn btn-primary">Посмотреть</a>
+                            <a href="{% url 'master_detail' haircut.pk %}" class="btn btn-success">Записаться</a>
                         </div>
                     </div>
                 {% endfor %}
