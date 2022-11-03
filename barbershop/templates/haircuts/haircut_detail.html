@@ -16,9 +16,9 @@
                     <h1>{{ haircut.title }}</h1>
                     <p class="card-text">{{ haircut.description }}</p>
                     <p class="lead">{{ haircut.full_description }}</p>
-                    <a href="{% url 'haircut_detail' haircut.pk %}"
+                    <a href="{% url 'appointment_new_params' 0 haircut.pk %}"
                         class="btn btn-success btn-lg"
-                        style="">Записаться</a>
+                        style="">Записаться (сделаем за {{ haircut.time_execution }} минут)</a>
                 </div>
                 <div id="carouselHaircut" class="carousel slide" data-ride="carousel" style="width:600px; height:600px;">
                     <ol class="carousel-indicators">

@@ -18,3 +18,6 @@ class Master(models.Model):
 
     def get_absolute_url(self):
         return reverse('master_detail', args=[str(self.id)])
+
+    def __str__(self):
+        return self.user.first_name + " " + self.user.last_name

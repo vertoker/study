@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.postgres.fields import ArrayField
 from django import forms
 
+
 class Haircut(models.Model):
     title = models.CharField(max_length=200)
 
@@ -12,6 +13,8 @@ class Haircut(models.Model):
     image4 = models.URLField(max_length=200, default=None)
     image5 = models.URLField(max_length=200, default=None)
 
+    # В минутах
+    time_execution = models.PositiveIntegerField()
     description = models.TextField(default=None)
     full_description = models.TextField(default=None)
     price = models.PositiveIntegerField()

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+        {% block content %}
+            {% if user.is_superuser %}
+                <p class="navbar-brand">Панель администратора</p>
+                <a class="btn btn-success" href="{% url 'haircut_new' %}">Добавить</a>
+
+                <h1 class="display-4 text-center m-4">Список заказов</h1>
+                <div class="row">
+                    {% for appointment in object_list %}
+                    <div class="card bg-color m-4" style="width:25rem;">
+                        <div class="card-body" style="width:25rem;">
+                            <h3 class="card-title pricing-card-title" style="float: right;">{{ haircut.price }}₽</h3>
+                            {% if haircut.old_price != None %}
+                                <h5 class="card-title pricing-card-title p-1" style="float: right; color: red;"><s>{{ haircut.old_price }}₽</s></h5>
+                            {% endif %}
+                            <h3 class="card-title">{{ haircut.title }}</h3>
+                            <p class="card-text">{{ haircut.description }}</p>
+                            <a href="{% url 'appointment_edit' appointment.pk %}" class="btn btn-warning">Изменить</a>
+                            <a href="{% url 'appointment_delete' appointment.pk %}" class="btn btn-danger">Удалить</a>
+                        </div>
+                    </div>
+
+
+                    {% endfor %}
+                </div>
+            {% else %}
+                <h1>Вы не можете посмотреть список заказов</h1>
+                <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться обратно</a>
+            {% endif %}
+        {% endblock content %}
+</body>
+</html>

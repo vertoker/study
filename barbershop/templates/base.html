@@ -31,7 +31,10 @@
         <a class="btn btn-dark m-1" style="width: 150px;" href="{% url 'master_list' %}" role="button">Мастера</a>
         <a class="btn btn-dark m-1" style="width: 150px;" href="" role="button">Блог</a>
         <a class="btn btn-dark m-1" style="width: 150px;" href="{% url 'about_us' %}" role="button">О нас</a>
-        <a class="btn btn-success m-1" style="width: 150px;" href="" role="button">Записаться</a>
+        <a class="btn btn-success m-1" style="width: 150px;" href="{% url 'appointment_new' %}" role="button">Записаться</a>
+        {% if user.is_superuser %}
+        <a class="btn btn-outline-primary m-1" style="width: 150px;" href="{% url 'appointment_list' %}" role="button">Список заказов</a>
+        {% endif %}
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             {% if user.is_authenticated %}

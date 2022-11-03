@@ -3,6 +3,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Haircut
 
+active_fields = [
+    'title', 'image1', 'image2',
+    'image3', 'image4', 'image5',
+    'time_execution', 'description',
+    'full_description', 'price', 'old_price'
+]
+
 class HaircutListView(ListView):
     model = Haircut
     template_name = 'haircut_list.html'
@@ -14,14 +21,14 @@ class HaircutDetailView(DetailView):
 class HaircutCreateView(CreateView):
     model = Haircut
     template_name = 'haircut_new.html'
-    fields = ['title', 'image1', 'image2', 'image3', 'image4', 'image5', 'description', 'full_description', 'price', 'old_price']
+    fields = active_fields
 
 class HaircutUpdateView(UpdateView):
     model = Haircut
     template_name = 'haircut_edit.html'
-    fields = ['title', 'image1', 'image2', 'image3', 'image4', 'image5', 'description', 'full_description', 'price', 'old_price']
+    fields = active_fields
 
 class HaircutDeleteView(DeleteView):
     model = Haircut
-    template_name = 'master_delete.html'
+    template_name = 'haircut_delete.html'
     success_url = reverse_lazy('haircut_list')
