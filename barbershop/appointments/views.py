@@ -23,10 +23,10 @@ class AppointmentCreateView(CreateView):
     template_name = 'appointment_new.html'
     fields = active_fields
 
-    #def form_valid(self, form):
-        #repair = form.save()
-        #repair.users.add(self.request.user)
-        #return super().form_valid(form)
+    def form_valid(self, form):
+        repair = form.save()
+        form.instance.user = repair.user
+        return super().form_valid(form)
 
 
 class AppointmentUpdateView(UpdateView):

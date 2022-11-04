@@ -10,4 +10,4 @@ class Appointment(models.Model):
     start_time = models.TimeField(auto_now=False, auto_now_add=False)
 
     def get_absolute_url(self):
-        return reverse('appointments_detail', args=[str(self.id)])
+        return reverse('appointment_detail', args=[str(self.id)])

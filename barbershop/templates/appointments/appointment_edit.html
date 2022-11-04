@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Изменить заказ</title>
 </head>
 <body>
-
+{% extends 'base.html' %}
+    {% block content %}
+        {% if user.is_superuser %}
+            <h1>Изменить заказ</h1>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Обновить"/>
+                </form>
+        {% else %}
+            <h1>Вы не можете изменить данные заказа</h1>
+            <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться обратно</a>
+        {% endif %}
+    {% endblock content %}
 </body>
 </html>
