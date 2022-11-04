@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef7ee26a-802e-4e6f-a7b2-0bc0eadc4dee" name="Changes" comment="complete task 7">
-      <change afterPath="$PROJECT_DIR$/churakov_users/templates/article_new.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/articles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/articles/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/articles/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/articles/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/articles/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/articles/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/articles/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/churakov_users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/churakov_users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/churakov_users/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/article_delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/article_delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/article_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/article_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/churakov_users/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/churakov_users/users/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,14 +36,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "S:/Чураков/churakov_users/templates",
-    "settings.editor.selected.configurable": "preferences.general"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;S:/Чураков/churakov_users/templates&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="S:\Чураков\churakov_users\templates" />
