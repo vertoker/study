@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Блог</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+        {% if user.is_superuser %}
+        {% endif %}
+
+        {% block content %}
+            <h1 class="display-4 text-center m-4">Личный блог</h1>
+        {% endblock content %}
+</body>
+</html>

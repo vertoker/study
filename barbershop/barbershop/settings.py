@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'haircuts',
     'appointments',
     'masters',
+    'blog',
     'crispy_forms'
 ]
 
@@ -61,7 +62,7 @@ ROOT_URLCONF = 'barbershop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates', 'templates/haircuts', 'templates/appointments', 'templates/masters'],
+        'DIRS': ['templates', 'templates/haircuts', 'templates/appointments', 'templates/masters', 'templates/blog'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
