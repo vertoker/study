@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-
+    {% block content %}
+        <h1>Редактировать статью</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <h4>Название</h4>
+            {{ form.title }}
+            <h4>Описание</h4>
+            {{ form.description }}
+            <h2>Статья</h2>
+            {{ form.article }}
+            <h2>Ссылка на стрижку</h2>
+            {{ form.haircut }}
+            <p></p>
+            <input class="btn btn-success" type="submit" value="Сохранить" />
+        </form>
+    {% endblock content %}
 </body>
 </html>

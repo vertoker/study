@@ -2,9 +2,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Article
+from .forms import NewArticle
 
 active_fields = [
-    'title', 'description', 'article'
+    'title', 'description', 'article', 'haircut'
 ]
 
 class ArticleListView(ListView):
@@ -16,9 +17,8 @@ class ArticleDetailView(DetailView):
     template_name = 'blog_detail.html'
 
 class ArticleCreateView(CreateView):
-    model = Article
+    form_class = NewArticle
     template_name = 'blog_new.html'
-    fields = active_fields
 
 class ArticleUpdateView(UpdateView):
     model = Article
