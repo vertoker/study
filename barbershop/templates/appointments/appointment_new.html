@@ -5,14 +5,22 @@
     <title>Записаться</title>
 </head>
 <body>
-  {% extends 'base.html' %}
-    {% block content %}
-      <h1>Записаться на стрижку</h1>
-      <form action="" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Сохранить" />
-      </form>
-    {% endblock content %}
+    {% extends 'base.html' %}
+        {% block content %}
+        <h1>Записаться на стрижку</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <h3 class="m-2">Пользователь</h3>
+            {{ form.user }}
+            <h3 class="m-2">Стрижка</h3>
+            {{ form.haircut }}
+            <h3 class="m-2">Парикмахер</h3>
+            {{ form.master }}
+            <h3 class="m-2">Время стрижки</h3>
+            {{ form.entry_time }}
+            <p></p>
+            <input class="btn btn-success" type="submit" value="Сохранить" />
+        </form>
+        {% endblock content %}
 </body>
 </html>

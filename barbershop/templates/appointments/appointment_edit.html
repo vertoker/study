@@ -9,11 +9,19 @@
     {% block content %}
         {% if user.is_superuser %}
             <h1>Изменить заказ</h1>
-                <form action="" method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Обновить"/>
-                </form>
+            <form action="" method="post">
+                {% csrf_token %}
+                <h3 class="m-2">Пользователь</h3>
+                {{ form.user }}
+                <h3 class="m-2">Стрижка</h3>
+                {{ form.haircut }}
+                <h3 class="m-2">Парикмахер</h3>
+                {{ form.master }}
+                <h3 class="m-2">Время стрижки</h3>
+                {{ form.entry_time }}
+                <p></p>
+                <input class="btn btn-success" type="submit" value="Сохранить" />
+            </form>
         {% else %}
             <h1>Вы не можете изменить данные заказа</h1>
             <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться обратно</a>

@@ -2,9 +2,10 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Appointment
+from .forms import NewAppointment
 
 active_fields = [
-    'haircut', 'user', 'master', 'start_time'
+    'haircut', 'user', 'master', 'entry_time'
 ]
 
 
@@ -19,9 +20,9 @@ class AppointmentDetailView(DetailView):
 
 
 class AppointmentCreateView(CreateView):
-    model = Appointment
+    form_class = NewAppointment
     template_name = 'appointment_new.html'
-    fields = active_fields
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         repair = form.save()
@@ -30,7 +31,7 @@ class AppointmentCreateView(CreateView):
 
 
 class AppointmentUpdateView(UpdateView):
-    model = Appointment
+    form_class = NewAppointment
     template_name = 'appointment_edit.html'
     fields = active_fields
 
