@@ -10,7 +10,7 @@
         <h1>Удалить причёску</h1>
         <form action="" method="post">
             {% csrf_token %}
-            <p>Вы точно хотите удалить причёску "{{ post.title }}"?</p>
+            <p>Вы точно хотите удалить причёску "{{ haircut.title }}"?</p>
             <input type="submit" value="Да" class="btn btn-success"/>
             <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-danger">Нет</a>
         </form>

@@ -10,8 +10,32 @@
       <h1>Новая стрижка</h1>
       <form action="" method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Сохранить" />
+        <h2 class="m-2">Название</h2>
+        {{ form.title }}
+
+        <p class="m-2">Картинка 1</p>
+        {{ form.image1 }}
+        <p class="m-2">Картинка 2</p>
+        {{ form.image2 }}
+        <p class="m-2">Картинка 3</p>
+        {{ form.image3 }}
+        <p class="m-2">Картинка 4</p>
+        {{ form.image4 }}
+        <p class="m-2">Картинка 5</p>
+        {{ form.image5 }}
+
+        <h3 class="m-2">Время выполнения</h3>
+        {{ form.time_execution }}
+        <h3 class="m-2">Описание</h3>
+        {{ form.description }}
+        <h3 class="m-2">Полное описание</h3>
+        {{ form.full_description }}
+        <h3 class="m-2">Цена</h3>
+        {{ form.price }}
+        <h3 class="m-2">Старая цена</h3>
+        {{ form.old_price }}
+        <p></p>
+        <input class="btn btn-success" type="submit" value="Сохранить" />
       </form>
     {% endblock content %}
 </body>

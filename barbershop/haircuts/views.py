@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Haircut
+from .forms import NewHaircut
 
 active_fields = [
     'title', 'image1', 'image2',
@@ -19,9 +20,8 @@ class HaircutDetailView(DetailView):
     template_name = 'haircut_detail.html'
 
 class HaircutCreateView(CreateView):
-    model = Haircut
+    form_class = NewHaircut
     template_name = 'haircut_new.html'
-    fields = active_fields
 
 class HaircutUpdateView(UpdateView):
     model = Haircut

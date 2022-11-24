@@ -31,7 +31,7 @@ class AppointmentCreateView(CreateView):
 
 
 class AppointmentUpdateView(UpdateView):
-    form_class = NewAppointment
+    model = Appointment
     template_name = 'appointment_edit.html'
     fields = active_fields
 
