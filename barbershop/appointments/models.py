@@ -9,7 +9,7 @@ class Appointment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True)
     haircut = models.ForeignKey("haircuts.haircut", on_delete=models.PROTECT, null=True)
     master = models.ForeignKey("masters.Master", on_delete=models.PROTECT, null=True)
-    entry_time = models.TimeField(auto_now=False, auto_now_add=False)
+    entry_time = models.DateTimeField(auto_now=False, auto_now_add=False)
 
     def get_absolute_url(self):
         return reverse('appointment_detail', args=[str(self.id)])
