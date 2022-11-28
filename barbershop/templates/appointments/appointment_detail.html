@@ -7,16 +7,24 @@
 <body>
 {% extends 'base.html' %}
     {% block content %}
-        {% if user.is_superuser %}
+        {% if user.is_superuser or user == appointment.user %}
             <div class="jumbotron">
+                <h2>Ваш заказ</h2>
                 <h5>Мастер - <a href="{% url 'master_detail' appointment.master.pk %}">{{ appointment.master.user.first_name }} {{ appointment.master.user.last_name }}</a></h5>
                 <h5>Стрижка - <a href="{% url 'haircut_detail' appointment.haircut.pk %}">{{ appointment.haircut.title }}</a></h5>
                 <h5>Заказчик - {{ appointment.user.first_name }} {{ appointment.user.last_name }}</h5>
-                <h5>Время записи - {{ appointment.start_time }}</h5>
+                <h5>Время записи - {{ appointment.entry_time }}</h5>
 
-                <a href="{% url 'appointment_list' %}" class="btn btn-primary">Вернуться к списку</a>
-                <a href="{% url 'appointment_edit' appointment.pk %}" class="btn btn-warning">Изменить</a>
-                <a href="{% url 'appointment_delete' appointment.pk %}" class="btn btn-danger">Удалить</a>
+                <p>
+                    <a href="{% url 'about_us' %}" class="text-decoration-none">Наш магазин находится по адресу Краснофлотцев 79</a>
+                </p>
+
+                {% if user.is_superuser %}
+                    <p></p>
+                    <a href="{% url 'appointment_list' %}" class="btn btn-primary">Вернуться к списку</a>
+                    <a href="{% url 'appointment_edit' appointment.pk %}" class="btn btn-warning">Изменить</a>
+                    <a href="{% url 'appointment_delete' appointment.pk %}" class="btn btn-danger">Удалить</a>
+                {% endif %}
             </div>
         {% else %}
             <h1>Вы не можете посмотреть список заказов</h1>

@@ -10,8 +10,8 @@
             <div class="">
                 <div class="jumbotron" style="float: right; height:600px; width:450px;">
                     <h1>{{ master.user.first_name }} {{ master.user.last_name }}</h1>
-                    <p class="card-text">{{ master.description }}</p>
-                    <p class="lead">{{ master.full_description }}</p>
+                    <p class="card-text text-break">{{ master.description }}</p>
+                    <p class="lead text-break">{{ master.full_description }}</p>
                     <a href="{% url 'appointment_new_params' master.pk 0 %}"
                         class="btn btn-success btn-lg"
                         style="">Записаться на стрижку</a>

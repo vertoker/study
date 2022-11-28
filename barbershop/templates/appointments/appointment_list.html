@@ -16,6 +16,7 @@
                         <h5>Заказчик - {{ appointment.user.first_name }} {{ appointment.user.last_name }}</h5>
                         <h5>Время записи - {{ appointment.entry_time }}</h5>
 
+                        <a href="{% url 'appointment_detail' appointment.pk %}" class="btn btn-primary">Перейти</a>
                         <a href="{% url 'appointment_edit' appointment.pk %}" class="btn btn-warning">Изменить</a>
                         <a href="{% url 'appointment_delete' appointment.pk %}" class="btn btn-danger">Удалить</a>
                     </div>
