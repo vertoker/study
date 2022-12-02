@@ -46,7 +46,12 @@
                             <h3 class="card-title">{{ master.user.first_name }} {{ master.user.last_name }}</h3>
                             <p class="card-text">{{ master.description }}</p>
                             <a href="{% url 'master_detail' master.pk %}" class="btn btn-primary">Посмотреть</a>
+
+                            {% if user.is_authenticated %}
                             <a href="{% url 'appointment_new_params' master.pk 0 %}" class="btn btn-success">Записаться на стрижку</a>
+                            {% else %}
+                            <a href="{% url 'login'  %}" class="btn btn-success">Записаться на стрижку</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

@@ -64,7 +64,12 @@
                             <h3 class="card-title">{{ haircut.title }}</h3>
                             <p class="card-text">{{ haircut.description }}</p>
                             <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-primary">Посмотреть</a>
+
+                            {% if user.is_authenticated %}
                             <a href="{% url 'appointment_new_params' 0 haircut.pk %}" class="btn btn-success">Записаться ({{ haircut.time_execution }} минут)</a>
+                            {% else %}
+                            <a href="{% url 'login' %}" class="btn btn-success">Записаться ({{ haircut.time_execution }} минут)</a>
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}
