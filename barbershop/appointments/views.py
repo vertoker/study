@@ -5,7 +5,7 @@ from .models import Appointment
 from .forms import NewAppointment, EditAppointment
 
 active_fields = [
-    'haircut', 'user', 'master', 'entry_time'
+    'haircut', 'user', 'master', 'entry_date', 'entry_time'
 ]
 
 
