@@ -23,17 +23,11 @@ class AppointmentCreateView(CreateView):
     form_class = NewAppointment
     template_name = 'appointment_new.html'
 
-#    def __init__(self, **kwargs):
-#        super().__init__(**kwargs)
-#        context = super().get_context_data(**kwargs)
-#        self.initial = {'user': context["user"]}
-#        return context
-
     def get_success_url(self):
         return reverse_lazy('appointment_detail', kwargs={'pk': self.get_context_data()['appointment'].pk})
 
     def form_valid(self, form):
-        form.instance.user_id = self.request.user
+        #form.instance.user_id = self.request.user
         return super(AppointmentCreateView, self).form_valid(form)
 
 

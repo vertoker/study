@@ -8,23 +8,20 @@
     {% extends 'base.html' %}
         {% block content %}
             <h1 class="display-4 text-center m-4">Список заказов</h1>
-            {% if user.is_superuser %}
-                {% for appointment in object_list %}
+            {% for appointment in object_list %}
+                {% if appointment.user.pk == user.pk or user.is_superuser %}
                     <div class="jumbotron">
                         <h5>Мастер - <a href="{% url 'master_detail' appointment.master.pk %}">{{ appointment.master.user.first_name }} {{ appointment.master.user.last_name }}</a></h5>
                         <h5>Стрижка - <a href="{% url 'haircut_detail' appointment.haircut.pk %}">{{ appointment.haircut.title }}</a></h5>
                         <h5>Заказчик - {{ appointment.user.first_name }} {{ appointment.user.last_name }}</h5>
-                        <h5>Время записи - {{ appointment.entry_time }}</h5>
+                        <h5>Время записи - {{ appointment.entry_date }} {{ appointment.entry_time }}</h5>
 
                         <a href="{% url 'appointment_detail' appointment.pk %}" class="btn btn-primary">Перейти</a>
                         <a href="{% url 'appointment_edit' appointment.pk %}" class="btn btn-warning">Изменить</a>
                         <a href="{% url 'appointment_delete' appointment.pk %}" class="btn btn-danger">Удалить</a>
                     </div>
-                {% endfor %}
-            {% else %}
-                <h1>Вы не можете посмотреть список заказов</h1>
-                <a href="{% url 'home' %}" class="btn btn-secondary">Вернуться обратно</a>
-            {% endif %}
+                {% endif %}
+            {% endfor %}
         {% endblock content %}
 </body>
 </html>

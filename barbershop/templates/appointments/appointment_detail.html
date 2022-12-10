@@ -13,7 +13,7 @@
                 <h5>Мастер - <a href="{% url 'master_detail' appointment.master.pk %}">{{ appointment.master.user.first_name }} {{ appointment.master.user.last_name }}</a></h5>
                 <h5>Стрижка - <a href="{% url 'haircut_detail' appointment.haircut.pk %}">{{ appointment.haircut.title }}</a></h5>
                 <h5>Заказчик - {{ appointment.user.first_name }} {{ appointment.user.last_name }}</h5>
-                <h5>Время записи - {{ appointment.entry_time }}</h5>
+                <h5>Время записи - {{ appointment.entry_date }} {{ appointment.entry_time }}</h5>
 
                 <p>
                     <a href="{% url 'about_us' %}" class="text-decoration-none">Наш магазин находится по адресу Краснофлотцев 79</a>

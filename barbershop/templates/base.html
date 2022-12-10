@@ -34,12 +34,12 @@
 
         {% if user.is_authenticated %}
         <a class="btn btn-success m-1" style="width: 150px;" href="{% url 'appointment_new' %}" role="button">Записаться</a>
+        <a class="btn btn-outline-primary m-1" style="width: 150px;" href="{% url 'appointment_list' %}" role="button">Список заказов</a>
         {% else %}
         <a class="btn btn-success m-1" style="width: 150px;" href="{% url 'login' %}" role="button">Записаться</a>
         {% endif %}
 
         {% if user.is_superuser %}
-        <a class="btn btn-outline-primary m-1" style="width: 150px;" href="{% url 'appointment_list' %}" role="button">Список заказов</a>
         {% endif %}
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
