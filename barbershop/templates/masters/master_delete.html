@@ -7,12 +7,11 @@
 <body>
     {% extends 'base.html' %}
         {% block content %}
-        <h1>Удалить причёску</h1>
+        <h1>Удалить парикмахера</h1>
         <form action="" method="post">
             {% csrf_token %}
-            <p>Вы точно хотите удалить причёску "{{ post.title }}"?</p>
-            <input type="submit" value="Да" class="btn btn-success"/>
-            <a href="{% url 'haircut_detail' haircut.pk %}" class="btn btn-danger">Нет</a>
+            <p>Вы точно хотите удалить парикмахера "{{ master.user.first_name }} {{ master.user.last_name }}"?</p>
+            <input type="submit" value="Удалить" class="btn btn-danger"/>
         </form>
     {% endblock content %}
 </body>
