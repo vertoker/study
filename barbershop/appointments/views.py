@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -27,8 +28,11 @@ class AppointmentCreateView(CreateView):
         return reverse_lazy('appointment_detail', kwargs={'pk': self.get_context_data()['appointment'].pk})
 
     def form_valid(self, form):
-        #form.instance.user_id = self.request.user
-        return super(AppointmentCreateView, self).form_valid(form)
+        new_appointment = form.save()
+        appointment = Appointment.objects.get(id=new_appointment.pk)
+        appointment.user = self.request.user
+        appointment.save()
+        return HttpResponseRedirect(reverse_lazy('appointment_detail', kwargs={'pk': new_appointment.pk}))
 
 
 class AppointmentUpdateView(UpdateView):

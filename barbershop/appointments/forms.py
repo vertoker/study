@@ -3,7 +3,7 @@ from .models import Appointment
 from datetime import datetime, timedelta
 from django.contrib.auth.models import User
 
-active_fields = ('haircut', 'user', 'master', 'entry_date', 'entry_time')
+active_fields = ('haircut', 'master', 'entry_date', 'entry_time')
 
 
 class NewAppointment(forms.ModelForm):
@@ -31,7 +31,6 @@ class NewAppointment(forms.ModelForm):
 
         model = Appointment
         widgets = {
-            "user": forms.Select(attrs={'class': 'form-control rounded 3'}),
             "haircut": forms.Select(attrs={'class': 'form-control rounded 3'}),
             "master": forms.Select(attrs={'class': 'form-control rounded 3'}),
             "entry_date": forms.TextInput(attrs={'class': 'rounded 3', 'type': 'date', "min": min_date_str, "max": max_date_str, "value": min_date_str}),

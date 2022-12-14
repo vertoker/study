@@ -11,9 +11,9 @@ class CustomUser(AbstractUser):
 
     age = models.PositiveIntegerField(default=18)
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
-    first_name = models.CharField(max_length=50, default=None)
-    last_name = models.CharField(max_length=50, default=None)
-    patronymic = models.CharField(max_length=50, default=None)
+    first_name = models.CharField(max_length=50, default=None, blank=True, null=True)
+    last_name = models.CharField(max_length=50, default=None, blank=True, null=True)
+    patronymic = models.CharField(max_length=50, default=None, blank=True, null=True)
 
     def get_absolute_url(self):
         return reverse('user_edit', args=[str(self.pk)])

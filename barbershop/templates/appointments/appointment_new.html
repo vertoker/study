@@ -11,8 +11,6 @@
         <form action="" method="post">
             {% csrf_token %}
             {{ form.errors }}
-            <h3 class="m-2">Пользователь</h3>
-            {{ form.user }}
             <h3 class="m-2">Стрижка</h3>
             {{ form.haircut }}
             <h3 class="m-2">Парикмахер</h3>
