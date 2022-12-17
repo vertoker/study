@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+
+
+<div class="container">
+    <div class="container-fluid">
+        <div class="row">
+
+        {% for shirt in object_list %}
+        <div class="col-md-4 mb-4 pb-4">
+            <div class="card" style="width: 80%;">
+              <img src="{{ shirt.image.url }}" class="card-img-top" alt="tilt" height="290px" style="object-fit: cover;"
+                   onclick="window.location.href = '{% url 'shirt_detail' shirt.pk %}'">
+              <div class="card-body">
+                <h5 class="card-title">{{shirt.name}}</h5>
+                <p class="card-text">{{shirt.price}}₽</p>
+                <a href="{% url 'shirt_detail' shirt.pk %}" class="btn btn-primary">Посмотреть</a>
+              </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
