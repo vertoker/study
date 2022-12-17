@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+
+<style>
+  .hidden{
+	display: none!important;
+}
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+.col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+	margin-top: 10px;
+}
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+body{
+	background-color: hsl(0, 0%, 98%);
+}
+
+h1,h2,h3,h4,h5,h6{
+	color:hsl(0, 0%, 30%);
+}
+
+.box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+
+}
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+.chg-quantity{
+	width: 12px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+
+.chg-quantity:hover{
+	opacity: .6;
+}
+.btn:hover {
+	box-shadow: 0 2px 5px rgba(1, 1, 0, 1.45);
+}
+
+</style>
+
+<h2 class="m-2">Ваш заказ</h2>
+<a class="btn btn-outline-dark m-2" href="{% url 'orders:order_list' %}">&#x2190; Вернуться обратно</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер заказа</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Общее количество</th>
+            <th scope="col">Итоговая цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.total_quantity }}</td>
+            <td>{{ order.total_price }} рублей</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Товар</th>
+            <th scope="col">Название</th>
+            <th scope="col">Цена за шт.</th>
+            <th scope="col">Размер</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Общая цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for prod in products %}
+            <tr>
+                <td><img height="100" width="100" class="row-image" src="{{ prod.product.image.url }}" ></td>
+                <td>{{ prod.product.name }}</td>
+                <td>{{ prod.price }} Руб.</td>
+                <td>{{ prod.size }}</td>
+                <td>{{ prod.quantity }}</td>
+                <td>{{ prod.total_price }} Руб.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

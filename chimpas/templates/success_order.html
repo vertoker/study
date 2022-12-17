@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <div class="box-element">
+          <a class="btn btn-outline-dark" href="{% url 'home' %}">&#x2190; Вернуться обратно</a>
+         <h1>Заказ успешно оформлен</h1>
+
+     <!--<th><h5>Товаров: <strong>{% with total_items=cart|length %} {{ total_items }} {% endwith %} </strong></h5></th>
+			<th><h5>Стоимость: <strong> {{ cart.get_total_price }} Руб.</strong></h5></th>-->
+    </div>
+    </div>
+{% endblock %}
+</body>

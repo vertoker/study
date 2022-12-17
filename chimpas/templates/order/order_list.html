@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+{% csrf_token %}
+
+<style>
+  .hidden{
+	display: none!important;
+}
+.form-field{
+	width:250px;
+	display: inline-block;
+	padding: 5px;
+}
+.col-lg-4, .col-lg-6, .col-lg-8, .col-lg-12{
+	margin-top: 10px;
+}
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+body{
+	background-color: hsl(0, 0%, 98%);
+}
+
+h1,h2,h3,h4,h5,h6{
+	color:hsl(0, 0%, 30%);
+}
+
+.box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+
+}
+.thumbnail{
+	width: 100%;
+	height: 200px;
+	-webkit-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    -moz-box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+    box-shadow: -1px -3px 5px -2px rgba(214,214,214,1);
+}
+.chg-quantity{
+	width: 12px;
+	cursor: pointer;
+	display: block;
+	margin-top: 5px;
+	transition:.1s;
+}
+
+.chg-quantity:hover{
+	opacity: .6;
+}
+.btn:hover {
+	box-shadow: 0 2px 5px rgba(1, 1, 0, 1.45);
+}
+
+</style>
+
+{% if user.is_authenticated %}
+<h2 style="float:center;" class="m-2">Заказы</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер заказа</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Общее количество</th>
+            <th scope="col">Итоговая цена</th>
+            <th scope="col">Функции</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in orders %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.address }}</td>
+            <td>{{ item.total_quantity }}</td>
+            <td>{{ item.total_price }} рублей</td>
+            <td>
+                <a href="{% url 'orders:order_detail' item.pk %}" class="btn btn-primary">Посмотреть</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock content %}

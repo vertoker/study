@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <div style="float: right; height:600px; width:700px;">
+        <h1 style="float: right;" class="m-5">{{ shirts.price }}₽</h1>
+        <h1>{{ shirts.name }}</h1>
+        <h5><p class="card-text text-break">{{ shirts.description }}</p></h5>
+        <button type="submit" onclick="window.location.href = '{% url 'cart:cart_add' shirts.pk %}'" class="btn btn-success btn-lg">В корзину</button>
+    </div>
+    <img style="object-fit:contain; width:600px; height:600px;" src="{{ shirts.image.url }}" alt="где фото? вопросы?">
+</div>
+
+{% if user.is_superuser %}
+<p>
+    <h3 class="m-2">Панель администратора</h3>
+    <button type="submit" onclick="window.location.href = '{% url 'shirt_edit' shirts.pk %}'" class="btn btn-warning btn-lg m-2">Изменить</button>
+    <button type="submit" onclick="window.location.href = '{% url 'shirt_delete' shirts.pk %}'" class="btn btn-danger btn-lg">Удалить</button>
+</p>
+{% endif %}
+{% endblock content %}

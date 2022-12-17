@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Удалить футболку</h1>
+        <div style="display:inline-block;">
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-danger ml-3" type="submit">Удалить</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
