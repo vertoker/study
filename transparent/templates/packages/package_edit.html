@@ -6,7 +6,37 @@
 {% block content %}
 
 
-123123
+<div class="container">
+    <h1>Изменить пакет</h1>
+    <div style="display:inline-block;">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h5>Изображение</h5>
+            {{ form.image }}
+            <h5>Название</h5>
+            {{ form.title }}
+            <h5>Описание</h5>
+            {{ form.description }}
+            <h5>Размеры пакета</h5>
+            {{ form.size }}
+            <h5>Толщина пакета</h5>
+            {{ form.thickness }}
+            <h5>Количество в упаковке</h5>
+            {{ form.quantity }}
+            <h5>Цена за упаковку</h5>
+            {{ form.price }}
+            <h5>Тип пакета</h5>
+            {{ form.type }}
+            <button class="btn btn-primary" type="submit">Изменить</button>
+        </form>
+    </div>
+    <div style="display:block;">
+        {% if img_obj %}
+            <h3>Успешно загружено: {{ img_obj.name }}</h3>
+            <img src="{{ img_obj.image.url }}" alt="connect" style="max-height:300px">
+        {% endif %}
+    </div>
+</div>
 
 
 {% endblock %}

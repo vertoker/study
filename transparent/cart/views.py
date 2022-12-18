@@ -10,14 +10,14 @@ def cart_add(request, id):
     cart = Cart(request)
     product = get_object_or_404(Package, id=id)
     cart.add(product=product, quantity=1, update_quantity=1)
-    return redirect('orders:order_create')
+    return redirect('order:create')
 
 
 def cart_remove(request, id):
     cart = Cart(request)
     product = get_object_or_404(Package, id=id)
     cart.remove(product)
-    return redirect('orders:order_create')
+    return redirect('order:create')
 
 
 def cart_detail(request):
@@ -29,11 +29,11 @@ def cart_plus_product(request, id):
     cart = Cart(request)
     product = get_object_or_404(Package, id=id)
     cart.product_plus(product)
-    return redirect('orders:order_create')
+    return redirect('order:create')
 
 
 def cart_minus_product(request, id):
     cart = Cart(request)
     product = get_object_or_404(Package, id=id)
     cart.product_minus(product)
-    return redirect('orders:order_create')
+    return redirect('order:create')

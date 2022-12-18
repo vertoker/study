@@ -6,7 +6,59 @@
 {% block content %}
 
 
-123123
+<h2 class="m-2">Ваш заказ</h2>
+<a class="btn btn-outline-dark m-2" href="{% url 'order:list' %}">&#x2190; Вернуться обратно</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер заказа</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Количество упаковок</th>
+            <th scope="col">Количество пакетов</th>
+            <th scope="col">Итоговая цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.address }}</td>
+            <td>{{ order.total_quantity }}</td>
+            <td>{{ order.total_quantity_units }}</td>
+            <td>{{ order.total_price }} рублей</td>
+        </tr>
+    </tbody>
+</table>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Товар</th>
+            <th scope="col">Название</th>
+            <th scope="col">Цена за шт.</th>
+            <th scope="col">Размер</th>
+            <th scope="col">Толщина</th>
+            <th scope="col">Количество упаковок</th>
+            <th scope="col">Общая цена</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+            {% with package=product.product %}
+            <tr>
+                <td><img height="100" width="100" class="row-image"
+                         src="{{ package.image.url }}" alt="изображение? где?"></td>
+                <td>{{ package.title }}</td>
+                <td>{{ package.type }}</td>
+                <td>{{ package.size }}</td>
+                <td>{{ package.thickness }} мкм</td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.total_price }} рублей</td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+    </tbody>
+</table>
 
 
 {% endblock %}

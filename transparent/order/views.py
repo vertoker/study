@@ -27,6 +27,7 @@ class OrderCreateView(CreateView):
 
         price = 0
         quantity = 0
+        quantity_units = 0
         count = 0
 
         quantities = ''
@@ -36,6 +37,7 @@ class OrderCreateView(CreateView):
             product_in_cart = item.get('product')
             print('===================', product_in_cart)
             quantity += item.get('quantity')
+            quantity_units += item.get('quantity') * item.get('quantity_package')
             price += item.get('price') * item.get('quantity')
             if count == 0:
                 quantities += str(item.get('quantity'))
@@ -48,15 +50,17 @@ class OrderCreateView(CreateView):
         print('===================', quantities)
         print('===================', products)
         print('===================', count)
+        order.count_products = count
         order.products = products
-        order.quantity = quantities
+        order.quantities = quantities
         order.total_quantity = quantity
+        order.total_quantity_units = quantity_units
         order.total_price = price
-        order.address = "123"
+        order.address = self.request.user.address
         order.save()
         cart.clear()
 
-        return HttpResponseRedirect(reverse_lazy('orders:order_detail', kwargs={'pk': new_order.pk}))
+        return HttpResponseRedirect(reverse_lazy('order:detail', kwargs={'pk': new_order.pk}))
 
     def get(self, request):
         cart = Cart(request)
@@ -74,18 +78,13 @@ def order_detail(request, pk):
     products_value = []
     print('order', order)
 
-    quantities = order.quantity.split(' ')
+    quantities = order.quantities.split(' ')
     products = order.products.split(' ')
 
-    count = len(order.products) - 1
-    if count == 0:
-        count = 1
-    print('count', count)
-
-    for i in range(count):
+    for i in range(order.count_products):
         product = Package.objects.filter(id=int(products[i]))[0]
+        print('products', product)
         products_value.append(ProductFull(product, int(quantities[i])))
-        print('products', products)
 
     print('products', products_value)
     return render(request, 'order_detail.html', {'order': order, 'products': products_value})
@@ -96,7 +95,8 @@ class OrderListView(ListView):
     template_name = "order_list.html"
 
 
-class OrderDetailView(DetailView):
+class OrderDeleteView(DeleteView):
     model = Order
-    template_name = 'order_detail.html'
+    template_name = 'order_delete.html'
     fields = all_fields
+    success_url = reverse_lazy('order:list')

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -130,8 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
-LOGIN_REDIRECT_URL = ''
-LOGOUT_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = reverse_lazy('package:list')
+LOGOUT_REDIRECT_URL = reverse_lazy('package:list')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

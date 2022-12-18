@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+
+
+<h1>Удалить заказ</h1>
+<div style="display:inline-block;">
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Удалить</button>
+        <a class="btn btn-secondary" href="{% url 'order:list' %}">Нет, вернуться обратно</a>
+    </form>
+</div>
+
+
+{% endblock %}

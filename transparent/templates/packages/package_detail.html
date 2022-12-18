@@ -5,8 +5,28 @@
 {% endblock %}
 {% block content %}
 
+<div>
+    <div style="float: right; height:600px; width:700px;">
+        <h1 style="float: right;" class="m-5">{{ package.price }}₽</h1>
+        <h1>{{ package.title }}</h1>
+        <h5><p class="card-text text-break">{{ package.description }}</p></h5>
+        <p></p>
+        <h5><p class="card-text text-break">Тип: {{ package.type }}</p></h5>
+        <h5><p class="card-text text-break">Размер: {{ package.size }}</p></h5>
+        <h5><p class="card-text text-break">Толщина: {{ package.thickness }}</p></h5>
+        <h5><p class="card-text text-break">Количество в упаковке: {{ package.quantity }}</p></h5>
+        <p></p>
+        <button type="submit" onclick="window.location.href = '{% url 'cart:cart_add' package.pk %}'" class="btn btn-success btn-lg">В корзину</button>
+    </div>
+    <img src="{{ package.image.url }}" style="object-fit:contain; width:400px; height:400px;">
+</div>
 
-123123
-
+{% if user.is_superuser %}
+<p>
+    <h3 class="m-2">Панель администратора</h3>
+    <button type="submit" onclick="window.location.href = '{% url 'package:edit' package.pk %}'" class="btn btn-warning btn-lg m-2">Изменить</button>
+    <button type="submit" onclick="window.location.href = '{% url 'package:delete' package.pk %}'" class="btn btn-danger btn-lg">Удалить</button>
+</p>
+{% endif %}
 
 {% endblock %}

@@ -6,7 +6,32 @@
 {% block content %}
 
 
-123123
+{% if user.is_authenticated %}
+<h2 style="float:center;" class="m-2">Заказы</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Номер заказа</th>
+            <th scope="col">Количество упаковок</th>
+            <th scope="col">Итоговая цена</th>
+            <th scope="col">Функции</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in orders %}
+        <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.total_quantity }}</td>
+            <td>{{ item.total_price }} рублей</td>
+            <td>
+                <a href="{% url 'order:detail' item.pk %}" class="btn btn-primary">Посмотреть</a>
+                <a href="{% url 'order:delete' item.pk %}" class="btn btn-danger">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
 
 
 {% endblock %}

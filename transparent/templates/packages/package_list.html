@@ -6,27 +6,36 @@
 {% block content %}
 
 
-<div class="container">
-    <div class="container-fluid">
-        <div class="row">
-
-        {% for shirt in object_list %}
-        <div class="col-md-4 mb-4 pb-4">
-            <div class="card" style="width: 80%;">
-              <img src="{{ shirt.image.url }}" class="card-img-top" alt="tilt" height="290px" style="object-fit: cover;"
-                   onclick="window.location.href = '{% url 'shirt_detail' shirt.pk %}'">
-              <div class="card-body">
-                <h5 class="card-title">{{shirt.name}}</h5>
-                <p class="card-text">{{shirt.price}}₽</p>
-                <a href="{% url 'shirt_detail' shirt.pk %}" class="btn btn-primary">Посмотреть</a>
-              </div>
-            </div>
-        </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Товар</th>
+            <th scope="col">Название</th>
+            <th scope="col">Тип пакета</th>
+            <th scope="col">Размер</th>
+            <th scope="col">Толщина</th>
+            <th scope="col">Количество в упаковке</th>
+            <th scope="col">Цена за упаковку</th>
+            <th scope="col">Функции</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for package in object_list %}
+            <tr>
+                <td><img height="100" width="100" class="row-image"
+                         src="{{ package.image.url }}" alt="изображение? где?"
+                         onclick="window.location.href = '{% url 'package:detail' package.pk %}'"></td>
+                <td>{{ package.title }}</td>
+                <td>{{ package.type }}</td>
+                <td>{{ package.size }}</td>
+                <td>{{ package.thickness }} мкм</td>
+                <td>{{ package.quantity }}</td>
+                <td>{{ package.price }} рублей</td>
+                <td><a href="{% url 'package:detail' package.pk %}" class="btn btn-primary">Посмотреть</a></td>
+            </tr>
         {% endfor %}
-
-        </div>
-    </div>
-</div>
+    </tbody>
+</table>
 
 
 {% endblock %}

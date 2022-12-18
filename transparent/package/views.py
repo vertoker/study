@@ -19,9 +19,9 @@ class PackageListView(ListView):
 
 
 class PackageCreateView(CreateView):
-    model = Package
+    form_class = CreateForm
     template_name = 'package_new.html'
-    fields = all_fields
+    # fields = all_fields
     login_url = 'login'
 
 
@@ -35,13 +35,14 @@ class PackageDetailView(DetailView):
 class PackageDeleteView(DeleteView):
     model = Package
     template_name = 'package_delete.html'
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('package:list')
 
 
 class PackageEditView(UpdateView):
     model = Package
+    form_class = EditForm
     template_name = 'package_edit.html'
-    fields = all_fields
+    login_url = 'login'
 
 
 def image_upload_view(request):

@@ -15,7 +15,8 @@ class Cart(object):
     def add(self, product, quantity=1, update_quantity=False):
         product_id = str(product.id)
         if product_id not in self.cart:
-            self.cart[product_id] = {'quantity': 0, 'price': str(product.price)}
+            self.cart[product_id] = {'quantity': 0, 'price': str(product.price),
+                                     'quantity_package': str(product.quantity)}
         if update_quantity:
             self.cart[product_id]['quantity'] = quantity
         else:
@@ -42,24 +43,25 @@ class Cart(object):
         for item in self.cart.values():
             # item['size'] = Decimal(item['size'])
             item['price'] = Decimal(item['price'])
+            item['quantity_package'] = Decimal(item['quantity_package'])
             item['total_price'] = item['price'] * item['quantity']
+            item['total_quantity'] = item['quantity_package'] * item['quantity']
             yield item
 
     def __len__(self):
-
         return sum(item['quantity'] for item in self.cart.values())
 
     def get_total_price(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
 
-        return sum(Decimal(item['price']) * item['quantity'] for item in
-                   self.cart.values())
+    def get_total_quantity(self):
+        return sum(Decimal(item['quantity_package']) * item['quantity'] for item in self.cart.values())
 
     def clear(self):
         del self.session[settings.CART_SESSION_ID]
         self.session.modified = True
 
     def product_plus(self, product):
-
         product_id = str(product.id)
         if product_id in self.cart:
             self.cart[product_id]['quantity'] += 1
