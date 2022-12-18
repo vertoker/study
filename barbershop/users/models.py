@@ -19,4 +19,4 @@ class CustomUser(AbstractUser):
         return reverse('user_edit', args=[str(self.pk)])
 
     def __str__(self):
-        return self.first_name + " " + self.last_name
+        return self.username
