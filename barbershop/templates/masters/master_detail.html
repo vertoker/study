@@ -10,7 +10,7 @@
             <div class="">
                 <div class="jumbotron" style="float: right; height:600px; width:450px;">
                     <h1>{{ master.user.first_name }} {{ master.user.last_name }}</h1>
-                    <p class="card-text text-break">{{ master.description }}</p>
+                    <p class="card-text text-break text-wrap">{{ master.description }}</p>
                     <p class="lead text-break">{{ master.full_description }}</p>
                     {% if user.is_authenticated %}
                     <a href="{% url 'appointment_new_params' master.pk 0 %}"
