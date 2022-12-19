@@ -67,15 +67,17 @@ h1,h2,h3,h4,h5,h6{
 <form method="post" enctype="multipart/form-data">
 
 <div class="box-element">
-    {% csrf_token %}
-    <a class="btn btn-outline-dark" href="{% url 'package:list' %}">&#x2190; Вернуться обратно</a>
-    {% if user.is_authenticated %}
-        <button type="submit" style="float:right;" class="btn btn-success">Оформить заказ</button>
-    {% endif %}
-    <br></br>
-    <th><h5></h5></th>
-    <th><h5>Товаров: <strong>{% with total_items=cart|length %} {{ total_items }} {% endwith %} </strong></h5></th>
-    <th><h5>Стоимость: <strong> {{ cart.get_total_price }} Руб.</strong></h5></th>
+    {% with total_items=cart|length %}
+        {% csrf_token %}
+        <a class="btn btn-outline-dark" href="{% url 'package:list' %}">&#x2190; Вернуться обратно</a>
+        {% if user.is_authenticated and total_items > 0 %}
+            <button type="submit" style="float:right;" class="btn btn-success">Оформить заказ</button>
+        {% endif %}
+        <br>
+        <th><h5></h5></th>
+        <th><h5>Товаров: <strong> {{ total_items }} </strong></h5></th>
+        <th><h5>Стоимость: <strong> {{ cart.get_total_price }} рублей</strong></h5></th>
+    {% endwith %}
 </div>
 </form>
 <br> <br>

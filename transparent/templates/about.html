@@ -1,20 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Мы магазин футболок CHIMPAS - это магазин прикольных футболок, маек и толстовкок.</h2>
-<h6>Футболки CHIMPAS отличаются не только оригинальным дизайном, но и отличным качеством.</h6>
-<h6>Все футболки изготавливаются из высококачественных материалов и имеют длительный срок службы.</h6>
-<h6>В нашем магазине представлены футболки на все случаи жизни.</h6>
-<h6>Вы можете выбрать футболку для повседневной носки, футболку для занятий спортом, футболку на каждый день, футболку-поло, футболки для девушек, подростков и детей.</h6> <br>
-         <img height="450px" width="400px" src="{% static '/images/tishki.jpg/' %}">
-        <img height="420px" width="350px" src="{% static '/images/tishki 2.png/' %}">
-        <img height="450px" width="400px" src="{% static '/images/magaz.jpg/' %}">
+<div class="jumbotron">
+<h2>Мы ООО"Прозрачный" занимаемся изготовлением и продажей полиэтиленовых пакетов.</h2>
+Полиэтиленовые пакеты являются неотъемлемой частью современной жизни. Они используются как во многих предприятиях, так и в домашних условиях.
+Полиэтиленовые пакеты бывают разных видов, размеров и толщины.
+Наши пакеты изготавливаются из высококачественных материалов и выдерживают всю нагрузку (в приемлемых границах).
+У нас вы найдёте разные виды пакетов:
+    майки - которые удобно держать за ручку,
+    фасовочные - для фасовки продуктов питания и других вещей,
+    мусорные - которые созданы специально для размещения в них мусора.
+</div>
+    <div id="carouselShowtime" class="carousel slide mx-auto" data-ride="carousel" style="float:center; width:1000px; height:600px;">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselShowtime" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselShowtime" data-slide-to="1"></li>
+            <li data-target="#carouselShowtime" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/media/Package/about1.png" alt="1"
+                    style="object-fit:cover; width:1000px; height:600px;">
+            </div>
+            <div class="carousel-item">
+                <img src="/media/Package/about2.png" alt="2"
+                    style="object-fit:cover; width:1000px; height:600px;">
+            </div>
+            <div class="carousel-item">
+                <img src="/media/Package/about3.png" alt="3"
+                    style="object-fit:cover; width:1000px; height:600px;">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselShowtime" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselShowtime" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
     </div>
 </body>
 </html>
