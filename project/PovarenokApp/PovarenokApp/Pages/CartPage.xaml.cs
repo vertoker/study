@@ -40,6 +40,19 @@ namespace PovarenokApp.Pages
 
         }
 
+        public static void AddProduct(Products product)
+        {
+            AddProduct(new ProductEntity()
+            {
+                id = product.ProductID,
+                type = product.ProductCategory,
+                cost = (float)product.ProductCost,
+                discount_amount = (int)product.ProductDiscountAmount,
+                quantity_in_stock = product.ProductQuantityInStock,
+                title = product.Title,
+                image = product.ProductImage
+            });
+        }
         public static void AddProduct(ProductEntity product)
         {
             var index = instance.products.FindIndex((CartProduct cp) => { return cp.id == product.id; });
@@ -100,9 +113,18 @@ namespace PovarenokApp.Pages
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            var product = (ProductEntity)(sender as Button).DataContext;
-            products.Remove(products.Find((CartProduct p) => { return p.id == product.id; }));
-            UpdateCart();
+            try
+            {
+                var product = (ProductEntity)(sender as Button).DataContext;
+                products.Remove(products.Find((CartProduct p) => { return p.id == product.id; }));
+                UpdateCart();
+            }
+            catch
+            {
+                var product = (Products)(sender as Button).DataContext;
+                products.Remove(products.Find((CartProduct p) => { return p.id == product.ProductID; }));
+                UpdateCart();
+            }
         }
     }
 }

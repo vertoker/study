@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-S:\Чураков\project\PovarenokApp\PovarenokApp\obj\Debug\
+E:\my-study\project\PovarenokApp\PovarenokApp\obj\Debug\
 PovarenokApp
 none
 false
 DEBUG;TRACE
-S:\Чураков\project\PovarenokApp\PovarenokApp\App.xaml
-5-75022833
-2-747231112
-301651063410
-18-509313345
+E:\my-study\project\PovarenokApp\PovarenokApp\App.xaml
+5427606586
+2367394133
+30456562200
+18966473995
 MainWindow.xaml;Pages\AuthPage.xaml;Pages\CartPage.xaml;Pages\ProductPage.xaml;Pages\ProductsPage.xaml;
 
 False

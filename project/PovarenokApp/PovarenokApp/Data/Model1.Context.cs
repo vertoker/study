@@ -10,25 +10,59 @@
 namespace PovarenokApp.Data
 {
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class PovarenokEntities1 : DbContext
+    using System.Windows.Documents;
+
+    [System.Serializable]
+    public partial class PovarenokEntities1// : DbContext
     {
-        public PovarenokEntities1()
-            : base("name=PovarenokEntities1")
+        public PovarenokEntities1()// : base("name=PovarenokEntities1")
         {
+
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
-        }
-    
-        public virtual DbSet<Addresses> Addresses { get; set; }
+        }*/
+
         public virtual DbSet<Counters> Counters { get; set; }
-        public virtual DbSet<Orders> Orders { get; set; }
-        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Addresses> Addresses { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Orders> Orders { get; set; }
+
+        public List<Counters> CountersLocal { get; set; } = new List<Counters>()
+        {
+            new Counters() { CounterID = 0, TableCounter = 1 },
+            new Counters() { CounterID = 1, TableCounter = 1 },
+            new Counters() { CounterID = 2, TableCounter = 0 },
+            new Counters() { CounterID = 3, TableCounter = 0 }
+        };
+        public List<Addresses> AddressesLocal { get; set; } = new List<Addresses>()
+        {
+            new Addresses()
+            {
+                AddressID = 0,
+                AddressName = "Крауля 168"
+            }
+        };
+        public List<Users> UsersLocal { get; set; } = new List<Users>()
+        {
+            new Users()
+            {
+                UserID = 0,
+                UserLogin = "123",
+                UserPassword = "123",
+                UserName = "Иван",
+                UserSurname = "Иванов",
+                UserPatronymic = "Иванович",
+                UserRole = 3 // Admin
+            }
+        };
+        public List<Products> ProductsLocal { get; set; } = new List<Products>();
+        public List<Orders> OrdersLocal { get; set; } = new List<Orders>();
     }
 }

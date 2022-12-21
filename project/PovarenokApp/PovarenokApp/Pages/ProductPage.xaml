@@ -27,6 +27,10 @@
                     <TextBlock Text="Тип товара:" FontFamily="Consolas" FontSize="24"></TextBlock>
                     <TextBox Name="InputFieldType" Width="250" Height="30" IsReadOnly="True"></TextBox>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Количество:" FontFamily="Consolas" FontSize="24"></TextBlock>
+                    <TextBox Name="InputFieldQuantity" Width="250" Height="30" IsReadOnly="True"></TextBox>
+                </StackPanel>
                 <Button Content="Редактировать" Name="BtnEdit" Click="BtnEdit_Click" Width="250" Height="30" FontSize="18" Background="Orange" HorizontalAlignment="Right"></Button>
                 <Button Content="Удалить" Name="BtnDelete" Click="BtnDelete_Click" Width="250" Height="30" FontSize="18" Background="Orange" HorizontalAlignment="Right"></Button>
             </StackPanel>

@@ -36,6 +36,7 @@ namespace PovarenokApp.Pages
             InputFieldCost.IsReadOnly = value;
             InputFieldDiscount.IsReadOnly = value;
             InputFieldType.IsReadOnly = value;
+            InputFieldQuantity.IsReadOnly = value;
 
             BtnSelectImage.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
             BtnSave.Visibility = value ? Visibility.Collapsed : Visibility.Visible;
@@ -73,6 +74,7 @@ namespace PovarenokApp.Pages
             instance.InputFieldCost.Text = product.ProductCost.ToString("0,00");
             instance.InputFieldDiscount.Text = product.ProductDiscountAmount.Value.ToString();
             instance.InputFieldType.Text = product.ProductCategory.ToString();
+            instance.InputFieldQuantity.Text = product.ProductQuantityInStock.ToString();
 
             instance.UpdateAdminEditComboVisibility();
         }
@@ -84,6 +86,7 @@ namespace PovarenokApp.Pages
             instance.InputFieldCost.Text = "0,00";
             instance.InputFieldDiscount.Text = "0";
             instance.InputFieldType.Text = "0";
+            instance.InputFieldQuantity.Text = "1";
             instance.addMode = true;
 
             instance.SetReadOnly(false);
@@ -126,7 +129,8 @@ namespace PovarenokApp.Pages
                         instance.InputFieldTitle.Text,
                         float.Parse(instance.InputFieldCost.Text),
                         int.Parse(instance.InputFieldDiscount.Text),
-                        int.Parse(instance.InputFieldType.Text));
+                        int.Parse(instance.InputFieldType.Text),
+                        int.Parse(instance.InputFieldQuantity.Text));
                     addMode = false;
                 }
                 else
@@ -135,7 +139,8 @@ namespace PovarenokApp.Pages
                         instance.InputFieldTitle.Text,
                         float.Parse(instance.InputFieldCost.Text),
                         int.Parse(instance.InputFieldDiscount.Text),
-                        int.Parse(instance.InputFieldType.Text));
+                        int.Parse(instance.InputFieldType.Text),
+                        int.Parse(instance.InputFieldQuantity.Text));
                 }
                 SetReadOnly(true);
             }
@@ -156,6 +161,10 @@ namespace PovarenokApp.Pages
             decimal cost = 0;
             if (!decimal.TryParse(InputFieldCost.Text, out cost) || cost <= 0)
                 errorBuilder.AppendLine("Стоимость товара должна быть положительным числом\n");
+
+            int quantity = 0;
+            if (!int.TryParse(InputFieldQuantity.Text, out quantity) || quantity <= 0)
+                errorBuilder.AppendLine("Некооректное число количества\n");
 
             if (!string.IsNullOrEmpty(InputFieldDiscount.Text))
             {

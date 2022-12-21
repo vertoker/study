@@ -11,27 +11,29 @@ namespace PovarenokApp.Scripts
 {
     public static class ApplicationContextDB
     {
-        public static List<Counters> Counters { get; } = DB.Counters.ToList();
-        public static List<Addresses> Addresses { get; } = DB.Addresses.ToList();
-        public static List<Users> Users { get; } = DB.Users.ToList();
-        public static List<Products> Products { get; } = DB.Products.ToList();
-        public static List<Orders> Orders { get; } = DB.Orders.ToList();
+        private const bool local = true;
 
         private static PovarenokEntities1 DB { get; } = new PovarenokEntities1();
+        public static List<Counters> Counters { get; } = local ? DB.CountersLocal : DB.Counters.ToList();
+        public static List<Addresses> Addresses { get; } = local ? DB.AddressesLocal : DB.Addresses.ToList();
+        public static List<Users> Users { get; } = local ? DB.UsersLocal : DB.Users.ToList();
+        public static List<Products> Products { get; } = local ? DB.ProductsLocal : DB.Products.ToList();
+        public static List<Orders> Orders { get; } = local ? DB.OrdersLocal : DB.Orders.ToList();
 
-        public static void AddProduct(int id, string title, float cost, int discount, int type)
+        public static void AddProduct(int id, string title, float cost, int discount, int type, int quantity)
         {
-            DB.Products.Add(new Products()
+            Products.Add(new Products()
             {
                 ProductID = id,
                 ProductName = title,
                 ProductCost = (decimal)cost,
                 ProductDiscountAmount = (byte)discount,
-                ProductCategory = type
+                ProductCategory = type,
+                ProductQuantityInStock = quantity
             });
         }
 
-        public static void EditProduct(int id, string title, float cost, int discount, int type)
+        public static void EditProduct(int id, string title, float cost, int discount, int type, int quantity)
         {
             int index = Products.FindIndex((Products p) => { return p.ProductID == id; });
             Products[index] = new Products()
@@ -40,7 +42,8 @@ namespace PovarenokApp.Scripts
                 ProductName = title,
                 ProductCost = (decimal)cost,
                 ProductDiscountAmount = (byte)discount,
-                ProductCategory = type
+                ProductCategory = type,
+                ProductQuantityInStock = quantity
             };
         }
 
