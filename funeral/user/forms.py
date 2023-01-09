@@ -1,15 +1,16 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import *
 
 
-class AdminCreationForm(UserCreationForm):
+class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        model = Admin
+        model = CustomUser
         fields = all_fields
 
 
-class AdminChangeForm(UserChangeForm):
+class CustomUserChangeForm(UserChangeForm):
     class Meta:
-        model = Admin
+        model = CustomUser
         fields = all_fields
 
