@@ -8,9 +8,9 @@ all_fields = [
 
 
 class CustomUser(AbstractUser):
-    first_name = models.TextField(max_length=250, null=True)
-    last_name = models.TextField(max_length=250, null=True)
-    patronymic = models.TextField(max_length=250, null=True)
+    first_name = models.TextField(max_length=250, null=True, verbose_name='Имя')
+    last_name = models.TextField(max_length=250, null=True, verbose_name='Фамилия')
+    patronymic = models.TextField(max_length=250, null=True, verbose_name='Отчество')
 
     def get_absolute_url(self):
         return reverse('edit', args=[str(self.pk)])

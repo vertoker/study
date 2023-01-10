@@ -15,7 +15,6 @@ class Product(models.Model):
         NONE = 'N', _('Пусто')
 
     title = models.CharField(max_length=250, verbose_name='Название товара')
-    article = models.PositiveIntegerField(default=10000, verbose_name='Артикль')
     price = models.PositiveIntegerField(default=1000, verbose_name='Цена')
     image = models.ImageField(upload_to='Products', null=True, verbose_name='Изображение')
     type = models.CharField(max_length=2, choices=ProductType.choices, default=ProductType.NONE, verbose_name='Тип товара')
