@@ -5,6 +5,29 @@
 {% endblock %}
 {% block content %}
 
-1232123
+<h1 class="display-4 text-center m-4">Ритуальные товары</h1>
+<div class="row d-flex align-items-center justify-content-center">
+
+    <nav class="navbar navbar-expand-md mb-4 d-flex justify-content-center">
+        <a class="btn btn-light m-1" style="width: 110px; white-space: nowrap;" href="{% url 'product:list' %}" role="button">Все</a>
+        <a class="btn btn-light m-1" style="width: 120px; white-space: nowrap;" href="{% url 'product:list_CF' %}" role="button">Гробы</a>
+        <a class="btn btn-light m-1" style="width: 120px; white-space: nowrap;" href="{% url 'product:list_WR' %}" role="button">Венки</a>
+        <a class="btn btn-light m-1" style="width: 180px; white-space: nowrap;" href="{% url 'product:list_CR' %}" role="button">Кресты на могилу</a>
+        <a class="btn btn-light m-1" style="width: 200px; white-space: nowrap;" href="{% url 'product:list_MN' %}" role="button">Памятники на могилу</a>
+        <a class="btn btn-light m-1" style="width: 140px; white-space: nowrap;" href="{% url 'product:list_TX' %}" role="button">Текстиль</a>
+        <a class="btn btn-light m-1" style="width: 140px; white-space: nowrap;" href="{% url 'product:list_N' %}" role="button">Остальное</a>
+    </nav>
+
+    {% for product in products %}
+        <div class="card bg-color m-4" style="width:20rem;">
+            <img class="card-img-top" src="{{ product.image.url }}" alt="Изображение"
+                 style="object-fit:contain; width:20rem; height:20rem;">
+            <div class="card-body">
+                <h3 class="card-title">{{ product.title }} ({{ product.article }})</h3>
+                <h3 class="card-title pricing-card-title" style="float: right;">{{ product.price }}₽</h3>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 
 {% endblock content %}

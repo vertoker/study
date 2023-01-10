@@ -1,6 +1,7 @@
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.shortcuts import render
 from .models import *
 
 active_fields = [
@@ -8,28 +9,29 @@ active_fields = [
 ]
 
 
-class ProductListView(ListView):
-    model = Product
-    template_name = 'product_list.html'
+def product_list(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter()})
 
 
-class HaircutDetailView(DetailView):
-    model = Product
-    template_name = 'haircut_detail.html'
+def product_list_cf(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="CF")})
 
 
-class HaircutCreateView(CreateView):
-    model = Product
-    template_name = 'Product.html'
+def product_list_wr(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="WR")})
 
 
-class HaircutUpdateView(UpdateView):
-    model = Product
-    template_name = 'haircut_edit.html'
-    fields = active_fields
+def product_list_cr(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="CR")})
 
 
-class HaircutDeleteView(DeleteView):
-    model = Product
-    template_name = 'haircut_delete.html'
-    success_url = reverse_lazy('haircut_list')
+def product_list_mn(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="MN")})
+
+
+def product_list_tx(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="TX")})
+
+
+def product_list_n(request):
+    return render(request, 'product_list.html', {'products': Product.objects.filter(type="N")})

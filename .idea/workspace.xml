@@ -5,48 +5,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7b0c74-871d-4f67-97ac-2bf41cc4ad4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/migrations/0002_rename_haircut_product.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/products/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/static/cremation1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/static/cremation2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/static/cremation3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/about.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/funeral_arrangements.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/funeral_cremation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/funeral_inlife.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/if_close_man_dead.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/infrastructure.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/products/product_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/templates/registration_documents.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Haritonov-coursework.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Haritonov-coursework.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/admin/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/base/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/base/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/base/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/base/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/02639ba75f8f644794aab5bcd69538fc.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/02639ba75f8f644794aab5bcd69538fc_DbbgX1r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/02639ba75f8f644794aab5bcd69538fc_Go1jAYh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/1068fe1685adea6cc316767e48391489.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/1068fe1685adea6cc316767e48391489_KahtVWe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/420f66362b1daa93a5992b47d7c26ae2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/420f66362b1daa93a5992b47d7c26ae2_Hjt0opq.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/4e6b71890c555b88a0330929b3096bd0.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/4e6b71890c555b88a0330929b3096bd0_cEz5rZT.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/4f9b5093e733a9d78bcc0445376d006b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/4f9b5093e733a9d78bcc0445376d006b_kWvUOJv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/59a0e183e7a1d63f3609605b46753288.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/59a0e183e7a1d63f3609605b46753288_OWdOm8K.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/5b36223531a07ae567a8c999f94e376f.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/5b36223531a07ae567a8c999f94e376f_KPbuK9d.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/663e4b3f22e7b91368ecc1bbb6d130b3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/663e4b3f22e7b91368ecc1bbb6d130b3_5JZBJmA.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/9f216dc413da37eacd5d004d036bed0e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/9f216dc413da37eacd5d004d036bed0e_Oe1K4vF.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/b1bdf3809a1f1a40d56084ff7f175083.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/b1bdf3809a1f1a40d56084ff7f175083_RJadbMR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/b3cae3cd019bf9fb012967cd85b2e9f2.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/b3cae3cd019bf9fb012967cd85b2e9f2_BSqHU7a.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/bd838f5e1fd8461b60707e4d514ca3e5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/bd838f5e1fd8461b60707e4d514ca3e5_WIbWdrX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/c8468275c20a365118373bc9b6c60ea8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/c8468275c20a365118373bc9b6c60ea8_XY8wGl2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/de3eb130d9f6aa0a727f3e6af97e1c1e.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/de3eb130d9f6aa0a727f3e6af97e1c1e_Xw5kJ1z.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/ed4be48c5c2b3e6bbcc45ea3656d93db.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/ed4be48c5c2b3e6bbcc45ea3656d93db_zOWyKg7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/f479199cb018a932fc333288f05fd0ad.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funeral/media/Products/f479199cb018a932fc333288f05fd0ad_MG7ytqS.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funeral/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/funeral/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/funeral/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/funeral/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/funeral/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funeral/products/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funeral/products/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funeral/templates/products/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/templates/products/product_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +78,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Projects/Python/Haritonov-coursework/funeral/templates",
+    "last_opened_file_path": "E:/Projects/Python/Ivanov-master",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,6 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673249844395</updated>
       <workItem from="1673249846045" duration="23936000" />
+      <workItem from="1673330374057" duration="3235000" />
     </task>
     <servers />
   </component>
