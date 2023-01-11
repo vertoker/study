@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba7b0c74-871d-4f67-97ac-2bf41cc4ad4e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/funeral/products/migrations/0004_remove_product_article_alter_product_price_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/funeral/user/migrations/0002_alter_customuser_first_name_and_more.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$$Варианты использования.~vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~$$Логическая структура БД.~vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/~WRL2108.tmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Варианты использования.vsdx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Курсовая Харитонов.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Логическая структура БД.vsdx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/funeral/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/products/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/templates/products/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/templates/products/product_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/funeral/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/funeral/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Курсовая Харитонов.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Курсовая Харитонов.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,28 +36,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Projects/Python/Ivanov-master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Projects/Python/Ivanov-master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;sqlite&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Projects\Python\Haritonov-coursework\funeral\templates" />
@@ -87,6 +76,7 @@
       <updated>1673249844395</updated>
       <workItem from="1673249846045" duration="23936000" />
       <workItem from="1673330374057" duration="8050000" />
+      <workItem from="1673408982188" duration="1444000" />
     </task>
     <servers />
   </component>
