@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+{{ product.name }}
+{% endblock %}
+{% block content %}
+
+<div>
+    <div style="float: right; height:600px; width:700px;">
+        <h1 style="float: right;" class="m-5">{{ product.price }}₽</h1>
+        <h1>{{ package.title }}</h1>
+        <h5><p class="card-text text-break">{{ product.description }}</p></h5>
+        <p></p>
+        <h5><p class="card-text text-break">Тип: {{ product.type }}</p></h5>
+        <p></p>
+    </div>
+    <img src="{{ product.image.url }}" style="object-fit:contain; width:400px; height:400px;">
+</div>
+
+{% if user.is_superuser %}
+<p>
+    <h3 class="m-2">Панель администратора</h3>
+    <button type="submit" onclick="window.location.href = '{% url 'product:edit' product.pk %}'" class="btn btn-warning btn-lg m-2">Изменить</button>
+    <button type="submit" onclick="window.location.href = '{% url 'product:delete' product.pk %}'" class="btn btn-danger btn-lg">Удалить</button>
+</p>
+{% endif %}
+
+{% endblock %}

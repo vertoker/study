@@ -3,6 +3,8 @@ from django.db import models
 from django.urls import reverse
 from django import forms
 
+active_fields = ['title', 'price', 'image', 'type']
+
 
 class Product(models.Model):
 

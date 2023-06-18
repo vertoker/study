@@ -9,6 +9,9 @@
 <div class="row d-flex align-items-center justify-content-center">
 
     <nav class="navbar navbar-expand-md mb-4 d-flex justify-content-center">
+        {% if user.is_superuser %}
+        <a class="btn btn-success m-1" style="width: 110px; white-space: nowrap;" href="{% url 'product:create' %}" role="button">Добавить</a>
+        {% endif %}
         <a class="btn btn-light m-1" style="width: 110px; white-space: nowrap;" href="{% url 'product:list' %}" role="button">Все</a>
         <a class="btn btn-light m-1" style="width: 120px; white-space: nowrap;" href="{% url 'product:list_CF' %}" role="button">Гробы</a>
         <a class="btn btn-light m-1" style="width: 120px; white-space: nowrap;" href="{% url 'product:list_WR' %}" role="button">Венки</a>
@@ -26,6 +29,7 @@
                 <h3 class="card-title">{{ product.title }}</h3>
                 <h3 class="card-title pricing-card-title" style="float: right;">{{ product.price }}₽</h3>
             </div>
+            <a class="btn btn-primary m-1" style="width: 110px; white-space: nowrap;" href="{% url 'product:detail' product.pk %}" role="button">Посмотреть</a>
         </div>
     {% endfor %}
 </div>

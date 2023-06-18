@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ product.name }}
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_superuser %}
+<form method="action">
+    <h2 class="m-2">Удалить продукт?</h2>
+    <button class="btn btn-danger m-2" type="submit">Удалить</button>
+    <a class="btn btn-secondary" href="{% url 'product:detail' product.pk %}">Нет, вернуться обратно</a>
+</form>
+{% endif %}
+
+{% endblock content %}
