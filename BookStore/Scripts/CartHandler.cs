@@ -9,7 +9,7 @@ namespace BookStore.Scripts
 {
     public class CartHandler
     {
-        private Order _currentOrder = null;
+        public Order CurrentOrder { get; private set; } = null;
 
         public CartHandler()
         {
@@ -17,33 +17,33 @@ namespace BookStore.Scripts
         }
         private void LoadCurrentOrder()
         {
-            _currentOrder = App.DB.Order.FirstOrDefault(o => o.StatusEnum == StatusEnum.InProgress);
+            CurrentOrder = App.DB.Order.FirstOrDefault(o => o.idStatus == (int)StatusEnum.InProgress);
         }
         private void CreateCurrentOrder()
         {
-            _currentOrder = new Order
+            CurrentOrder = new Order
             {
-                AddressEnum = AddressEnum.Yandex,
-                StatusEnum = StatusEnum.InProgress
+                idAddress = (int)AddressEnum.Yandex,
+                idStatus = (int)StatusEnum.InProgress
             };
-            App.DB.Order.Add(_currentOrder);
+            App.DB.Order.Add(CurrentOrder);
         }
 
         public void AddFrom(Product product)
         {
             if (product.Quantity <= 0) return;
 
-            if (_currentOrder == null)
+            if (CurrentOrder == null)
                 CreateCurrentOrder();
 
-            var orderProduct = _currentOrder.OrderProduct.FirstOrDefault(op => op.idProduct == product.id);
+            var orderProduct = CurrentOrder.OrderProduct.FirstOrDefault(op => op.idProduct == product.id);
             var mustAddNewOrderProduct = orderProduct == null;
 
             if (mustAddNewOrderProduct)
             {
                 orderProduct = new OrderProduct()
                 {
-                    idOrder = _currentOrder.id,
+                    idOrder = CurrentOrder.id,
                     idProduct = product.id,
                     Quantity = 0
                 };
@@ -70,8 +70,8 @@ namespace BookStore.Scripts
 
         public void Order()
         {
-            _currentOrder.StatusEnum = StatusEnum.WaitDelivery;
-            _currentOrder = null;
+            CurrentOrder.idStatus = (int)StatusEnum.WaitDelivery;
+            CurrentOrder = null;
         }
     }
 }

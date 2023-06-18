@@ -19,7 +19,8 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
-                    <GridViewColumn DisplayMemberBinding="{Binding TotalPrice}">Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding TotalPriceString}">Цена</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}">Количество</GridViewColumn>
                     <GridViewColumn>
                         Изображение
                         <GridViewColumn.CellTemplate>

@@ -17,9 +17,6 @@ namespace BookStore.DB
         public int idAddress { get; set; }
         public int idStatus { get; set; }
 
-        public StatusEnum StatusEnum { get { return (StatusEnum)idStatus; } set { idStatus = (int)value; } }
-        public AddressEnum AddressEnum { get { return (AddressEnum)idAddress; } set { idAddress = (int)value; } }
-
         public Address Address { get; set; }
         public Status Status { get; set; }
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }

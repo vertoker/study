@@ -1,4 +1,5 @@
-﻿using BookStore.Scripts;
+﻿using BookStore.DB;
+using BookStore.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,25 @@ namespace BookStore.Windows
         public void Open()
         {
             CartGrid.Items.Clear();
-            CartGrid.Items.Add(App.DB.OrderProduct.Where());
+            var order = App.DB.Order.FirstOrDefault(x => x.idStatus == (int)StatusEnum.InProgress);
+            if (order == null) return;
+
+            var orderProducts = order.OrderProduct.ToList();
+            CartGrid.ItemsSource = orderProducts;
         }
         public void Close()
         {
 
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (ListViewItem)sender;
+            if (item != null && item.IsSelected)
+            {
+                var orderProduct = (OrderProduct)item.DataContext;
+                AppHandler.Cart.RemoveFrom(orderProduct);
+            }
         }
     }
 }

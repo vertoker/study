@@ -34,12 +34,14 @@ namespace BookStore
         private void VisibleProduct()
         {
             BackBtn.Visibility = Visibility.Collapsed;
+            OrderBtn.Visibility = Visibility.Collapsed;
             CartBtn.Visibility = Visibility.Visible;
         }
         private void VisibleCart()
         {
             CartBtn.Visibility = Visibility.Collapsed;
             BackBtn.Visibility = Visibility.Visible;
+            OrderBtn.Visibility = AppHandler.Cart.CurrentOrder != null ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)

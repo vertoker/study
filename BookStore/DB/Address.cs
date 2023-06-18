@@ -13,8 +13,6 @@ namespace BookStore.DB
             Order = new HashSet<Order>();
         }
 
-        public AddressEnum AddressEnum => (AddressEnum)id;
-
         public int id { get; set; }
         public string Name { get; set; }
         public virtual ICollection<Order> Order { get; set; }

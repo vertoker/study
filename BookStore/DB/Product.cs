@@ -23,6 +23,21 @@ namespace BookStore.DB
         public int idManufacture { get; set; }
         public int? idImage { get; set; }
 
+        public decimal TotalPrice
+        {
+            get
+            {
+                if (Discount.HasValue)
+                {
+                    var priceMultiplier = (decimal)(1f - Discount.Value / 100f);
+                    return Price * priceMultiplier;
+                }
+                return Price;
+            }
+        }
+
+        public string TotalPriceString => $"{TotalPrice}₽";
+        
         public BitmapImage BitmapImage => Image?.BitmapImage;
 
         public Manufacture Manufacture { get; set; }
