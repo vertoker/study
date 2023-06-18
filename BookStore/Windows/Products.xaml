@@ -9,10 +9,27 @@
       Title="Products">
 
     <Grid Background="White">
-        <DataGrid x:Name="ProductsGrid">
-            <DataGrid.Columns>
-                
-            </DataGrid.Columns>
-        </DataGrid>
+        <ListView x:Name="ProductsGrid">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <EventSetter Event="PreviewMouseLeftButtonDown" Handler="ListViewItem_PreviewMouseLeftButtonDown" />
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Name}">Название</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Description}">Описание</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding TotalPrice}">Цена</GridViewColumn>
+                    <GridViewColumn>
+                        Изображение
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding BitmapImage}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

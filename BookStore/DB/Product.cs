@@ -3,20 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace BookStore.DB
 {
     public class Product
     {
+        public Product()
+        {
+            OrderProduct = new HashSet<OrderProduct>();
+        }
+
         public int id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public Nullable<int> Discount { get; set; }
+        public int? Discount { get; set; }
+        public int Quantity { get; set; }
         public int idManufacture { get; set; }
-        public Nullable<int> idImage { get; set; }
+        public int? idImage { get; set; }
+
+        public BitmapImage BitmapImage => Image?.BitmapImage;
 
         public Manufacture Manufacture { get; set; }
         public Image Image { get; set; }
+        public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+
     }
 }

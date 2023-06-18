@@ -62,7 +62,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Scripts\PageHandler.cs" />
+    <Compile Include="DB\MainModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\MainModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\AddressEnum.cs" />
+    <Compile Include="DB\StatusEnum.cs" />
+    <Compile Include="Scripts\CartHandler.cs" />
+    <Compile Include="Scripts\IPage.cs" />
+    <Compile Include="Scripts\AppHandler.cs" />
     <Compile Include="Windows\Cart.xaml.cs">
       <DependentUpon>Cart.xaml</DependentUpon>
     </Compile>
@@ -80,21 +94,6 @@
     <Compile Include="Windows\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DB\MainModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\MainModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\MainModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MainModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="DB\Manufacture.cs" />
     <Compile Include="DB\Address.cs" />
@@ -155,12 +154,6 @@
       <DependentUpon>MainModel.edmx</DependentUpon>
       <LastGenOutput>MainModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="DB\MainModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MainModel.edmx</DependentUpon>
-      <LastGenOutput>MainModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

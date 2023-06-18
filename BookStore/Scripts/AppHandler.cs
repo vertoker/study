@@ -8,23 +8,30 @@ using System.Windows.Controls;
 
 namespace BookStore.Scripts
 {
-    public static class PageHandler
+    public static class AppHandler
     {
-        private static readonly Dictionary<Type, Page> _pages = new Dictionary<Type, Page>
+        private static readonly Dictionary<Type, IPage> _pages = new Dictionary<Type, IPage>
         {
             { typeof(Products), new Products() },
             { typeof(Cart), new Cart() }
         };
+
+        private static IPage _activePage;
         private static Frame _frame;
+
+        public static readonly CartHandler Cart = new CartHandler();
 
         public static void Init(Frame frame)
         {
             _frame = frame;
         }
 
-        public static void SwitchTo<T>() where T : Page
+        public static void SwitchTo<T>() where T : IPage
         {
-            _frame.Navigate(_pages[typeof(T)]);
+            _activePage?.Close();
+            _activePage = _pages[typeof(T)];
+            _activePage.Open();
+            _frame.Navigate(_activePage);
         }
     }
 }

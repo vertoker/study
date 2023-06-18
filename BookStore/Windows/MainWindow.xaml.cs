@@ -26,24 +26,37 @@ namespace BookStore
         public MainWindow()
         {
             InitializeComponent();
-            PageHandler.Init(MainFrame);
+            AppHandler.Init(MainFrame);
 
-            PageHandler.SwitchTo<Products>();
+            AppHandler.SwitchTo<Products>();
+            VisibleProduct();
+        }
+        private void VisibleProduct()
+        {
             BackBtn.Visibility = Visibility.Collapsed;
             CartBtn.Visibility = Visibility.Visible;
+        }
+        private void VisibleCart()
+        {
+            CartBtn.Visibility = Visibility.Collapsed;
+            BackBtn.Visibility = Visibility.Visible;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-            PageHandler.SwitchTo<Products>();
-            BackBtn.Visibility = Visibility.Collapsed;
-            CartBtn.Visibility = Visibility.Visible;
+            AppHandler.SwitchTo<Products>();
+            VisibleProduct();
         }
         private void CartBtn_Click(object sender, RoutedEventArgs e)
         {
-            PageHandler.SwitchTo<Cart>();
-            CartBtn.Visibility = Visibility.Collapsed;
-            BackBtn.Visibility = Visibility.Visible;
+            AppHandler.SwitchTo<Cart>();
+            VisibleCart();
+        }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppHandler.Cart.Order();
+            BackBtn_Click(sender, e);
         }
     }
 }

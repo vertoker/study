@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BookStore.DB;
+using BookStore.Scripts;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +21,30 @@ namespace BookStore.Windows
     /// <summary>
     /// Логика взаимодействия для Products.xaml
     /// </summary>
-    public partial class Products : Page
+    public partial class Products : Page, IPage
     {
         public Products()
         {
             InitializeComponent();
-            ProductsGrid.ItemsSource = App.DB.Product;
+        }
+
+        public void Open()
+        {
+            ProductsGrid.ItemsSource = App.DB.Product.ToList();
+        }
+        public void Close()
+        {
+
+        }
+
+        private void ListViewItem_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = (ListViewItem)sender;
+            if (item != null && item.IsSelected)
+            {
+                var product = (Product)item.DataContext;
+                AppHandler.Cart.AddFrom(product);
+            }
         }
     }
 }

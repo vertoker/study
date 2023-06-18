@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookStore.Scripts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,21 @@ namespace BookStore.Windows
     /// <summary>
     /// Логика взаимодействия для Cart.xaml
     /// </summary>
-    public partial class Cart : Page
+    public partial class Cart : Page, IPage
     {
         public Cart()
         {
             InitializeComponent();
+        }
+
+        public void Open()
+        {
+            CartGrid.Items.Clear();
+            CartGrid.Items.Add(App.DB.OrderProduct.Where());
+        }
+        public void Close()
+        {
+
         }
     }
 }
