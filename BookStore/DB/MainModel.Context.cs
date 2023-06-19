@@ -26,7 +26,6 @@ namespace BookStore.DB
         }
     
         public DbSet<Address> Address { get; set; }
-        public DbSet<Image> Image { get; set; }
         public DbSet<Manufacture> Manufacture { get; set; }
         public DbSet<Order> Order { get; set; }
         public DbSet<OrderProduct> OrderProduct { get; set; }

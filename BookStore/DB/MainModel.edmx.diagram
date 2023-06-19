@@ -5,19 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="1b8f48dfbac548799f81416057ac2468" Name="Diagram1">
-        <EntityTypeShape EntityType="BookStoreModel.Address" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Image" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Manufacture" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Order" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.OrderProduct" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookStoreModel.Status" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
-        <AssociationConnector Association="BookStoreModel.FK_Order_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_Product_Image" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_Product_Manufacture" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_Order_Status" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_OrderProduct_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="BookStoreModel.FK_OrderProduct_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="BookStoreModel.Address" Width="1.5" PointX="0.75" PointY="1.25" />
+        <EntityTypeShape EntityType="BookStoreModel.Manufacture" Width="1.5" PointX="0.75" PointY="8.375" />
+        <EntityTypeShape EntityType="BookStoreModel.Order" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="BookStoreModel.OrderProduct" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="BookStoreModel.Product" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="BookStoreModel.Status" Width="1.5" PointX="0.75" PointY="5.25" />
+        <AssociationConnector Association="BookStoreModel.FK_Order_Address" />
+        <AssociationConnector Association="BookStoreModel.FK_Product_Manufacture" />
+        <AssociationConnector Association="BookStoreModel.FK_Order_Status" />
+        <AssociationConnector Association="BookStoreModel.FK_OrderProduct_Order" />
+        <AssociationConnector Association="BookStoreModel.FK_OrderProduct_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

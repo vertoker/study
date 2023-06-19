@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BookStore.Scripts
 {
@@ -19,24 +20,28 @@ namespace BookStore.Scripts
         {
             CurrentOrder = App.DB.Order.FirstOrDefault(o => o.idStatus == (int)StatusEnum.InProgress);
         }
-        private void CreateCurrentOrder()
+        public void CreateCurrentOrder()
         {
-            CurrentOrder = new Order
+            if (CurrentOrder == null)
             {
-                idAddress = (int)AddressEnum.Yandex,
-                idStatus = (int)StatusEnum.InProgress
-            };
-            App.DB.Order.Add(CurrentOrder);
+                CurrentOrder = new Order
+                {
+                    idAddress = (int)AddressEnum.Yandex,
+                    idStatus = (int)StatusEnum.InProgress
+                };
+                App.DB.Order.Add(CurrentOrder);
+                App.DB.SaveChanges();
+            }
         }
 
-        public void AddFrom(Product product)
+        public void AddFrom(ref Product product)
         {
             if (product.Quantity <= 0) return;
 
-            if (CurrentOrder == null)
-                CreateCurrentOrder();
+            CreateCurrentOrder();
 
-            var orderProduct = CurrentOrder.OrderProduct.FirstOrDefault(op => op.idProduct == product.id);
+            var idProduct = product.id;
+            var orderProduct = CurrentOrder.OrderProduct.FirstOrDefault(op => op.idProduct == idProduct);
             var mustAddNewOrderProduct = orderProduct == null;
 
             if (mustAddNewOrderProduct)
@@ -44,7 +49,7 @@ namespace BookStore.Scripts
                 orderProduct = new OrderProduct()
                 {
                     idOrder = CurrentOrder.id,
-                    idProduct = product.id,
+                    idProduct = idProduct,
                     Quantity = 0
                 };
             }
@@ -54,24 +59,36 @@ namespace BookStore.Scripts
 
             if (mustAddNewOrderProduct)
                 App.DB.OrderProduct.Add(orderProduct);
+
+            App.DB.SaveChanges();
         }
 
-        public void RemoveFrom(OrderProduct orderProduct)
+        public void RemoveFrom(ref OrderProduct orderProduct)
         {
             if (orderProduct.Quantity <= 0) return;
 
-            var product = App.DB.Product.FirstOrDefault(op => op.id == orderProduct.idProduct);
+            var idProduct = orderProduct.idProduct;
+            var product = App.DB.Product.FirstOrDefault(op => op.id == idProduct);
 
             orderProduct.Quantity--;
             product.Quantity++;
 
-            App.DB.OrderProduct.Remove(orderProduct);
+            if (orderProduct.Quantity == 0)
+                App.DB.OrderProduct.Remove(orderProduct);
+
+            App.DB.SaveChanges();
         }
 
         public void Order()
         {
-            CurrentOrder.idStatus = (int)StatusEnum.WaitDelivery;
-            CurrentOrder = null;
+            if (CurrentOrder.OrderProduct.Count > 0)
+            {
+                CurrentOrder.idStatus = (int)StatusEnum.WaitDelivery;
+                App.DB.SaveChanges();
+
+                MessageBox.Show($"Вы потратили {CurrentOrder.TotalPrice}₽");
+                CurrentOrder = null;
+            }
         }
     }
 }

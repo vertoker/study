@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace BookStore.DB
@@ -21,7 +25,21 @@ namespace BookStore.DB
         public int? Discount { get; set; }
         public int Quantity { get; set; }
         public int idManufacture { get; set; }
-        public int? idImage { get; set; }
+        public string ImagePath { get; set; }
+
+        public string ImageSource
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(ImagePath)) return null;
+
+                var resDirectory = "Resources/Images/";
+                var baseDirectory = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                var path = Path.Combine(baseDirectory, resDirectory, ImagePath);
+                return path;
+            }
+        }
+
 
         public decimal TotalPrice
         {
@@ -37,11 +55,8 @@ namespace BookStore.DB
         }
 
         public string TotalPriceString => $"{TotalPrice}₽";
-        
-        public BitmapImage BitmapImage => Image?.BitmapImage;
 
         public Manufacture Manufacture { get; set; }
-        public Image Image { get; set; }
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
 
     }

@@ -43,7 +43,8 @@ namespace BookStore.Windows
             if (item != null && item.IsSelected)
             {
                 var product = (Product)item.DataContext;
-                AppHandler.Cart.AddFrom(product);
+                AppHandler.Cart.AddFrom(ref product);
+                ProductsGrid.ItemsSource = App.DB.Product.ToList();
             }
         }
     }

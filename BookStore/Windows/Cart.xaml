@@ -20,11 +20,13 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Product.Name}">Название</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Product.Description}">Описание</GridViewColumn>
                     <GridViewColumn DisplayMemberBinding="{Binding Product.TotalPrice}">Цена</GridViewColumn>
-                    <GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Quantity}">Количество</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding TotalPrice}">Общая цена</GridViewColumn>
+                    <GridViewColumn Width="3">
                         Изображение
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding BitmapImage}"/>
+                                <Image Width="3" Height="3" Stretch="UniformToFill" Source="{Binding Product.ImageSource}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

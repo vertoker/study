@@ -97,7 +97,6 @@
     </Compile>
     <Compile Include="DB\Manufacture.cs" />
     <Compile Include="DB\Address.cs" />
-    <Compile Include="DB\Image.cs" />
     <Compile Include="DB\Order.cs" />
     <Compile Include="DB\Product.cs" />
     <Compile Include="DB\OrderProduct.cs" />

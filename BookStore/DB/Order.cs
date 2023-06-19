@@ -20,5 +20,7 @@ namespace BookStore.DB
         public Address Address { get; set; }
         public Status Status { get; set; }
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
+
+        public decimal TotalPrice => OrderProduct.Sum(x => x.TotalPrice);
     }
 }

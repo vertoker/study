@@ -29,11 +29,8 @@ namespace BookStore.Windows
 
         public void Open()
         {
-            CartGrid.Items.Clear();
-            var order = App.DB.Order.FirstOrDefault(x => x.idStatus == (int)StatusEnum.InProgress);
-            if (order == null) return;
-
-            var orderProducts = order.OrderProduct.ToList();
+            AppHandler.Cart.CreateCurrentOrder();
+            var orderProducts = AppHandler.Cart.CurrentOrder.OrderProduct.ToList();
             CartGrid.ItemsSource = orderProducts;
         }
         public void Close()
@@ -47,7 +44,8 @@ namespace BookStore.Windows
             if (item != null && item.IsSelected)
             {
                 var orderProduct = (OrderProduct)item.DataContext;
-                AppHandler.Cart.RemoveFrom(orderProduct);
+                AppHandler.Cart.RemoveFrom(ref orderProduct);
+                Open();
             }
         }
     }

@@ -13,6 +13,8 @@ namespace BookStore.DB
         public int idOrder { get; set; }
         public int Quantity { get; set; }
 
+        public decimal TotalPrice => Quantity * Product.TotalPrice;
+
         public Product Product { get; set; }
         public Order Order { get; set; }
     }

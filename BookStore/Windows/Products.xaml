@@ -25,7 +25,7 @@
                         Изображение
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding BitmapImage}"/>
+                                <Image Source="{Binding ImageSource}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
