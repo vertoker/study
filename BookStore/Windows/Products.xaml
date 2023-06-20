@@ -25,7 +25,7 @@
                         Изображение
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding ImageSource}"/>
+                                <Image Width="150" Height="150" Stretch="Uniform" Source="{Binding ImageSource}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

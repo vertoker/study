@@ -17,6 +17,6 @@
         <Button Grid.Row="0" x:Name="BackBtn" Click="BackBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20">Назад</Button>
         <Button Grid.Row="0" x:Name="CartBtn" Click="CartBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20">Корзина</Button>
         <Button Grid.Row="0" x:Name="OrderBtn" Click="OrderBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20">Заказать</Button>
-        <Frame x:Name="MainFrame" Grid.Row="1"></Frame>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
     </Grid>
 </Window>
