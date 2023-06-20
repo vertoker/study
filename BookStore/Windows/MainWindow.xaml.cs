@@ -35,13 +35,22 @@ namespace BookStore
         {
             BackBtn.Visibility = Visibility.Collapsed;
             OrderBtn.Visibility = Visibility.Collapsed;
+            OrdersBtn.Visibility = Visibility.Visible;
             CartBtn.Visibility = Visibility.Visible;
+        }
+        private void VisibleOrders()
+        {
+            OrderBtn.Visibility = Visibility.Collapsed;
+            OrdersBtn.Visibility = Visibility.Collapsed;
+            CartBtn.Visibility = Visibility.Collapsed;
+            BackBtn.Visibility = Visibility.Visible;
         }
         private void VisibleCart()
         {
+            OrdersBtn.Visibility = Visibility.Collapsed;
             CartBtn.Visibility = Visibility.Collapsed;
             BackBtn.Visibility = Visibility.Visible;
-            OrderBtn.Visibility = AppHandler.Cart.CurrentOrder != null ? Visibility.Visible : Visibility.Collapsed;
+            OrderBtn.Visibility = AppHandler.Cart.CurrentOrder.OrderProduct.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
@@ -49,12 +58,16 @@ namespace BookStore
             AppHandler.SwitchTo<Products>();
             VisibleProduct();
         }
+        private void OrdersBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppHandler.SwitchTo<Orders>();
+            VisibleOrders();
+        }
         private void CartBtn_Click(object sender, RoutedEventArgs e)
         {
             AppHandler.SwitchTo<Cart>();
             VisibleCart();
         }
-
         private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
             AppHandler.Cart.Order();

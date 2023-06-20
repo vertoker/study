@@ -14,6 +14,7 @@
         </Grid.RowDefinitions>
         <Rectangle Grid.Row="0" Fill="Gray"></Rectangle>
         <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24">Книжный магазин</TextBlock>
+        <Button Grid.Row="0" x:Name="OrdersBtn" Click="OrdersBtn_Click"  VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20">Мои заказы</Button>
         <Button Grid.Row="0" x:Name="BackBtn" Click="BackBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20">Назад</Button>
         <Button Grid.Row="0" x:Name="CartBtn" Click="CartBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20">Корзина</Button>
         <Button Grid.Row="0" x:Name="OrderBtn" Click="OrderBtn_Click" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20">Заказать</Button>

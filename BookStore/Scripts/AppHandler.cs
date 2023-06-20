@@ -13,11 +13,16 @@ namespace BookStore.Scripts
         private static readonly Dictionary<Type, IPage> _pages = new Dictionary<Type, IPage>
         {
             { typeof(Products), new Products() },
+            { typeof(Orders), new Orders() },
             { typeof(Cart), new Cart() }
         };
 
+        private static Type _activeType;
         private static IPage _activePage;
         private static Frame _frame;
+
+        public static Type ActiveType => _activeType;
+        public static IPage ActivePage => _activePage;
 
         public static readonly CartHandler Cart = new CartHandler();
 
@@ -29,6 +34,7 @@ namespace BookStore.Scripts
         public static void SwitchTo<T>() where T : IPage
         {
             _activePage?.Close();
+            _activeType = typeof(T);
             _activePage = _pages[typeof(T)];
             _activePage.Open();
             _frame.Navigate(_activePage);
