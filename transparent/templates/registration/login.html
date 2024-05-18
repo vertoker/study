@@ -9,7 +9,13 @@
         <h2>Авторизация</h2>
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+
+            <h5>Имя пользователя</h5>
+            {{ form.username }}
+            <h5>Пароль</h5>
+            {{ form.password }}
+
+            <p></p>
             <button class="btn btn-success ml-2" type="submit">Войти</button>
             <a href="{% url 'signup' %}" class="btn btn-primary ml-2">Зарегистрироваться</a>
             <a href="{% url 'password_reset' %}" class="btn btn-outline-secondary ml-2">Восстановить пароль</a>
